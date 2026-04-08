@@ -5,6 +5,11 @@ import { signIn } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 
+const trustedClients = [
+  'Bharat Biotech', 'Sanofi', 'BEL', 'BHEL', 'ECIL',
+  'Gland Pharma', 'Avantel', 'Zen Technologies', 'T-Works',
+]
+
 export default function RegisterPage() {
   const router = useRouter()
   const [form, setForm] = useState({
@@ -47,7 +52,6 @@ export default function RegisterPage() {
         return
       }
 
-      // Auto sign-in after register
       const result = await signIn('credentials', {
         email: form.email,
         password: form.password,
@@ -67,24 +71,87 @@ export default function RegisterPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center p-4">
-      <div className="w-full max-w-lg">
-        {/* Logo */}
-        <div className="text-center mb-8">
-          <Link href="/" className="inline-flex items-center gap-3 justify-center">
+    <div className="min-h-screen flex">
+      {/* Left panel - dark brand panel like Protolabs */}
+      <div className="hidden lg:flex lg:w-5/12 bg-slate-900 flex-col p-10 justify-between">
+        <div>
+          {/* Logo */}
+          <Link href="/" className="flex items-center gap-3 mb-12">
             <div className="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center">
               <span className="text-white font-black text-base">SG</span>
             </div>
-            <div className="text-left">
+            <div>
               <div className="font-bold text-white text-xl leading-tight">Sunglow CNC</div>
-              <div className="text-orange-400 text-sm">Client Portal</div>
+              <div className="text-orange-400 text-sm">Technics — Since 2003</div>
             </div>
           </Link>
+
+          {/* Value props */}
+          <div className="mb-10">
+            <h2 className="text-white text-2xl font-black mb-2">Precision machining,</h2>
+            <h2 className="text-orange-400 text-2xl font-black mb-6">quoted in 24 hours.</h2>
+            <div className="space-y-4">
+              {[
+                { icon: '⚡', text: 'Quote within 24 hours of RFQ submission' },
+                { icon: '🎯', text: 'Tolerances down to ±0.01mm' },
+                { icon: '🏭', text: '5 machine types — complete in-house capability' },
+                { icon: '🔬', text: 'Pharma, Defence & Aerospace quality standards' },
+                { icon: '📦', text: 'Prototype to production — no minimum order' },
+              ].map((item) => (
+                <div key={item.text} className="flex items-start gap-3">
+                  <span className="text-xl flex-shrink-0">{item.icon}</span>
+                  <span className="text-slate-300 text-sm">{item.text}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Trusted by */}
+          <div>
+            <p className="text-slate-500 text-xs uppercase tracking-wider font-semibold mb-3">Trusted by</p>
+            <div className="flex flex-wrap gap-2">
+              {trustedClients.map((client) => (
+                <span key={client} className="bg-slate-800 border border-slate-700 text-slate-300 text-xs px-3 py-1.5 rounded-full">
+                  {client}
+                </span>
+              ))}
+            </div>
+          </div>
         </div>
 
-        <div className="bg-white rounded-2xl shadow-2xl p-8">
-          <h1 className="text-2xl font-bold text-slate-900 mb-1">Create Account</h1>
-          <p className="text-sm text-slate-500 mb-6">Register to upload RFQs and track your orders</p>
+        {/* Certifications */}
+        <div className="pt-8 border-t border-slate-800">
+          <p className="text-xs text-slate-500 uppercase tracking-wider mb-2">Quality Standards</p>
+          <div className="flex flex-wrap gap-2">
+            {['GMP Compliant', 'AS9100 Capable', 'ISO 9001', 'Defence Grade'].map((cert) => (
+              <span key={cert} className="bg-orange-600/20 border border-orange-600/30 text-orange-400 text-xs px-2 py-1 rounded">{cert}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Right panel — registration form */}
+      <div className="flex-1 flex items-center justify-center bg-white p-6 lg:p-10">
+        <div className="w-full max-w-md">
+          {/* Mobile logo */}
+          <div className="lg:hidden text-center mb-8">
+            <Link href="/" className="inline-flex items-center gap-3 justify-center">
+              <div className="w-10 h-10 bg-orange-500 rounded-xl flex items-center justify-center">
+                <span className="text-white font-black text-sm">SG</span>
+              </div>
+              <span className="font-bold text-slate-900 text-xl">Sunglow CNC</span>
+            </Link>
+          </div>
+
+          <div className="flex justify-between items-center mb-6">
+            <div>
+              <h1 className="text-2xl font-black text-slate-900">Create an account</h1>
+              <p className="text-sm text-slate-500 mt-1">to get a quote and track your orders</p>
+            </div>
+            <Link href="/login" className="text-sm text-orange-600 font-semibold hover:text-orange-700 hidden sm:block">
+              Sign In
+            </Link>
+          </div>
 
           {error && (
             <div className="bg-red-50 border border-red-200 text-red-700 rounded-lg px-4 py-3 text-sm mb-5">
@@ -93,80 +160,127 @@ export default function RegisterPage() {
           )}
 
           <form onSubmit={handleSubmit} className="space-y-4">
-            <div className="grid sm:grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-3">
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-1.5">Full Name *</label>
+                <label className="block text-xs font-semibold text-slate-700 mb-1.5 uppercase tracking-wider">First Name *</label>
                 <input
                   type="text"
                   required
-                  value={form.name}
-                  onChange={(e) => setForm({ ...form, name: e.target.value })}
-                  className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
-                  placeholder="Your full name"
+                  value={form.name.split(' ')[0]}
+                  onChange={(e) => {
+                    const lastName = form.name.split(' ').slice(1).join(' ')
+                    setForm({ ...form, name: `${e.target.value}${lastName ? ' ' + lastName : ''}` })
+                  }}
+                  className="w-full border border-slate-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                  placeholder="First name"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-1.5">Company</label>
+                <label className="block text-xs font-semibold text-slate-700 mb-1.5 uppercase tracking-wider">Last Name</label>
                 <input
                   type="text"
-                  value={form.company}
-                  onChange={(e) => setForm({ ...form, company: e.target.value })}
-                  className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
-                  placeholder="Company name"
+                  value={form.name.split(' ').slice(1).join(' ')}
+                  onChange={(e) => {
+                    const firstName = form.name.split(' ')[0] || ''
+                    setForm({ ...form, name: `${firstName}${e.target.value ? ' ' + e.target.value : ''}` })
+                  }}
+                  className="w-full border border-slate-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                  placeholder="Last name"
                 />
               </div>
             </div>
+
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1.5">Email Address *</label>
+              <label className="block text-xs font-semibold text-slate-700 mb-1.5 uppercase tracking-wider">Company</label>
+              <input
+                type="text"
+                value={form.company}
+                onChange={(e) => setForm({ ...form, company: e.target.value })}
+                className="w-full border border-slate-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                placeholder="Your company or organization"
+              />
+            </div>
+
+            <div>
+              <label className="block text-xs font-semibold text-slate-700 mb-1.5 uppercase tracking-wider">Email *</label>
               <input
                 type="email"
                 required
                 value={form.email}
                 onChange={(e) => setForm({ ...form, email: e.target.value })}
-                className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
-                placeholder="your@company.com"
+                className="w-full border border-slate-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                placeholder="work@company.com"
               />
             </div>
+
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1.5">Phone Number</label>
+              <label className="block text-xs font-semibold text-slate-700 mb-1.5 uppercase tracking-wider">Create Password *</label>
               <input
-                type="tel"
-                value={form.phone}
-                onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
-                placeholder="+91 98765 43210"
+                type="password"
+                required
+                value={form.password}
+                onChange={(e) => setForm({ ...form, password: e.target.value })}
+                className="w-full border border-slate-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                placeholder="Min 6 characters"
+              />
+              {form.password && (
+                <div className="mt-1.5 flex items-center gap-2">
+                  <div className="flex gap-1 flex-1">
+                    {[1,2,3].map((i) => (
+                      <div key={i} className={`h-1 flex-1 rounded-full ${
+                        form.password.length >= i * 3
+                          ? form.password.length >= 10 ? 'bg-green-500'
+                          : form.password.length >= 7 ? 'bg-yellow-500'
+                          : 'bg-red-400'
+                          : 'bg-slate-200'
+                      }`} />
+                    ))}
+                  </div>
+                  <span className="text-xs text-slate-400">
+                    {form.password.length >= 10 ? 'Strong' : form.password.length >= 7 ? 'Good' : 'Weak'}
+                  </span>
+                </div>
+              )}
+            </div>
+
+            <div>
+              <label className="block text-xs font-semibold text-slate-700 mb-1.5 uppercase tracking-wider">Confirm Password *</label>
+              <input
+                type="password"
+                required
+                value={form.confirmPassword}
+                onChange={(e) => setForm({ ...form, confirmPassword: e.target.value })}
+                className={`w-full border rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent ${
+                  form.confirmPassword && form.password !== form.confirmPassword
+                    ? 'border-red-300 bg-red-50'
+                    : 'border-slate-300'
+                }`}
+                placeholder="Repeat password"
               />
             </div>
-            <div className="grid sm:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-sm font-medium text-slate-700 mb-1.5">Password *</label>
+
+            <div>
+              <label className="block text-xs font-semibold text-slate-700 mb-1.5 uppercase tracking-wider">Phone Number</label>
+              <div className="flex">
+                <div className="flex items-center px-3 border border-r-0 border-slate-300 rounded-l-lg bg-slate-50 text-slate-500 text-sm">
+                  +91
+                </div>
                 <input
-                  type="password"
-                  required
-                  value={form.password}
-                  onChange={(e) => setForm({ ...form, password: e.target.value })}
-                  className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
-                  placeholder="Min 6 characters"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-slate-700 mb-1.5">Confirm Password *</label>
-                <input
-                  type="password"
-                  required
-                  value={form.confirmPassword}
-                  onChange={(e) => setForm({ ...form, confirmPassword: e.target.value })}
-                  className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
-                  placeholder="Repeat password"
+                  type="tel"
+                  value={form.phone}
+                  onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                  className="flex-1 border border-slate-300 rounded-r-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                  placeholder="98765 43210"
                 />
               </div>
             </div>
+
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-orange-600 hover:bg-orange-700 disabled:bg-orange-300 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+              className="w-full bg-orange-600 hover:bg-orange-700 disabled:bg-orange-300 text-white font-bold py-3 px-6 rounded-lg transition-colors text-sm mt-2"
             >
-              {loading ? 'Creating Account...' : 'Create Account'}
+              {loading ? 'Creating Account...' : 'Create Account & Get Quotes'}
             </button>
           </form>
 
@@ -176,12 +290,16 @@ export default function RegisterPage() {
               Sign In
             </Link>
           </p>
-        </div>
 
-        <div className="text-center mt-6">
-          <Link href="/" className="text-slate-400 hover:text-slate-300 text-sm transition-colors">
-            ← Back to Website
-          </Link>
+          <p className="mt-4 text-xs text-center text-slate-400">
+            By registering you agree to our Terms of Service and Privacy Policy.
+          </p>
+
+          <div className="mt-6 text-center">
+            <Link href="/" className="text-slate-400 hover:text-slate-600 text-xs transition-colors">
+              ← Back to Sunglow CNC Website
+            </Link>
+          </div>
         </div>
       </div>
     </div>
