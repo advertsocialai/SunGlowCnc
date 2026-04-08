@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { useRouter } from 'next/navigation'
 import DashboardLayout from '@/components/DashboardLayout'
 import { toast } from 'react-toastify'
@@ -22,6 +22,9 @@ const industries = [
 export default function NewRFQPage() {
   const router = useRouter()
   const [loading, setLoading] = useState(false)
+  const [uploading, setUploading] = useState(false)
+  const [uploadedFile, setUploadedFile] = useState<{ url: string; name: string; size: number } | null>(null)
+  const fileInputRef = useRef<HTMLInputElement>(null)
   const [form, setForm] = useState({
     title: '',
     description: '',
@@ -35,6 +38,28 @@ export default function NewRFQPage() {
   })
 
   const set = (key: string, val: string) => setForm(prev => ({ ...prev, [key]: val }))
+
+  const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0]
+    if (!file) return
+    setUploading(true)
+    try {
+      const fd = new FormData()
+      fd.append('file', file)
+      const res = await fetch('/api/upload', { method: 'POST', body: fd })
+      const data = await res.json()
+      if (res.ok) {
+        setUploadedFile({ url: data.url, name: data.name, size: data.size })
+        toast.success(`File uploaded: ${data.name}`)
+      } else {
+        toast.error(data.error || 'Upload failed')
+      }
+    } catch {
+      toast.error('Upload failed. Please try again.')
+    } finally {
+      setUploading(false)
+    }
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -56,6 +81,8 @@ export default function NewRFQPage() {
           quantity: parseInt(form.quantity),
           priority: form.priority,
           notes: `${form.industry ? `Industry: ${form.industry}\n` : ''}${form.notes}`,
+          fileUrl: uploadedFile?.url,
+          fileName: uploadedFile?.name,
         }),
       })
 
@@ -209,14 +236,54 @@ export default function NewRFQPage() {
             </div>
           </div>
 
+          {/* File Upload */}
+          <div>
+            <label className="block text-sm font-semibold text-slate-700 mb-2">Attach CAD / Drawing File</label>
+            <div
+              className="border-2 border-dashed border-slate-300 rounded-lg p-6 text-center cursor-pointer hover:border-orange-400 hover:bg-orange-50 transition-colors"
+              onClick={() => fileInputRef.current?.click()}
+            >
+              {uploadedFile ? (
+                <div className="text-sm text-green-700 font-medium">
+                  ✓ {uploadedFile.name}
+                  <span className="text-slate-400 font-normal ml-2">({(uploadedFile.size / 1024).toFixed(0)} KB)</span>
+                  <button
+                    type="button"
+                    onClick={(e) => { e.stopPropagation(); setUploadedFile(null) }}
+                    className="ml-3 text-red-500 hover:text-red-700 text-xs"
+                  >
+                    Remove
+                  </button>
+                </div>
+              ) : uploading ? (
+                <div className="flex items-center justify-center gap-2 text-slate-500 text-sm">
+                  <div className="w-4 h-4 border-2 border-orange-500 border-t-transparent rounded-full animate-spin" />
+                  Uploading...
+                </div>
+              ) : (
+                <div>
+                  <p className="text-slate-500 text-sm">Click to upload or drag &amp; drop</p>
+                  <p className="text-slate-400 text-xs mt-1">.STEP .STP .STL .DWG .DXF .PDF .IGES — max 50 MB</p>
+                </div>
+              )}
+            </div>
+            <input
+              ref={fileInputRef}
+              type="file"
+              className="hidden"
+              accept=".step,.stp,.stl,.iges,.igs,.dwg,.dxf,.sat,.ipt,.prt,.sldprt,.pdf,.jpg,.jpeg,.png"
+              onChange={handleFileChange}
+            />
+          </div>
+
           {/* Notes */}
           <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-2">Additional Notes / File References</label>
+            <label className="block text-sm font-semibold text-slate-700 mb-2">Additional Notes</label>
             <textarea
               rows={4}
               value={form.notes}
               onChange={(e) => set('notes', e.target.value)}
-              placeholder="Any special requirements, surface finish specs, references to drawing files (e.g., DWG-001.STEP), delivery timeline requirements..."
+              placeholder="Any special requirements, surface finish specs, delivery timeline requirements..."
               className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 resize-none"
             />
           </div>
