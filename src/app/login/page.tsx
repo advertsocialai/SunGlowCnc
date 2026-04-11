@@ -1,6 +1,7 @@
 'use client'
 
 import { Suspense, useState } from 'react'
+import Image from 'next/image'
 import { signIn } from 'next-auth/react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import Link from 'next/link'
@@ -54,7 +55,7 @@ function LoginForm() {
             required
             value={form.email}
             onChange={(e) => setForm({ ...form, email: e.target.value })}
-            className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+            className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-red-500 focus:border-transparent"
             placeholder="your@company.com"
           />
         </div>
@@ -65,14 +66,14 @@ function LoginForm() {
             required
             value={form.password}
             onChange={(e) => setForm({ ...form, password: e.target.value })}
-            className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+            className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-red-500 focus:border-transparent"
             placeholder="••••••••"
           />
         </div>
         <button
           type="submit"
           disabled={loading}
-          className="w-full bg-orange-600 hover:bg-orange-700 disabled:bg-orange-300 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+          className="w-full bg-brand-red-600 hover:bg-brand-red-700 disabled:bg-brand-red-300 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
         >
           {loading ? 'Signing in...' : 'Sign In'}
         </button>
@@ -81,7 +82,7 @@ function LoginForm() {
       <div className="mt-6 text-center">
         <p className="text-sm text-slate-500">
           Don&apos;t have an account?{' '}
-          <Link href="/register" className="text-orange-600 hover:text-orange-700 font-semibold">
+          <Link href="/register" className="text-brand-red-600 hover:text-brand-red-700 font-semibold">
             Register here
           </Link>
         </p>
@@ -105,17 +106,13 @@ function LoginForm() {
 
 export default function LoginPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-brand-navy-800 via-brand-navy-700 to-brand-navy-800 flex items-center justify-center p-4">
       <div className="w-full max-w-md">
         {/* Logo */}
-        <div className="text-center mb-8">
-          <Link href="/" className="inline-flex items-center gap-3 justify-center">
-            <div className="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center">
-              <span className="text-white font-black text-base">SG</span>
-            </div>
-            <div className="text-left">
-              <div className="font-bold text-white text-xl leading-tight">Sunglow CNC</div>
-              <div className="text-orange-400 text-sm">Technics Platform</div>
+        <div className="flex justify-center mb-8">
+          <Link href="/">
+            <div className="bg-white rounded-xl px-5 py-3 shadow-lg">
+              <Image src="/logo.png" alt="Sunglow CNC Technics" width={200} height={50} className="h-12 w-auto object-contain" />
             </div>
           </Link>
         </div>

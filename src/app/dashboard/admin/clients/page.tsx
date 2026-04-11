@@ -46,7 +46,7 @@ export default async function AdminClientsPage() {
                     <tr key={client.id} className="hover:bg-slate-50">
                       <td className="px-6 py-4">
                         <div className="flex items-center gap-3">
-                          <div className="w-9 h-9 bg-orange-100 rounded-full flex items-center justify-center text-orange-700 font-bold text-sm flex-shrink-0">
+                          <div className="w-9 h-9 bg-brand-red-100 rounded-full flex items-center justify-center text-brand-red-700 font-bold text-sm flex-shrink-0">
                             {client.name[0]}
                           </div>
                           <div>

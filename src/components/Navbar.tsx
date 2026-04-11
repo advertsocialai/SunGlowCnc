@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 import { useSession, signOut } from 'next-auth/react'
 import { usePathname } from 'next/navigation'
@@ -53,17 +54,13 @@ export default function Navbar() {
   const pathname = usePathname()
 
   return (
-    <nav className="bg-slate-900 text-white sticky top-0 z-50 shadow-xl">
+    <nav className="bg-brand-navy-800 text-white sticky top-0 z-50 shadow-xl">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 flex-shrink-0">
-            <div className="w-9 h-9 bg-orange-500 rounded-lg flex items-center justify-center">
-              <span className="text-white font-black text-sm">SG</span>
-            </div>
-            <div>
-              <div className="font-bold text-base leading-tight">Sunglow CNC</div>
-              <div className="text-orange-400 text-xs leading-tight hidden sm:block">Technics · Since 2003</div>
+          <Link href="/" className="flex items-center flex-shrink-0">
+            <div className="bg-white rounded-lg px-2 py-1">
+              <Image src="/logo.png" alt="Sunglow CNC Technics" width={130} height={33} className="h-8 w-auto object-contain" />
             </div>
           </Link>
 
@@ -80,8 +77,8 @@ export default function Navbar() {
                   href={link.href}
                   className={`px-3 py-2 rounded-md text-sm font-medium transition-colors flex items-center gap-1 ${
                     pathname === link.href || pathname.startsWith(link.href + '/')
-                      ? 'bg-orange-600 text-white'
-                      : 'text-slate-300 hover:bg-slate-700 hover:text-white'
+                      ? 'bg-brand-red-600 text-white'
+                      : 'text-slate-300 hover:bg-brand-navy-600 hover:text-white'
                   }`}
                 >
                   {link.label}
@@ -97,7 +94,7 @@ export default function Navbar() {
                       <Link
                         key={item.href}
                         href={item.href}
-                        className="block px-4 py-2.5 text-sm text-slate-700 hover:bg-orange-50 hover:text-orange-700 transition-colors"
+                        className="block px-4 py-2.5 text-sm text-slate-700 hover:bg-brand-red-50 hover:text-brand-red-700 transition-colors"
                       >
                         {item.label}
                       </Link>
@@ -116,14 +113,14 @@ export default function Navbar() {
                   href="/dashboard"
                   className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                     pathname.startsWith('/dashboard')
-                      ? 'bg-orange-600 text-white'
-                      : 'text-slate-300 hover:bg-slate-700 hover:text-white'
+                      ? 'bg-brand-red-600 text-white'
+                      : 'text-slate-300 hover:bg-brand-navy-600 hover:text-white'
                   }`}
                 >
                   Dashboard
                 </Link>
                 <div className="flex items-center gap-2">
-                  <div className="w-7 h-7 bg-orange-600/30 rounded-full flex items-center justify-center text-orange-400 text-xs font-bold">
+                  <div className="w-7 h-7 bg-brand-red-600/30 rounded-full flex items-center justify-center text-brand-red-400 text-xs font-bold">
                     {session.user.name?.[0]?.toUpperCase()}
                   </div>
                   <button
@@ -144,7 +141,7 @@ export default function Navbar() {
                 </Link>
                 <Link
                   href="/dashboard/rfq/new"
-                  className="bg-orange-600 hover:bg-orange-700 text-white text-sm px-4 py-2 rounded-lg transition-colors font-semibold"
+                  className="bg-brand-red-600 hover:bg-brand-red-700 text-white text-sm px-4 py-2 rounded-lg transition-colors font-semibold"
                 >
                   Get Instant Quote
                 </Link>
@@ -155,7 +152,7 @@ export default function Navbar() {
           {/* Mobile toggle */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-2 rounded-md text-slate-300 hover:text-white hover:bg-slate-700"
+            className="lg:hidden p-2 rounded-md text-slate-300 hover:text-white hover:bg-brand-navy-600"
           >
             <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               {isOpen ? (
@@ -170,7 +167,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {isOpen && (
-        <div className="lg:hidden border-t border-slate-700 bg-slate-900">
+        <div className="lg:hidden border-t border-brand-navy-600 bg-brand-navy-800">
           <div className="px-4 pt-2 pb-4 space-y-1">
             {[
               { href: '/', label: 'Home' },
@@ -189,17 +186,17 @@ export default function Navbar() {
                 onClick={() => setIsOpen(false)}
                 className={`block px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                   pathname === link.href
-                    ? 'bg-orange-600 text-white'
-                    : 'text-slate-300 hover:bg-slate-700 hover:text-white'
+                    ? 'bg-brand-red-600 text-white'
+                    : 'text-slate-300 hover:bg-brand-navy-600 hover:text-white'
                 }`}
               >
                 {link.label}
               </Link>
             ))}
-            <div className="pt-2 border-t border-slate-700 flex flex-col gap-2">
+            <div className="pt-2 border-t border-brand-navy-600 flex flex-col gap-2">
               {session ? (
                 <>
-                  <Link href="/dashboard" onClick={() => setIsOpen(false)} className="block px-3 py-2 rounded-md text-sm text-slate-300 hover:bg-slate-700">
+                  <Link href="/dashboard" onClick={() => setIsOpen(false)} className="block px-3 py-2 rounded-md text-sm text-slate-300 hover:bg-brand-navy-600">
                     Dashboard
                   </Link>
                   <button onClick={() => { setIsOpen(false); signOut({ callbackUrl: '/' }) }} className="bg-red-800/30 text-red-400 text-sm px-4 py-2 rounded-lg text-left">
@@ -209,7 +206,7 @@ export default function Navbar() {
               ) : (
                 <>
                   <Link href="/login" onClick={() => setIsOpen(false)} className="block px-3 py-2 text-slate-300 text-sm">Sign In</Link>
-                  <Link href="/dashboard/rfq/new" onClick={() => setIsOpen(false)} className="bg-orange-600 text-white text-sm px-4 py-2 rounded-lg text-center font-semibold">
+                  <Link href="/dashboard/rfq/new" onClick={() => setIsOpen(false)} className="bg-brand-red-600 text-white text-sm px-4 py-2 rounded-lg text-center font-semibold">
                     Get Instant Quote
                   </Link>
                 </>

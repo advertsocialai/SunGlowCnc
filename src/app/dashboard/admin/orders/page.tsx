@@ -60,7 +60,7 @@ export default async function AdminOrdersPage() {
                     <td className="px-6 py-4">
                       <span className={`badge text-xs ${
                         order.status === 'completed' ? 'bg-green-100 text-green-700' :
-                        order.status === 'shipped' ? 'bg-orange-100 text-orange-700' :
+                        order.status === 'shipped' ? 'bg-brand-red-100 text-brand-red-700' :
                         order.status === 'quality_check' ? 'bg-indigo-100 text-indigo-700' :
                         'bg-purple-100 text-purple-700'
                       }`}>

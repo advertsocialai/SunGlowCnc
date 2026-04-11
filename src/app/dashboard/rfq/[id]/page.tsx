@@ -47,7 +47,7 @@ const statusColors: Record<string, string> = {
   pending: 'bg-yellow-100 text-yellow-800',
   quoted: 'bg-blue-100 text-blue-800',
   approved: 'bg-green-100 text-green-800',
-  in_production: 'bg-orange-100 text-orange-800',
+  in_production: 'bg-brand-red-100 text-brand-red-800',
   quality_check: 'bg-purple-100 text-purple-800',
   shipped: 'bg-teal-100 text-teal-800',
   completed: 'bg-slate-200 text-slate-800',
@@ -57,7 +57,7 @@ const statusColors: Record<string, string> = {
 const priorityColors: Record<string, string> = {
   low: 'bg-slate-100 text-slate-600',
   normal: 'bg-blue-50 text-blue-600',
-  high: 'bg-orange-100 text-orange-600',
+  high: 'bg-brand-red-100 text-brand-red-600',
   urgent: 'bg-red-100 text-red-700',
 }
 
@@ -112,7 +112,7 @@ export default function RFQDetailPage() {
     return (
       <DashboardLayout>
         <div className="flex justify-center py-20">
-          <div className="w-8 h-8 border-4 border-orange-600 border-t-transparent rounded-full animate-spin" />
+          <div className="w-8 h-8 border-4 border-brand-red-600 border-t-transparent rounded-full animate-spin" />
         </div>
       </DashboardLayout>
     )
@@ -138,7 +138,7 @@ export default function RFQDetailPage() {
           <div>
             <button
               onClick={() => router.back()}
-              className="text-sm text-slate-500 hover:text-orange-600 mb-2 flex items-center gap-1"
+              className="text-sm text-slate-500 hover:text-brand-red-600 mb-2 flex items-center gap-1"
             >
               ← Back to RFQs
             </button>
@@ -195,7 +195,7 @@ export default function RFQDetailPage() {
                 href={rfq.fileUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-orange-600 hover:underline text-sm font-medium"
+                className="text-brand-red-600 hover:underline text-sm font-medium"
               >
                 {rfq.fileName ?? 'Download file'} ↗
               </a>
@@ -223,7 +223,7 @@ export default function RFQDetailPage() {
                 <button
                   onClick={handleApprove}
                   disabled={approving}
-                  className="ml-auto bg-orange-600 hover:bg-orange-700 disabled:bg-orange-300 text-white font-bold px-8 py-3 rounded-lg transition-colors text-sm"
+                  className="ml-auto bg-brand-red-600 hover:bg-brand-red-700 disabled:bg-brand-red-300 text-white font-bold px-8 py-3 rounded-lg transition-colors text-sm"
                 >
                   {approving ? 'Approving...' : 'Approve Quote & Place Order'}
                 </button>
@@ -251,7 +251,7 @@ export default function RFQDetailPage() {
                 <h2 className="text-base font-semibold text-slate-900">Order Tracker</h2>
                 <p className="text-xs text-slate-400 mt-0.5">Order #{rfq.order.orderNumber}</p>
               </div>
-              <span className="text-lg font-bold text-orange-600">
+              <span className="text-lg font-bold text-brand-red-600">
                 ₹{rfq.order.amount.toLocaleString('en-IN')}
               </span>
             </div>
@@ -264,16 +264,16 @@ export default function RFQDetailPage() {
                 return (
                   <div key={step.key} className="flex-1 flex flex-col items-center relative">
                     {idx < orderSteps.length - 1 && (
-                      <div className={`absolute top-4 left-1/2 w-full h-0.5 ${idx < currentOrderStep ? 'bg-orange-500' : 'bg-slate-200'}`} />
+                      <div className={`absolute top-4 left-1/2 w-full h-0.5 ${idx < currentOrderStep ? 'bg-brand-red-500' : 'bg-slate-200'}`} />
                     )}
                     <div className={`w-8 h-8 rounded-full flex items-center justify-center z-10 text-xs font-bold ${
-                      active ? 'bg-orange-600 text-white ring-4 ring-orange-100'
-                        : done ? 'bg-orange-500 text-white'
+                      active ? 'bg-brand-red-600 text-white ring-4 ring-brand-red-100'
+                        : done ? 'bg-brand-red-500 text-white'
                         : 'bg-slate-200 text-slate-400'
                     }`}>
                       {done && !active ? '✓' : idx + 1}
                     </div>
-                    <p className={`text-xs mt-2 font-medium text-center ${active ? 'text-orange-600' : done ? 'text-slate-600' : 'text-slate-400'}`}>
+                    <p className={`text-xs mt-2 font-medium text-center ${active ? 'text-brand-red-600' : done ? 'text-slate-600' : 'text-slate-400'}`}>
                       {step.label}
                     </p>
                   </div>

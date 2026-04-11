@@ -31,7 +31,7 @@ export default async function AdminContactsPage() {
             <div key={c.id} className="bg-white rounded-xl shadow-sm p-5">
               <div className="flex items-start justify-between mb-3">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center text-orange-700 font-bold text-sm flex-shrink-0">
+                  <div className="w-10 h-10 bg-brand-red-100 rounded-full flex items-center justify-center text-brand-red-700 font-bold text-sm flex-shrink-0">
                     {c.name[0]}
                   </div>
                   <div>
@@ -56,7 +56,7 @@ export default async function AdminContactsPage() {
               <div className="mt-3 flex gap-2">
                 <a
                   href={`mailto:${c.email}`}
-                  className="text-xs bg-orange-50 hover:bg-orange-100 text-orange-700 border border-orange-200 px-3 py-1.5 rounded-lg transition-colors font-medium"
+                  className="text-xs bg-brand-red-50 hover:bg-brand-red-100 text-brand-red-700 border border-brand-red-200 px-3 py-1.5 rounded-lg transition-colors font-medium"
                 >
                   Reply via Email
                 </a>

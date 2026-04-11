@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 import { signIn } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
@@ -73,23 +74,19 @@ export default function RegisterPage() {
   return (
     <div className="min-h-screen flex">
       {/* Left panel - dark brand panel like Protolabs */}
-      <div className="hidden lg:flex lg:w-5/12 bg-slate-900 flex-col p-10 justify-between">
+      <div className="hidden lg:flex lg:w-5/12 bg-brand-navy-800 flex-col p-10 justify-between">
         <div>
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 mb-12">
-            <div className="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center">
-              <span className="text-white font-black text-base">SG</span>
-            </div>
-            <div>
-              <div className="font-bold text-white text-xl leading-tight">Sunglow CNC</div>
-              <div className="text-orange-400 text-sm">Technics — Since 2003</div>
+          <Link href="/" className="flex items-center mb-12">
+            <div className="bg-white rounded-xl px-3 py-2">
+              <Image src="/logo.png" alt="Sunglow CNC Technics" width={160} height={40} className="h-10 w-auto object-contain" />
             </div>
           </Link>
 
           {/* Value props */}
           <div className="mb-10">
             <h2 className="text-white text-2xl font-black mb-2">Precision machining,</h2>
-            <h2 className="text-orange-400 text-2xl font-black mb-6">quoted in 24 hours.</h2>
+            <h2 className="text-brand-red-400 text-2xl font-black mb-6">quoted in 24 hours.</h2>
             <div className="space-y-4">
               {[
                 { icon: '⚡', text: 'Quote within 24 hours of RFQ submission' },
@@ -111,7 +108,7 @@ export default function RegisterPage() {
             <p className="text-slate-500 text-xs uppercase tracking-wider font-semibold mb-3">Trusted by</p>
             <div className="flex flex-wrap gap-2">
               {trustedClients.map((client) => (
-                <span key={client} className="bg-slate-800 border border-slate-700 text-slate-300 text-xs px-3 py-1.5 rounded-full">
+                <span key={client} className="bg-brand-navy-700 border border-brand-navy-600 text-slate-300 text-xs px-3 py-1.5 rounded-full">
                   {client}
                 </span>
               ))}
@@ -120,11 +117,11 @@ export default function RegisterPage() {
         </div>
 
         {/* Certifications */}
-        <div className="pt-8 border-t border-slate-800">
+        <div className="pt-8 border-t border-brand-navy-700">
           <p className="text-xs text-slate-500 uppercase tracking-wider mb-2">Quality Standards</p>
           <div className="flex flex-wrap gap-2">
             {['GMP Compliant', 'AS9100 Capable', 'ISO 9001', 'Defence Grade'].map((cert) => (
-              <span key={cert} className="bg-orange-600/20 border border-orange-600/30 text-orange-400 text-xs px-2 py-1 rounded">{cert}</span>
+              <span key={cert} className="bg-brand-red-600/20 border border-brand-red-600/30 text-brand-red-400 text-xs px-2 py-1 rounded">{cert}</span>
             ))}
           </div>
         </div>
@@ -134,12 +131,9 @@ export default function RegisterPage() {
       <div className="flex-1 flex items-center justify-center bg-white p-6 lg:p-10">
         <div className="w-full max-w-md">
           {/* Mobile logo */}
-          <div className="lg:hidden text-center mb-8">
-            <Link href="/" className="inline-flex items-center gap-3 justify-center">
-              <div className="w-10 h-10 bg-orange-500 rounded-xl flex items-center justify-center">
-                <span className="text-white font-black text-sm">SG</span>
-              </div>
-              <span className="font-bold text-slate-900 text-xl">Sunglow CNC</span>
+          <div className="lg:hidden flex justify-center mb-8">
+            <Link href="/">
+              <Image src="/logo.png" alt="Sunglow CNC Technics" width={160} height={40} className="h-10 w-auto object-contain" />
             </Link>
           </div>
 
@@ -148,7 +142,7 @@ export default function RegisterPage() {
               <h1 className="text-2xl font-black text-slate-900">Create an account</h1>
               <p className="text-sm text-slate-500 mt-1">to get a quote and track your orders</p>
             </div>
-            <Link href="/login" className="text-sm text-orange-600 font-semibold hover:text-orange-700 hidden sm:block">
+            <Link href="/login" className="text-sm text-brand-red-600 font-semibold hover:text-brand-red-700 hidden sm:block">
               Sign In
             </Link>
           </div>
@@ -171,7 +165,7 @@ export default function RegisterPage() {
                     const lastName = form.name.split(' ').slice(1).join(' ')
                     setForm({ ...form, name: `${e.target.value}${lastName ? ' ' + lastName : ''}` })
                   }}
-                  className="w-full border border-slate-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                  className="w-full border border-slate-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-red-500 focus:border-transparent"
                   placeholder="First name"
                 />
               </div>
@@ -184,7 +178,7 @@ export default function RegisterPage() {
                     const firstName = form.name.split(' ')[0] || ''
                     setForm({ ...form, name: `${firstName}${e.target.value ? ' ' + e.target.value : ''}` })
                   }}
-                  className="w-full border border-slate-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                  className="w-full border border-slate-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-red-500 focus:border-transparent"
                   placeholder="Last name"
                 />
               </div>
@@ -196,7 +190,7 @@ export default function RegisterPage() {
                 type="text"
                 value={form.company}
                 onChange={(e) => setForm({ ...form, company: e.target.value })}
-                className="w-full border border-slate-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                className="w-full border border-slate-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-red-500 focus:border-transparent"
                 placeholder="Your company or organization"
               />
             </div>
@@ -208,7 +202,7 @@ export default function RegisterPage() {
                 required
                 value={form.email}
                 onChange={(e) => setForm({ ...form, email: e.target.value })}
-                className="w-full border border-slate-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                className="w-full border border-slate-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-red-500 focus:border-transparent"
                 placeholder="work@company.com"
               />
             </div>
@@ -220,7 +214,7 @@ export default function RegisterPage() {
                 required
                 value={form.password}
                 onChange={(e) => setForm({ ...form, password: e.target.value })}
-                className="w-full border border-slate-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                className="w-full border border-slate-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-red-500 focus:border-transparent"
                 placeholder="Min 6 characters"
               />
               {form.password && (
@@ -250,7 +244,7 @@ export default function RegisterPage() {
                 required
                 value={form.confirmPassword}
                 onChange={(e) => setForm({ ...form, confirmPassword: e.target.value })}
-                className={`w-full border rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent ${
+                className={`w-full border rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-red-500 focus:border-transparent ${
                   form.confirmPassword && form.password !== form.confirmPassword
                     ? 'border-red-300 bg-red-50'
                     : 'border-slate-300'
@@ -269,7 +263,7 @@ export default function RegisterPage() {
                   type="tel"
                   value={form.phone}
                   onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                  className="flex-1 border border-slate-300 rounded-r-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                  className="flex-1 border border-slate-300 rounded-r-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-red-500 focus:border-transparent"
                   placeholder="98765 43210"
                 />
               </div>
@@ -278,7 +272,7 @@ export default function RegisterPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-orange-600 hover:bg-orange-700 disabled:bg-orange-300 text-white font-bold py-3 px-6 rounded-lg transition-colors text-sm mt-2"
+              className="w-full bg-brand-red-600 hover:bg-brand-red-700 disabled:bg-brand-red-300 text-white font-bold py-3 px-6 rounded-lg transition-colors text-sm mt-2"
             >
               {loading ? 'Creating Account...' : 'Create Account & Get Quotes'}
             </button>
@@ -286,7 +280,7 @@ export default function RegisterPage() {
 
           <p className="mt-5 text-center text-sm text-slate-500">
             Already have an account?{' '}
-            <Link href="/login" className="text-orange-600 hover:text-orange-700 font-semibold">
+            <Link href="/login" className="text-brand-red-600 hover:text-brand-red-700 font-semibold">
               Sign In
             </Link>
           </p>

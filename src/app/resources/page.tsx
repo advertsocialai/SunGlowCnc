@@ -63,9 +63,9 @@ export default function ResourcesPage() {
       <Navbar />
 
       {/* Header */}
-      <section className="bg-gradient-to-r from-slate-900 to-slate-800 text-white py-16">
+      <section className="bg-gradient-to-r from-brand-navy-800 to-slate-800 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-orange-400 text-sm font-semibold uppercase tracking-wider mb-2">Knowledge Base</p>
+          <p className="text-brand-red-400 text-sm font-semibold uppercase tracking-wider mb-2">Knowledge Base</p>
           <h1 className="text-4xl md:text-5xl font-black mb-4">Manufacturing Resources</h1>
           <p className="text-lg text-slate-300 max-w-2xl">
             Free technical guides, design tips, material references, and industry-specific manufacturing knowledge from 20+ years of experience.
@@ -87,7 +87,7 @@ export default function ResourcesPage() {
               <Link
                 key={link.label}
                 href={link.href}
-                className="text-sm text-slate-600 hover:text-orange-600 border border-slate-200 hover:border-orange-300 px-4 py-2 rounded-lg transition-colors"
+                className="text-sm text-slate-600 hover:text-brand-red-600 border border-slate-200 hover:border-brand-red-300 px-4 py-2 rounded-lg transition-colors"
               >
                 {link.label}
               </Link>
@@ -115,7 +115,7 @@ export default function ResourcesPage() {
                     </div>
                     <h3 className="font-bold text-slate-900 text-sm mb-2 leading-tight">{item.title}</h3>
                     <p className="text-xs text-slate-600 leading-relaxed">{item.desc}</p>
-                    <button className="mt-4 text-xs text-orange-600 font-semibold hover:text-orange-700 flex items-center gap-1">
+                    <button className="mt-4 text-xs text-brand-red-600 font-semibold hover:text-brand-red-700 flex items-center gap-1">
                       Download PDF
                       <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
@@ -135,9 +135,9 @@ export default function ResourcesPage() {
           <h2 className="text-2xl font-bold text-slate-900 mb-8">Quality Certifications & Compliance</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {certifications.map((cert) => (
-              <div key={cert.name} className="bg-slate-900 rounded-xl p-6 text-white text-center">
+              <div key={cert.name} className="bg-brand-navy-800 rounded-xl p-6 text-white text-center">
                 <div className="text-3xl mb-3">🏆</div>
-                <div className="font-bold text-orange-400 text-lg mb-1">{cert.name}</div>
+                <div className="font-bold text-brand-red-400 text-lg mb-1">{cert.name}</div>
                 <div className="text-sm text-slate-300">{cert.desc}</div>
               </div>
             ))}
@@ -157,7 +157,7 @@ export default function ResourcesPage() {
                 className="bg-white rounded-xl p-4 text-center shadow-sm hover:shadow-md transition-shadow border border-slate-100 group"
               >
                 <div className="text-3xl mb-2">{ind.icon}</div>
-                <div className="text-xs font-semibold text-slate-700 group-hover:text-orange-600 transition-colors">{ind.name}</div>
+                <div className="text-xs font-semibold text-slate-700 group-hover:text-brand-red-600 transition-colors">{ind.name}</div>
               </Link>
             ))}
           </div>
@@ -165,12 +165,12 @@ export default function ResourcesPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-12 bg-orange-600 text-white">
+      <section className="py-12 bg-brand-red-600 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl font-black mb-3">Ready to Manufacture?</h2>
-          <p className="text-orange-100 mb-5 text-sm">Our engineers are available to answer technical questions and help design your components.</p>
+          <p className="text-brand-red-100 mb-5 text-sm">Our engineers are available to answer technical questions and help design your components.</p>
           <div className="flex justify-center gap-3">
-            <Link href="/dashboard/rfq/new" className="bg-white text-orange-600 hover:bg-orange-50 font-bold py-2.5 px-6 rounded-lg transition-colors text-sm">
+            <Link href="/dashboard/rfq/new" className="bg-white text-brand-red-600 hover:bg-brand-red-50 font-bold py-2.5 px-6 rounded-lg transition-colors text-sm">
               Get a Quote
             </Link>
             <Link href="/contact" className="border border-white/50 text-white hover:bg-white/10 font-bold py-2.5 px-6 rounded-lg transition-colors text-sm">

@@ -32,7 +32,7 @@ const serviceCards = [
     icon: '🔧',
     desc: 'Cavity and core inserts, textured mould plates, precision 3D contouring for injection moulds.',
     href: '/services',
-    color: 'hover:border-orange-400',
+    color: 'hover:border-brand-red-400',
     tag: 'Custom Quote',
   },
 ]
@@ -81,21 +81,21 @@ export default function HomePage() {
       <Navbar />
 
       {/* Hero — Protolabs/Xometry style with real content */}
-      <section className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white overflow-hidden">
+      <section className="relative bg-gradient-to-br from-brand-navy-800 via-brand-navy-700 to-brand-navy-800 text-white overflow-hidden">
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-orange-500 rounded-full blur-3xl" />
-          <div className="absolute bottom-10 right-10 w-96 h-96 bg-orange-600 rounded-full blur-3xl" />
+          <div className="absolute top-20 left-10 w-72 h-72 bg-brand-red-500 rounded-full blur-3xl" />
+          <div className="absolute bottom-10 right-10 w-96 h-96 bg-brand-red-600 rounded-full blur-3xl" />
         </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <div className="inline-flex items-center gap-2 bg-orange-600/20 border border-orange-500/30 text-orange-300 text-sm px-4 py-2 rounded-full mb-6">
-                <span className="w-2 h-2 bg-orange-400 rounded-full animate-pulse" />
+              <div className="inline-flex items-center gap-2 bg-brand-red-600/20 border border-brand-red-500/30 text-brand-red-300 text-sm px-4 py-2 rounded-full mb-6">
+                <span className="w-2 h-2 bg-brand-red-400 rounded-full animate-pulse" />
                 Precision Engineering Since 2003 · Hyderabad, India
               </div>
               <h1 className="text-4xl md:text-5xl font-black leading-tight mb-4">
                 CNC Precision
-                <span className="text-orange-500"> Manufacturing</span>
+                <span className="text-brand-red-500"> Manufacturing</span>
                 <br />Solutions
               </h1>
               <p className="text-lg text-slate-300 mb-6 leading-relaxed">
@@ -116,7 +116,7 @@ export default function HomePage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </Link>
-                <Link href="/services" className="border border-slate-500 text-slate-300 hover:border-orange-500 hover:text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 inline-flex items-center gap-2">
+                <Link href="/services" className="border border-slate-500 text-slate-300 hover:border-brand-red-500 hover:text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 inline-flex items-center gap-2">
                   Explore Capabilities
                 </Link>
               </div>
@@ -124,8 +124,8 @@ export default function HomePage() {
             {/* Stats panel */}
             <div className="grid grid-cols-2 gap-4">
               {stats.map((stat) => (
-                <div key={stat.label} className="bg-slate-800/60 border border-slate-700 rounded-2xl p-6 text-center">
-                  <div className="text-4xl font-black text-orange-500 mb-1">{stat.value}</div>
+                <div key={stat.label} className="bg-brand-navy-700/60 border border-brand-navy-600 rounded-2xl p-6 text-center">
+                  <div className="text-4xl font-black text-brand-red-500 mb-1">{stat.value}</div>
                   <div className="text-sm font-semibold text-white mb-1">{stat.label}</div>
                   <div className="text-xs text-slate-400">{stat.sub}</div>
                 </div>
@@ -135,12 +135,12 @@ export default function HomePage() {
         </div>
 
         {/* Certifications bar */}
-        <div className="relative border-t border-slate-700/50 bg-slate-900/60 backdrop-blur py-4">
+        <div className="relative border-t border-brand-navy-600/50 bg-brand-navy-800/60 backdrop-blur py-4">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap items-center justify-center gap-x-8 gap-y-2">
             <span className="text-xs text-slate-500 font-semibold uppercase tracking-wider">Certifications & Standards:</span>
             {['GMP Compliant', 'AS9100 Capable', 'ISO 9001 Quality', 'Defence Hardware', 'ITAR Eligible'].map((cert) => (
               <span key={cert} className="text-xs text-slate-300 flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 bg-orange-500 rounded-full" />
+                <span className="w-1.5 h-1.5 bg-brand-red-500 rounded-full" />
                 {cert}
               </span>
             ))}
@@ -168,8 +168,8 @@ export default function HomePage() {
                 </div>
                 <p className="text-sm text-slate-600 leading-relaxed mb-4">{svc.desc}</p>
                 <div className="flex items-center justify-between">
-                  <span className="bg-orange-100 text-orange-700 text-xs font-semibold px-2.5 py-1 rounded-full">{svc.tag}</span>
-                  <span className="text-orange-600 text-sm font-semibold group-hover:underline">Learn More →</span>
+                  <span className="bg-brand-red-100 text-brand-red-700 text-xs font-semibold px-2.5 py-1 rounded-full">{svc.tag}</span>
+                  <span className="text-brand-red-600 text-sm font-semibold group-hover:underline">Learn More →</span>
                 </div>
               </Link>
             ))}
@@ -203,7 +203,7 @@ export default function HomePage() {
             <div className="overflow-x-auto rounded-xl border border-slate-200 shadow-sm">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="bg-slate-900 text-white">
+                  <tr className="bg-brand-navy-800 text-white">
                     <th className="px-4 py-3 text-left font-semibold text-xs">Service</th>
                     <th className="px-4 py-3 text-left font-semibold text-xs">Lead Time</th>
                     <th className="px-4 py-3 text-left font-semibold text-xs">Tolerance</th>
@@ -214,7 +214,7 @@ export default function HomePage() {
                   {capabilityCompare.map((row, i) => (
                     <tr key={row.service} className={i % 2 === 0 ? 'bg-white' : 'bg-slate-50'}>
                       <td className="px-4 py-3 font-medium text-slate-900 text-xs">{row.service}</td>
-                      <td className="px-4 py-3 text-orange-700 font-semibold text-xs">{row.leadTime}</td>
+                      <td className="px-4 py-3 text-brand-red-700 font-semibold text-xs">{row.leadTime}</td>
                       <td className="px-4 py-3 text-slate-700 text-xs">{row.tolerance}</td>
                       <td className="px-4 py-3 text-slate-600 text-xs">{row.maxSize}</td>
                     </tr>
@@ -238,10 +238,10 @@ export default function HomePage() {
               <Link
                 key={ind.name}
                 href={ind.href}
-                className="bg-slate-50 hover:bg-orange-50 border border-slate-200 hover:border-orange-200 rounded-xl p-4 text-center transition-all group"
+                className="bg-slate-50 hover:bg-brand-red-50 border border-slate-200 hover:border-brand-red-200 rounded-xl p-4 text-center transition-all group"
               >
                 <div className="text-3xl mb-2">{ind.icon}</div>
-                <div className="text-xs font-semibold text-slate-700 group-hover:text-orange-700 leading-tight">{ind.name}</div>
+                <div className="text-xs font-semibold text-slate-700 group-hover:text-brand-red-700 leading-tight">{ind.name}</div>
               </Link>
             ))}
           </div>
@@ -254,7 +254,7 @@ export default function HomePage() {
       </section>
 
       {/* How it Works — Xometry style */}
-      <section className="py-16 bg-slate-900 text-white">
+      <section className="py-16 bg-brand-navy-800 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-black mb-3">How It Works</h2>
@@ -268,9 +268,9 @@ export default function HomePage() {
               { step: '04', title: 'Delivery', desc: 'Parts are inspected, packed, and delivered to your facility. Track status from your dashboard.', icon: '📦' },
             ].map((step) => (
               <div key={step.step} className="relative">
-                <div className="bg-slate-800 rounded-2xl p-6">
+                <div className="bg-brand-navy-700 rounded-2xl p-6">
                   <div className="text-3xl mb-4">{step.icon}</div>
-                  <div className="text-orange-500 font-black text-sm mb-2">{step.step}</div>
+                  <div className="text-brand-red-500 font-black text-sm mb-2">{step.step}</div>
                   <h3 className="font-bold text-white mb-2">{step.title}</h3>
                   <p className="text-sm text-slate-400 leading-relaxed">{step.desc}</p>
                 </div>
@@ -278,7 +278,7 @@ export default function HomePage() {
             ))}
           </div>
           <div className="text-center mt-10">
-            <Link href="/dashboard/rfq/new" className="bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 px-8 rounded-lg transition-colors inline-flex items-center gap-2">
+            <Link href="/dashboard/rfq/new" className="bg-brand-red-600 hover:bg-brand-red-700 text-white font-bold py-3 px-8 rounded-lg transition-colors inline-flex items-center gap-2">
               Start Your RFQ
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -300,13 +300,13 @@ export default function HomePage() {
             {clients.map((client) => (
               <div
                 key={client.name}
-                className="bg-slate-50 border border-slate-200 rounded-xl p-4 text-center hover:border-orange-200 hover:bg-orange-50 transition-all"
+                className="bg-slate-50 border border-slate-200 rounded-xl p-4 text-center hover:border-brand-red-200 hover:bg-brand-red-50 transition-all"
               >
                 <div className="w-12 h-12 bg-white border border-slate-200 rounded-full mx-auto mb-3 flex items-center justify-center shadow-sm">
                   <span className="text-slate-700 font-black text-lg">{client.name[0]}</span>
                 </div>
                 <div className="font-semibold text-slate-800 text-sm">{client.name}</div>
-                <div className="text-xs text-orange-600 mt-0.5">{client.sector}</div>
+                <div className="text-xs text-brand-red-600 mt-0.5">{client.sector}</div>
               </div>
             ))}
           </div>
@@ -319,7 +319,7 @@ export default function HomePage() {
       </section>
 
       {/* Manufacturing Lifecycle — Protolabs style */}
-      <section className="py-16 bg-orange-50">
+      <section className="py-16 bg-brand-red-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-10 items-center">
             <div>
@@ -343,8 +343,8 @@ export default function HomePage() {
                 ))}
               </div>
             </div>
-            <div className="bg-slate-900 rounded-2xl p-8 text-white">
-              <h3 className="text-lg font-bold text-orange-400 mb-5 uppercase tracking-wider">Our Machinery</h3>
+            <div className="bg-brand-navy-800 rounded-2xl p-8 text-white">
+              <h3 className="text-lg font-bold text-brand-red-400 mb-5 uppercase tracking-wider">Our Machinery</h3>
               <div className="space-y-4">
                 {[
                   { machine: 'CNC VMC Milling Machines', count: '×3', detail: 'Vertical Machining Centers — 3-axis' },
@@ -353,12 +353,12 @@ export default function HomePage() {
                   { machine: 'Die Sinking EDM', count: '×1', detail: 'Deep cavity, hardened tool steel' },
                   { machine: 'Conventional Setup', count: 'Full', detail: 'Milling, turning, grinding' },
                 ].map((m) => (
-                  <div key={m.machine} className="flex justify-between items-center border-b border-slate-700 pb-3">
+                  <div key={m.machine} className="flex justify-between items-center border-b border-brand-navy-600 pb-3">
                     <div>
                       <div className="font-medium text-sm">{m.machine}</div>
                       <div className="text-xs text-slate-400">{m.detail}</div>
                     </div>
-                    <span className="bg-orange-600/30 text-orange-300 text-xs px-3 py-1 rounded-full font-bold">{m.count}</span>
+                    <span className="bg-brand-red-600/30 text-brand-red-300 text-xs px-3 py-1 rounded-full font-bold">{m.count}</span>
                   </div>
                 ))}
               </div>
@@ -368,18 +368,18 @@ export default function HomePage() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-20 bg-orange-600 text-white">
+      <section className="py-20 bg-brand-red-600 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-black mb-4">
             Ready to Get Started?
           </h2>
-          <p className="text-lg text-orange-100 mb-8 max-w-2xl mx-auto">
+          <p className="text-lg text-brand-red-100 mb-8 max-w-2xl mx-auto">
             Upload your design files and receive a detailed quote within 24 hours. Our engineering team is ready.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/dashboard/rfq/new"
-              className="bg-white text-orange-600 hover:bg-orange-50 font-black py-4 px-10 rounded-lg transition-colors inline-flex items-center gap-2 text-base"
+              className="bg-white text-brand-red-600 hover:bg-brand-red-50 font-black py-4 px-10 rounded-lg transition-colors inline-flex items-center gap-2 text-base"
             >
               Get Instant Quote
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">

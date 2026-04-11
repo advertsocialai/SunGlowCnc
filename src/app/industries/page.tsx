@@ -16,7 +16,7 @@ const industries = [
   {
     name: 'Automobile & EV',
     icon: '⚡',
-    color: 'from-yellow-500 to-orange-600',
+    color: 'from-yellow-500 to-brand-red-600',
     components: [
       { title: 'EV Battery Casings', desc: 'Precision-machined battery enclosures with thermal management features for electric vehicles.' },
       { title: 'Engine & Powertrain Parts', desc: 'Connecting rods, transmission components, and housing machined to tight tolerances.' },
@@ -81,7 +81,7 @@ const industries = [
   {
     name: 'Industrial Production',
     icon: '🏭',
-    color: 'from-orange-500 to-amber-700',
+    color: 'from-brand-red-500 to-amber-700',
     components: [
       { title: 'Engine Block Casings', desc: 'Heavy-duty, multi-axis machined cylinder heads and gearbox housings.' },
       { title: 'Mechanical Housing', desc: 'Rugged enclosures for industrial machinery with complex bore patterns.' },
@@ -116,9 +116,9 @@ export default function IndustriesPage() {
       <Navbar />
 
       {/* Header */}
-      <section className="bg-gradient-to-r from-slate-900 to-slate-800 text-white py-16">
+      <section className="bg-gradient-to-r from-brand-navy-800 to-slate-800 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-orange-400 text-sm font-semibold uppercase tracking-wider mb-2">Sectors We Serve</p>
+          <p className="text-brand-red-400 text-sm font-semibold uppercase tracking-wider mb-2">Sectors We Serve</p>
           <h1 className="text-4xl md:text-5xl font-black mb-4">Industries</h1>
           <p className="text-lg text-slate-300 max-w-2xl">
             From pharmaceutical precision to aerospace engineering — our VMC capabilities cover the most demanding industrial sectors.
@@ -164,13 +164,13 @@ export default function IndustriesPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-orange-600 text-white">
+      <section className="py-16 bg-brand-red-600 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-black mb-4">Don&apos;t See Your Industry?</h2>
-          <p className="text-orange-100 mb-6">
+          <p className="text-brand-red-100 mb-6">
             Our capabilities extend beyond the listed sectors. Contact us with your requirements.
           </p>
-          <Link href="/contact" className="bg-white text-orange-600 hover:bg-orange-50 font-bold py-3 px-8 rounded-lg transition-colors inline-block">
+          <Link href="/contact" className="bg-white text-brand-red-600 hover:bg-brand-red-50 font-bold py-3 px-8 rounded-lg transition-colors inline-block">
             Talk to Our Engineers
           </Link>
         </div>

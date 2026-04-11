@@ -57,7 +57,7 @@ export default async function AnalyticsPage() {
     { key: 'pending', label: 'Pending', color: 'bg-yellow-400' },
     { key: 'quoted', label: 'Quoted', color: 'bg-blue-400' },
     { key: 'approved', label: 'Approved', color: 'bg-green-400' },
-    { key: 'in_production', label: 'In Production', color: 'bg-orange-400' },
+    { key: 'in_production', label: 'In Production', color: 'bg-brand-red-400' },
     { key: 'quality_check', label: 'QC', color: 'bg-purple-400' },
     { key: 'shipped', label: 'Shipped', color: 'bg-teal-400' },
     { key: 'completed', label: 'Completed', color: 'bg-slate-400' },
@@ -122,7 +122,7 @@ export default async function AnalyticsPage() {
                         <span className="font-semibold text-slate-800">{count} RFQs</span>
                       </div>
                       <div className="h-2 bg-slate-100 rounded-full overflow-hidden">
-                        <div className="h-full bg-orange-400 rounded-full" style={{ width: `${pct}%` }} />
+                        <div className="h-full bg-brand-red-400 rounded-full" style={{ width: `${pct}%` }} />
                       </div>
                     </div>
                   )
@@ -139,7 +139,7 @@ export default async function AnalyticsPage() {
             ) : (
               <div className="space-y-3">
                 {[
-                  { key: 'in_production', label: 'In Production', color: 'bg-orange-400' },
+                  { key: 'in_production', label: 'In Production', color: 'bg-brand-red-400' },
                   { key: 'quality_check', label: 'Quality Check', color: 'bg-purple-400' },
                   { key: 'shipped', label: 'Shipped', color: 'bg-teal-400' },
                   { key: 'completed', label: 'Completed', color: 'bg-green-400' },
@@ -172,7 +172,7 @@ export default async function AnalyticsPage() {
               <div className="grid grid-cols-2 gap-4">
                 {[
                   { key: 'urgent', label: 'Urgent', color: 'text-red-600 bg-red-50' },
-                  { key: 'high', label: 'High', color: 'text-orange-600 bg-orange-50' },
+                  { key: 'high', label: 'High', color: 'text-brand-red-600 bg-brand-red-50' },
                   { key: 'normal', label: 'Normal', color: 'text-blue-600 bg-blue-50' },
                   { key: 'low', label: 'Low', color: 'text-slate-600 bg-slate-100' },
                 ].map(({ key, label, color }) => {

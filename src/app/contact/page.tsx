@@ -38,9 +38,9 @@ export default function ContactPage() {
       <Navbar />
 
       {/* Header */}
-      <section className="bg-gradient-to-r from-slate-900 to-slate-800 text-white py-16">
+      <section className="bg-gradient-to-r from-brand-navy-800 to-slate-800 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-orange-400 text-sm font-semibold uppercase tracking-wider mb-2">Get In Touch</p>
+          <p className="text-brand-red-400 text-sm font-semibold uppercase tracking-wider mb-2">Get In Touch</p>
           <h1 className="text-4xl md:text-5xl font-black mb-4">Contact Us</h1>
           <p className="text-lg text-slate-300 max-w-2xl">
             Have a project in mind? Send us your requirements and we&apos;ll respond within 24 hours.
@@ -63,7 +63,7 @@ export default function ContactPage() {
                       required
                       value={form.name}
                       onChange={(e) => setForm({ ...form, name: e.target.value })}
-                      className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                      className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-red-500 focus:border-transparent"
                       placeholder="Your name"
                     />
                   </div>
@@ -74,7 +74,7 @@ export default function ContactPage() {
                       required
                       value={form.email}
                       onChange={(e) => setForm({ ...form, email: e.target.value })}
-                      className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                      className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-red-500 focus:border-transparent"
                       placeholder="your@email.com"
                     />
                   </div>
@@ -86,7 +86,7 @@ export default function ContactPage() {
                       type="tel"
                       value={form.phone}
                       onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                      className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                      className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-red-500 focus:border-transparent"
                       placeholder="+91 98765 43210"
                     />
                   </div>
@@ -96,7 +96,7 @@ export default function ContactPage() {
                       type="text"
                       value={form.company}
                       onChange={(e) => setForm({ ...form, company: e.target.value })}
-                      className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                      className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-red-500 focus:border-transparent"
                       placeholder="Your company name"
                     />
                   </div>
@@ -108,14 +108,14 @@ export default function ContactPage() {
                     rows={6}
                     value={form.message}
                     onChange={(e) => setForm({ ...form, message: e.target.value })}
-                    className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent resize-none"
+                    className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-red-500 focus:border-transparent resize-none"
                     placeholder="Describe your project, required components, material, quantities, tolerances..."
                   />
                 </div>
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full bg-orange-600 hover:bg-orange-700 disabled:bg-orange-300 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+                  className="w-full bg-brand-red-600 hover:bg-brand-red-700 disabled:bg-brand-red-300 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
                 >
                   {loading ? 'Sending...' : 'Send Message'}
                 </button>
@@ -166,7 +166,7 @@ export default function ContactPage() {
                   },
                 ].map((info) => (
                   <div key={info.label} className="flex gap-4 p-4 bg-slate-50 rounded-xl">
-                    <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center text-orange-600 flex-shrink-0">
+                    <div className="w-10 h-10 bg-brand-red-100 rounded-lg flex items-center justify-center text-brand-red-600 flex-shrink-0">
                       {info.icon}
                     </div>
                     <div>
@@ -178,12 +178,12 @@ export default function ContactPage() {
               </div>
 
               {/* Quick RFQ note */}
-              <div className="bg-orange-50 border border-orange-200 rounded-xl p-5">
-                <h3 className="font-bold text-orange-800 mb-2">Want a Faster Quote?</h3>
-                <p className="text-sm text-orange-700 mb-3">
+              <div className="bg-brand-red-50 border border-brand-red-200 rounded-xl p-5">
+                <h3 className="font-bold text-brand-red-800 mb-2">Want a Faster Quote?</h3>
+                <p className="text-sm text-brand-red-700 mb-3">
                   Register on our platform and upload your CAD files, material requirements, and quantities for a detailed quote in 24 hours.
                 </p>
-                <a href="/register" className="text-sm font-semibold text-orange-600 hover:text-orange-700">
+                <a href="/register" className="text-sm font-semibold text-brand-red-600 hover:text-brand-red-700">
                   Register & Upload RFQ →
                 </a>
               </div>

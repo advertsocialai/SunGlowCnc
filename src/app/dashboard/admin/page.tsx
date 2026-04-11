@@ -34,7 +34,7 @@ export default async function AdminRFQPage() {
           { key: 'quoted', label: 'Quoted', color: 'bg-blue-50 text-blue-700 border-blue-200' },
           { key: 'approved', label: 'Approved', color: 'bg-green-50 text-green-700 border-green-200' },
           { key: 'in_production', label: 'Production', color: 'bg-purple-50 text-purple-700 border-purple-200' },
-          { key: 'shipped', label: 'Shipped', color: 'bg-orange-50 text-orange-700 border-orange-200' },
+          { key: 'shipped', label: 'Shipped', color: 'bg-brand-red-50 text-brand-red-700 border-brand-red-200' },
           { key: 'completed', label: 'Completed', color: 'bg-slate-50 text-slate-700 border-slate-200' },
           { key: 'rejected', label: 'Rejected', color: 'bg-red-50 text-red-700 border-red-200' },
         ].map((s) => (

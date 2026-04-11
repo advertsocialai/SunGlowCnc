@@ -128,9 +128,9 @@ export default function ClientsPage() {
       <Navbar />
 
       {/* Header */}
-      <section className="bg-gradient-to-r from-slate-900 to-slate-800 text-white py-16">
+      <section className="bg-gradient-to-r from-brand-navy-800 to-slate-800 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-orange-400 text-sm font-semibold uppercase tracking-wider mb-2">20+ Years of Partnership</p>
+          <p className="text-brand-red-400 text-sm font-semibold uppercase tracking-wider mb-2">20+ Years of Partnership</p>
           <h1 className="text-4xl md:text-5xl font-black mb-4">Our Valued Clients</h1>
           <p className="text-lg text-slate-300 max-w-2xl">
             Trusted by India&apos;s leading organizations in Pharma, Defence, Technology, and EV sectors since 2003.
@@ -187,7 +187,7 @@ export default function ClientsPage() {
           <div className="grid md:grid-cols-3 gap-6">
             {testimonials.map((t, i) => (
               <div key={i} className="bg-white rounded-xl p-6 shadow-md">
-                <div className="text-orange-500 text-4xl mb-4">&ldquo;</div>
+                <div className="text-brand-red-500 text-4xl mb-4">&ldquo;</div>
                 <p className="text-slate-700 text-sm leading-relaxed mb-4 italic">{t.quote}</p>
                 <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider">{t.company}</p>
               </div>
@@ -197,11 +197,11 @@ export default function ClientsPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-orange-600 text-white">
+      <section className="py-16 bg-brand-red-600 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-black mb-4">Become Our Next Partner</h2>
-          <p className="text-orange-100 mb-6">Join India&apos;s most trusted CNC manufacturing network.</p>
-          <Link href="/contact" className="bg-white text-orange-600 hover:bg-orange-50 font-bold py-3 px-8 rounded-lg transition-colors inline-block">
+          <p className="text-brand-red-100 mb-6">Join India&apos;s most trusted CNC manufacturing network.</p>
+          <Link href="/contact" className="bg-white text-brand-red-600 hover:bg-brand-red-50 font-bold py-3 px-8 rounded-lg transition-colors inline-block">
             Get In Touch
           </Link>
         </div>

@@ -134,7 +134,7 @@ export default function NewRFQPage() {
               value={form.title}
               onChange={(e) => set('title', e.target.value)}
               placeholder="e.g., Star Wheel for Filling Machine - Batch 50"
-              className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+              className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-red-500 focus:border-transparent"
             />
           </div>
 
@@ -148,7 +148,7 @@ export default function NewRFQPage() {
               value={form.description}
               onChange={(e) => set('description', e.target.value)}
               placeholder="Describe the component, its function, any reference standards, dimensional overview..."
-              className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent resize-none"
+              className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-red-500 focus:border-transparent resize-none"
             />
           </div>
 
@@ -160,7 +160,7 @@ export default function NewRFQPage() {
                 required
                 value={form.material}
                 onChange={(e) => set('material', e.target.value)}
-                className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent bg-white"
+                className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-red-500 focus:border-transparent bg-white"
               >
                 <option value="">Select material...</option>
                 {materials.map((m) => (
@@ -173,7 +173,7 @@ export default function NewRFQPage() {
               <select
                 value={form.industry}
                 onChange={(e) => set('industry', e.target.value)}
-                className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent bg-white"
+                className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-red-500 focus:border-transparent bg-white"
               >
                 <option value="">Select industry...</option>
                 {industries.map((i) => (
@@ -192,7 +192,7 @@ export default function NewRFQPage() {
                 value={form.customMaterial}
                 onChange={(e) => set('customMaterial', e.target.value)}
                 placeholder="e.g., Hastelloy C-276, Monel 400"
-                className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
+                className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-red-500"
               />
             </div>
           )}
@@ -206,7 +206,7 @@ export default function NewRFQPage() {
                 value={form.tolerance}
                 onChange={(e) => set('tolerance', e.target.value)}
                 placeholder="e.g., ±0.01mm"
-                className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
+                className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-red-500"
               />
             </div>
             <div>
@@ -218,7 +218,7 @@ export default function NewRFQPage() {
                 value={form.quantity}
                 onChange={(e) => set('quantity', e.target.value)}
                 placeholder="Number of pieces"
-                className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
+                className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-red-500"
               />
             </div>
             <div>
@@ -226,7 +226,7 @@ export default function NewRFQPage() {
               <select
                 value={form.priority}
                 onChange={(e) => set('priority', e.target.value)}
-                className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 bg-white"
+                className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-red-500 bg-white"
               >
                 <option value="low">Low</option>
                 <option value="normal">Normal</option>
@@ -240,7 +240,7 @@ export default function NewRFQPage() {
           <div>
             <label className="block text-sm font-semibold text-slate-700 mb-2">Attach CAD / Drawing File</label>
             <div
-              className="border-2 border-dashed border-slate-300 rounded-lg p-6 text-center cursor-pointer hover:border-orange-400 hover:bg-orange-50 transition-colors"
+              className="border-2 border-dashed border-slate-300 rounded-lg p-6 text-center cursor-pointer hover:border-brand-red-400 hover:bg-brand-red-50 transition-colors"
               onClick={() => fileInputRef.current?.click()}
             >
               {uploadedFile ? (
@@ -257,7 +257,7 @@ export default function NewRFQPage() {
                 </div>
               ) : uploading ? (
                 <div className="flex items-center justify-center gap-2 text-slate-500 text-sm">
-                  <div className="w-4 h-4 border-2 border-orange-500 border-t-transparent rounded-full animate-spin" />
+                  <div className="w-4 h-4 border-2 border-brand-red-500 border-t-transparent rounded-full animate-spin" />
                   Uploading...
                 </div>
               ) : (
@@ -284,7 +284,7 @@ export default function NewRFQPage() {
               value={form.notes}
               onChange={(e) => set('notes', e.target.value)}
               placeholder="Any special requirements, surface finish specs, delivery timeline requirements..."
-              className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 resize-none"
+              className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-red-500 resize-none"
             />
           </div>
 
@@ -293,7 +293,7 @@ export default function NewRFQPage() {
             <button
               type="submit"
               disabled={loading}
-              className="flex-1 bg-orange-600 hover:bg-orange-700 disabled:bg-orange-300 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+              className="flex-1 bg-brand-red-600 hover:bg-brand-red-700 disabled:bg-brand-red-300 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
             >
               {loading ? 'Submitting RFQ...' : 'Submit RFQ'}
             </button>

@@ -97,16 +97,16 @@ export default function CapabilitiesPage() {
       <Navbar />
 
       {/* Header */}
-      <section className="bg-gradient-to-r from-slate-900 to-slate-800 text-white py-16">
+      <section className="bg-gradient-to-r from-brand-navy-800 to-slate-800 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-orange-400 text-sm font-semibold uppercase tracking-wider mb-2">Technical Specifications</p>
+          <p className="text-brand-red-400 text-sm font-semibold uppercase tracking-wider mb-2">Technical Specifications</p>
           <h1 className="text-4xl md:text-5xl font-black mb-4">Machining Capabilities</h1>
           <p className="text-lg text-slate-300 max-w-2xl mb-6">
             Complete specifications for our CNC machining services — tolerances, lead times, part sizes, and design guidelines.
           </p>
           <div className="flex flex-wrap gap-2">
             {['±0.01mm Precision', 'Pharma-Grade Finishing', 'Defence-Certified QC', 'CAD File Support'].map((badge) => (
-              <span key={badge} className="bg-orange-600/30 border border-orange-500/40 text-orange-300 text-sm px-4 py-1.5 rounded-full">{badge}</span>
+              <span key={badge} className="bg-brand-red-600/30 border border-brand-red-500/40 text-brand-red-300 text-sm px-4 py-1.5 rounded-full">{badge}</span>
             ))}
           </div>
         </div>
@@ -119,7 +119,7 @@ export default function CapabilitiesPage() {
           <div className="overflow-x-auto rounded-xl border border-slate-200 shadow-sm">
             <table className="w-full">
               <thead>
-                <tr className="bg-slate-900 text-white">
+                <tr className="bg-brand-navy-800 text-white">
                   <th className="px-5 py-4 text-left text-sm font-semibold">Service</th>
                   <th className="px-5 py-4 text-left text-sm font-semibold">Lead Time</th>
                   <th className="px-5 py-4 text-left text-sm font-semibold">Tolerance</th>
@@ -134,7 +134,7 @@ export default function CapabilitiesPage() {
                       <div className="font-semibold text-slate-900 text-sm">{row.service}</div>
                       <div className="text-xs text-slate-500 mt-0.5">{row.materials}</div>
                     </td>
-                    <td className="px-5 py-4 text-sm text-orange-700 font-medium">{row.leadTime}</td>
+                    <td className="px-5 py-4 text-sm text-brand-red-700 font-medium">{row.leadTime}</td>
                     <td className="px-5 py-4 text-sm text-slate-700 font-semibold">{row.tolerance}</td>
                     <td className="px-5 py-4 text-sm text-slate-600">{row.maxSize}</td>
                     <td className="px-5 py-4 text-sm text-slate-600">{row.machines}</td>
@@ -157,8 +157,8 @@ export default function CapabilitiesPage() {
           <div className="grid sm:grid-cols-2 gap-5">
             {designGuidelines.map((g) => (
               <div key={g.rule} className="bg-white rounded-xl p-5 shadow-sm flex gap-4">
-                <div className="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <svg className="w-4 h-4 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <div className="w-8 h-8 bg-brand-red-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <svg className="w-4 h-4 text-brand-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
@@ -169,8 +169,8 @@ export default function CapabilitiesPage() {
               </div>
             ))}
           </div>
-          <div className="mt-6 bg-orange-50 border border-orange-200 rounded-xl p-5">
-            <p className="text-sm text-orange-800">
+          <div className="mt-6 bg-brand-red-50 border border-brand-red-200 rounded-xl p-5">
+            <p className="text-sm text-brand-red-800">
               <strong>Free DFM Review:</strong> Upload your CAD file with your RFQ and our engineers will review your design for manufacturability and suggest cost-saving optimizations at no charge.
             </p>
           </div>
@@ -193,14 +193,14 @@ export default function CapabilitiesPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-12 bg-orange-600 text-white">
+      <section className="py-12 bg-brand-red-600 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
             <h2 className="text-2xl font-black">Ready to Start Your Project?</h2>
-            <p className="text-orange-100 text-sm mt-1">Upload your design and get a quote in 24 hours.</p>
+            <p className="text-brand-red-100 text-sm mt-1">Upload your design and get a quote in 24 hours.</p>
           </div>
           <div className="flex gap-3">
-            <Link href="/dashboard/rfq/new" className="bg-white text-orange-600 hover:bg-orange-50 font-bold py-3 px-6 rounded-lg transition-colors whitespace-nowrap">
+            <Link href="/dashboard/rfq/new" className="bg-white text-brand-red-600 hover:bg-brand-red-50 font-bold py-3 px-6 rounded-lg transition-colors whitespace-nowrap">
               Get Instant Quote
             </Link>
             <Link href="/contact" className="border border-white/50 text-white hover:bg-white/10 font-bold py-3 px-6 rounded-lg transition-colors">

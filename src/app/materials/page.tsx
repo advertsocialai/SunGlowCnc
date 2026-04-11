@@ -55,8 +55,8 @@ const metalGroups = [
   {
     name: 'Copper, Brass & Bronze',
     icon: '🟠',
-    color: 'bg-orange-50 border-orange-200',
-    tagColor: 'bg-orange-100 text-orange-800',
+    color: 'bg-brand-red-50 border-brand-red-200',
+    tagColor: 'bg-brand-red-100 text-brand-red-800',
     materials: [
       { grade: 'Copper C101', desc: 'High conductivity copper for electrical and thermal applications.', uses: ['Heat sinks', 'Electrical contacts', 'RF components'] },
       { grade: 'Brass C360', desc: 'Free-machining brass. Excellent for precision turned parts and fittings.', uses: ['Connectors', 'Fittings', 'Valves', 'Waveguides'] },
@@ -111,23 +111,23 @@ export default function MaterialsPage() {
       <Navbar />
 
       {/* Header Banner */}
-      <section className="bg-gradient-to-r from-slate-900 to-slate-800 text-white py-16">
+      <section className="bg-gradient-to-r from-brand-navy-800 to-slate-800 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-orange-400 text-sm font-semibold uppercase tracking-wider mb-2">Material Selection</p>
+          <p className="text-brand-red-400 text-sm font-semibold uppercase tracking-wider mb-2">Material Selection</p>
           <h1 className="text-4xl md:text-5xl font-black mb-4">Machining Materials</h1>
           <p className="text-lg text-slate-300 max-w-2xl mb-6">
             We machine 40+ metals and engineering plastics — from commodity aluminium to aerospace-grade titanium and Inconel superalloys.
           </p>
           <div className="flex flex-wrap gap-3">
-            <span className="bg-orange-600/30 border border-orange-500/40 text-orange-300 text-sm px-4 py-1.5 rounded-full">Metals: 25+ grades</span>
-            <span className="bg-orange-600/30 border border-orange-500/40 text-orange-300 text-sm px-4 py-1.5 rounded-full">Plastics: 10+ grades</span>
-            <span className="bg-orange-600/30 border border-orange-500/40 text-orange-300 text-sm px-4 py-1.5 rounded-full">Custom materials on request</span>
+            <span className="bg-brand-red-600/30 border border-brand-red-500/40 text-brand-red-300 text-sm px-4 py-1.5 rounded-full">Metals: 25+ grades</span>
+            <span className="bg-brand-red-600/30 border border-brand-red-500/40 text-brand-red-300 text-sm px-4 py-1.5 rounded-full">Plastics: 10+ grades</span>
+            <span className="bg-brand-red-600/30 border border-brand-red-500/40 text-brand-red-300 text-sm px-4 py-1.5 rounded-full">Custom materials on request</span>
           </div>
         </div>
       </section>
 
       {/* Tolerance Reference */}
-      <section className="bg-orange-50 border-b border-orange-200 py-8">
+      <section className="bg-brand-red-50 border-b border-brand-red-200 py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-lg font-bold text-slate-900 mb-4">Quick Tolerance Reference</h2>
           <div className="overflow-x-auto">
@@ -141,9 +141,9 @@ export default function MaterialsPage() {
               </thead>
               <tbody>
                 {toleranceTable.map((row, i) => (
-                  <tr key={row.feature} className={i % 2 === 0 ? 'bg-white' : 'bg-orange-50/50'}>
+                  <tr key={row.feature} className={i % 2 === 0 ? 'bg-white' : 'bg-brand-red-50/50'}>
                     <td className="px-4 py-2 text-slate-800 border border-slate-200 font-medium">{row.feature}</td>
-                    <td className="px-4 py-2 text-orange-700 border border-slate-200 font-semibold">{row.value}</td>
+                    <td className="px-4 py-2 text-brand-red-700 border border-slate-200 font-semibold">{row.value}</td>
                     <td className="px-4 py-2 text-slate-500 border border-slate-200">{row.note}</td>
                   </tr>
                 ))}
@@ -231,7 +231,7 @@ export default function MaterialsPage() {
               { name: 'Passivation', desc: 'Stainless steel. Removes free iron, improves corrosion resistance. Pharma/medical standard.', color: 'bg-green-50' },
               { name: 'Electropolish', desc: 'Mirror-bright finish on stainless. Pharma-grade GMP requirement. Reduces bacterial adhesion.', color: 'bg-green-50' },
               { name: 'Powder Coat', desc: 'Durable colour coat. Excellent corrosion and UV protection. Many colours.', color: 'bg-yellow-50' },
-              { name: 'Chrome / Nickel Plating', desc: 'Decorative and functional plating for wear and corrosion resistance.', color: 'bg-orange-50' },
+              { name: 'Chrome / Nickel Plating', desc: 'Decorative and functional plating for wear and corrosion resistance.', color: 'bg-brand-red-50' },
             ].map((finish) => (
               <div key={finish.name} className={`${finish.color} rounded-xl p-4 border border-slate-200`}>
                 <div className="font-bold text-slate-900 text-sm mb-2">{finish.name}</div>
@@ -243,12 +243,12 @@ export default function MaterialsPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-12 bg-orange-600 text-white">
+      <section className="py-12 bg-brand-red-600 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl font-black mb-3">Need a Specific Material or Grade?</h2>
-          <p className="text-orange-100 mb-5 text-sm">We can source and machine exotic alloys and specialty plastics on request. Contact our team.</p>
+          <p className="text-brand-red-100 mb-5 text-sm">We can source and machine exotic alloys and specialty plastics on request. Contact our team.</p>
           <div className="flex justify-center gap-3">
-            <Link href="/dashboard/rfq/new" className="bg-white text-orange-600 hover:bg-orange-50 font-bold py-2.5 px-6 rounded-lg transition-colors text-sm">
+            <Link href="/dashboard/rfq/new" className="bg-white text-brand-red-600 hover:bg-brand-red-50 font-bold py-2.5 px-6 rounded-lg transition-colors text-sm">
               Get a Quote
             </Link>
             <Link href="/contact" className="border border-white/50 text-white hover:bg-white/10 font-bold py-2.5 px-6 rounded-lg transition-colors text-sm">

@@ -138,7 +138,7 @@ export default function QuotePage() {
           <div className="flex flex-col gap-3">
             <Link
               href="/dashboard/rfq"
-              className="bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 px-6 rounded-lg transition-colors"
+              className="bg-brand-red-600 hover:bg-brand-red-700 text-white font-bold py-3 px-6 rounded-lg transition-colors"
             >
               Track Your RFQ
             </Link>
@@ -159,12 +159,12 @@ export default function QuotePage() {
       {/* Top bar */}
       <div className="bg-white border-b border-slate-200 px-6 py-4 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
-          <span className="text-orange-600 font-black text-xl">SUNGLOW</span>
+          <span className="text-brand-red-600 font-black text-xl">SUNGLOW</span>
           <span className="text-slate-600 font-light text-sm">CNC</span>
         </Link>
         <div className="text-sm text-slate-500">
           Have an account?{' '}
-          <Link href="/login" className="text-orange-600 hover:underline font-medium">
+          <Link href="/login" className="text-brand-red-600 hover:underline font-medium">
             Sign in
           </Link>
         </div>
@@ -175,7 +175,7 @@ export default function QuotePage() {
         <div className="flex items-center gap-3 mb-8">
           {[1, 2].map((s) => (
             <div key={s} className="flex items-center gap-2">
-              <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${step >= s ? 'bg-orange-600 text-white' : 'bg-slate-200 text-slate-500'}`}>
+              <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${step >= s ? 'bg-brand-red-600 text-white' : 'bg-slate-200 text-slate-500'}`}>
                 {step > s ? '✓' : s}
               </div>
               <span className={`text-sm font-medium ${step >= s ? 'text-slate-900' : 'text-slate-400'}`}>
@@ -202,7 +202,7 @@ export default function QuotePage() {
                   value={form.title}
                   onChange={(e) => set('title', e.target.value)}
                   placeholder="e.g., Impeller Housing — 3-inch"
-                  className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
+                  className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-red-500"
                 />
               </div>
 
@@ -213,7 +213,7 @@ export default function QuotePage() {
                   <select
                     value={form.materialGroup}
                     onChange={(e) => { set('materialGroup', e.target.value); set('materialItem', '') }}
-                    className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 bg-white"
+                    className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-red-500 bg-white"
                   >
                     <option value="">Select...</option>
                     {materials.map((m) => (
@@ -227,7 +227,7 @@ export default function QuotePage() {
                     <select
                       value={form.materialItem}
                       onChange={(e) => set('materialItem', e.target.value)}
-                      className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 bg-white"
+                      className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-red-500 bg-white"
                     >
                       <option value="">Any / specify in notes</option>
                       {selectedGroup.items.map((i) => (
@@ -245,7 +245,7 @@ export default function QuotePage() {
                   <select
                     value={form.tolerance}
                     onChange={(e) => set('tolerance', e.target.value)}
-                    className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 bg-white"
+                    className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-red-500 bg-white"
                   >
                     {toleranceOptions.map((t) => (
                       <option key={t.value} value={t.value}>{t.label}</option>
@@ -259,7 +259,7 @@ export default function QuotePage() {
                     min={1}
                     value={form.quantity}
                     onChange={(e) => set('quantity', e.target.value)}
-                    className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
+                    className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-red-500"
                   />
                 </div>
               </div>
@@ -272,7 +272,7 @@ export default function QuotePage() {
                     value={form.customTolerance}
                     onChange={(e) => set('customTolerance', e.target.value)}
                     placeholder="e.g., H7/g6 shaft/hole fit"
-                    className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
+                    className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-red-500"
                   />
                 </div>
               )}
@@ -288,8 +288,8 @@ export default function QuotePage() {
                       onClick={() => set('finish', f)}
                       className={`px-3 py-1.5 rounded-lg text-xs font-medium border transition-colors ${
                         form.finish === f
-                          ? 'bg-orange-600 text-white border-orange-600'
-                          : 'border-slate-200 text-slate-600 hover:border-orange-400 hover:text-orange-600'
+                          ? 'bg-brand-red-600 text-white border-brand-red-600'
+                          : 'border-slate-200 text-slate-600 hover:border-brand-red-400 hover:text-brand-red-600'
                       }`}
                     >
                       {f}
@@ -301,7 +301,7 @@ export default function QuotePage() {
               <button
                 onClick={() => setStep(2)}
                 disabled={!form.title || !form.materialGroup || !form.quantity}
-                className="w-full bg-orange-600 hover:bg-orange-700 disabled:bg-orange-300 text-white font-bold py-3 rounded-lg transition-colors"
+                className="w-full bg-brand-red-600 hover:bg-brand-red-700 disabled:bg-brand-red-300 text-white font-bold py-3 rounded-lg transition-colors"
               >
                 Next: Add Files →
               </button>
@@ -320,7 +320,7 @@ export default function QuotePage() {
                 <label className="block text-sm font-semibold text-slate-700 mb-2">CAD / Drawing File (optional)</label>
                 <div
                   className={`border-2 border-dashed rounded-xl p-8 text-center cursor-pointer transition-colors ${
-                    form.fileUrl ? 'border-green-300 bg-green-50' : 'border-slate-300 hover:border-orange-400 hover:bg-orange-50'
+                    form.fileUrl ? 'border-green-300 bg-green-50' : 'border-slate-300 hover:border-brand-red-400 hover:bg-brand-red-50'
                   }`}
                   onClick={() => fileInputRef.current?.click()}
                 >
@@ -337,7 +337,7 @@ export default function QuotePage() {
                     </div>
                   ) : uploading ? (
                     <div className="flex items-center justify-center gap-2 text-slate-500">
-                      <div className="w-5 h-5 border-2 border-orange-500 border-t-transparent rounded-full animate-spin" />
+                      <div className="w-5 h-5 border-2 border-brand-red-500 border-t-transparent rounded-full animate-spin" />
                       <span className="text-sm">Uploading...</span>
                     </div>
                   ) : (
@@ -366,7 +366,7 @@ export default function QuotePage() {
                   value={form.description}
                   onChange={(e) => set('description', e.target.value)}
                   placeholder="Describe the component function, any critical features, reference drawings..."
-                  className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 resize-none"
+                  className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-red-500 resize-none"
                 />
               </div>
 
@@ -378,7 +378,7 @@ export default function QuotePage() {
                   value={form.notes}
                   onChange={(e) => set('notes', e.target.value)}
                   placeholder="Delivery timeline, special packaging, export compliance, inspection requirements..."
-                  className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 resize-none"
+                  className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-red-500 resize-none"
                 />
               </div>
 
@@ -392,7 +392,7 @@ export default function QuotePage() {
                 <button
                   onClick={handleSubmit}
                   disabled={submitting}
-                  className="flex-1 bg-orange-600 hover:bg-orange-700 disabled:bg-orange-300 text-white font-bold py-3 rounded-lg transition-colors"
+                  className="flex-1 bg-brand-red-600 hover:bg-brand-red-700 disabled:bg-brand-red-300 text-white font-bold py-3 rounded-lg transition-colors"
                 >
                   {submitting ? 'Submitting...' : 'Submit Quote Request'}
                 </button>

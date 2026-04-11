@@ -34,9 +34,9 @@ export default function AboutPage() {
       <Navbar />
 
       {/* Header */}
-      <section className="bg-gradient-to-r from-slate-900 to-slate-800 text-white py-16">
+      <section className="bg-gradient-to-r from-brand-navy-800 to-slate-800 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-orange-400 text-sm font-semibold uppercase tracking-wider mb-2">Our Story</p>
+          <p className="text-brand-red-400 text-sm font-semibold uppercase tracking-wider mb-2">Our Story</p>
           <h1 className="text-4xl md:text-5xl font-black mb-4">A Legacy of Precision</h1>
           <p className="text-lg text-slate-300 max-w-2xl">
             Since 2003, Sunglow CNC Technics has been the trusted manufacturing partner for India&apos;s most
@@ -68,15 +68,15 @@ export default function AboutPage() {
                   { val: '500+', label: 'Projects Completed' },
                   { val: '5', label: 'Machine Types' },
                 ].map((stat) => (
-                  <div key={stat.label} className="bg-orange-50 rounded-xl p-4 text-center">
-                    <div className="text-2xl font-black text-orange-600">{stat.val}</div>
+                  <div key={stat.label} className="bg-brand-red-50 rounded-xl p-4 text-center">
+                    <div className="text-2xl font-black text-brand-red-600">{stat.val}</div>
                     <div className="text-xs text-slate-600 mt-1">{stat.label}</div>
                   </div>
                 ))}
               </div>
             </div>
-            <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-8 text-white">
-              <h3 className="text-lg font-bold text-orange-400 mb-6 uppercase tracking-wider">Our Values</h3>
+            <div className="bg-gradient-to-br from-slate-800 to-brand-navy-800 rounded-2xl p-8 text-white">
+              <h3 className="text-lg font-bold text-brand-red-400 mb-6 uppercase tracking-wider">Our Values</h3>
               <div className="space-y-5">
                 {values.map((v) => (
                   <div key={v.title} className="flex gap-4">
@@ -104,19 +104,19 @@ export default function AboutPage() {
             {machinery.map((m) => (
               <div key={m.name} className="card p-6">
                 <div className="flex items-start justify-between mb-3">
-                  <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center">
-                    <svg className="w-5 h-5 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <div className="w-10 h-10 bg-brand-red-100 rounded-lg flex items-center justify-center">
+                    <svg className="w-5 h-5 text-brand-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
                   </div>
-                  <span className="bg-orange-100 text-orange-700 font-bold text-sm px-3 py-1 rounded-full">
+                  <span className="bg-brand-red-100 text-brand-red-700 font-bold text-sm px-3 py-1 rounded-full">
                     ×{m.qty}
                   </span>
                 </div>
                 <h3 className="font-bold text-slate-900 mb-1">{m.name}</h3>
                 <p className="text-sm text-slate-600 mb-3">{m.detail}</p>
-                <p className="text-xs text-orange-600 font-medium bg-orange-50 px-3 py-1.5 rounded-lg">
+                <p className="text-xs text-brand-red-600 font-medium bg-brand-red-50 px-3 py-1.5 rounded-lg">
                   {m.capability}
                 </p>
               </div>
@@ -130,17 +130,17 @@ export default function AboutPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="section-title text-center mb-12">Our Journey</h2>
           <div className="relative">
-            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-orange-200" />
+            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-brand-red-200" />
             <div className="space-y-6">
               {milestones.map((m) => (
                 <div key={m.year} className="flex gap-6 pl-4">
                   <div className="relative flex-shrink-0">
-                    <div className="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center text-white text-xs font-bold z-10 relative">
+                    <div className="w-8 h-8 bg-brand-red-500 rounded-full flex items-center justify-center text-white text-xs font-bold z-10 relative">
                       ●
                     </div>
                   </div>
                   <div className="bg-slate-50 rounded-xl px-5 py-4 flex-1 -mt-1">
-                    <span className="text-orange-600 font-black text-sm">{m.year}</span>
+                    <span className="text-brand-red-600 font-black text-sm">{m.year}</span>
                     <p className="text-slate-700 text-sm mt-1">{m.event}</p>
                   </div>
                 </div>
@@ -151,12 +151,12 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-orange-600 text-white">
+      <section className="py-16 bg-brand-red-600 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-black mb-4">Ready to Work With Us?</h2>
-          <p className="text-orange-100 mb-6">20 years of precision — and we&apos;re just getting started.</p>
+          <p className="text-brand-red-100 mb-6">20 years of precision — and we&apos;re just getting started.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contact" className="bg-white text-orange-600 hover:bg-orange-50 font-bold py-3 px-8 rounded-lg transition-colors">
+            <Link href="/contact" className="bg-white text-brand-red-600 hover:bg-brand-red-50 font-bold py-3 px-8 rounded-lg transition-colors">
               Contact Us
             </Link>
             <Link href="/register" className="border-2 border-white/50 text-white hover:bg-white/10 font-bold py-3 px-8 rounded-lg transition-colors">

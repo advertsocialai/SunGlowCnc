@@ -121,7 +121,7 @@ export default function AdminRFQTable({ rfqs: initialRfqs }: { rfqs: RFQRow[] })
             key={s.value}
             onClick={() => setFilter(s.value)}
             className={`px-4 py-1.5 rounded-full text-xs font-medium whitespace-nowrap transition-colors ${
-              filter === s.value ? 'bg-orange-600 text-white' : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200'
+              filter === s.value ? 'bg-brand-red-600 text-white' : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200'
             }`}
           >
             {s.label}
@@ -167,7 +167,7 @@ export default function AdminRFQTable({ rfqs: initialRfqs }: { rfqs: RFQRow[] })
                     <td className="px-5 py-4">
                       <span className={`badge text-xs ${
                         rfq.priority === 'urgent' ? 'bg-red-100 text-red-700' :
-                        rfq.priority === 'high' ? 'bg-orange-100 text-orange-700' :
+                        rfq.priority === 'high' ? 'bg-brand-red-100 text-brand-red-700' :
                         rfq.priority === 'normal' ? 'bg-blue-100 text-blue-700' :
                         'bg-slate-100 text-slate-600'
                       }`}>
@@ -179,7 +179,7 @@ export default function AdminRFQTable({ rfqs: initialRfqs }: { rfqs: RFQRow[] })
                         value={rfq.status}
                         onChange={(e) => updateStatus(rfq.id, e.target.value)}
                         disabled={updating}
-                        className="text-xs border border-slate-200 rounded-lg px-2 py-1.5 bg-white focus:outline-none focus:ring-1 focus:ring-orange-500"
+                        className="text-xs border border-slate-200 rounded-lg px-2 py-1.5 bg-white focus:outline-none focus:ring-1 focus:ring-brand-red-500"
                       >
                         {statusOptions.map(s => (
                           <option key={s.value} value={s.value}>{s.label}</option>
@@ -203,7 +203,7 @@ export default function AdminRFQTable({ rfqs: initialRfqs }: { rfqs: RFQRow[] })
                             setQuoteForm({ amount: String(rfq.quote.amount), validDays: '30', notes: rfq.quote.notes ?? '' })
                           }
                         }}
-                        className="text-xs bg-orange-50 hover:bg-orange-100 text-orange-700 border border-orange-200 px-3 py-1.5 rounded-lg transition-colors font-medium"
+                        className="text-xs bg-brand-red-50 hover:bg-brand-red-100 text-brand-red-700 border border-brand-red-200 px-3 py-1.5 rounded-lg transition-colors font-medium"
                       >
                         {rfq.quote ? 'View / Edit' : 'Add Quote'}
                       </button>
@@ -262,7 +262,7 @@ export default function AdminRFQTable({ rfqs: initialRfqs }: { rfqs: RFQRow[] })
                     min={0}
                     value={quoteForm.amount}
                     onChange={(e) => setQuoteForm(p => ({ ...p, amount: e.target.value }))}
-                    className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
+                    className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-red-500"
                     placeholder="75000"
                   />
                 </div>
@@ -274,7 +274,7 @@ export default function AdminRFQTable({ rfqs: initialRfqs }: { rfqs: RFQRow[] })
                     max={90}
                     value={quoteForm.validDays}
                     onChange={(e) => setQuoteForm(p => ({ ...p, validDays: e.target.value }))}
-                    className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
+                    className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-red-500"
                   />
                 </div>
               </div>
@@ -285,14 +285,14 @@ export default function AdminRFQTable({ rfqs: initialRfqs }: { rfqs: RFQRow[] })
                   value={quoteForm.notes}
                   onChange={(e) => setQuoteForm(p => ({ ...p, notes: e.target.value }))}
                   placeholder="Includes material, machining, finishing. Delivery in 15 working days..."
-                  className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 resize-none"
+                  className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-red-500 resize-none"
                 />
               </div>
               <div className="flex gap-3">
                 <button
                   onClick={() => addQuote(selectedRfq.id)}
                   disabled={updating}
-                  className="flex-1 bg-orange-600 hover:bg-orange-700 disabled:bg-orange-300 text-white font-semibold py-2.5 rounded-lg transition-colors text-sm"
+                  className="flex-1 bg-brand-red-600 hover:bg-brand-red-700 disabled:bg-brand-red-300 text-white font-semibold py-2.5 rounded-lg transition-colors text-sm"
                 >
                   {updating ? 'Submitting...' : 'Submit Quote'}
                 </button>

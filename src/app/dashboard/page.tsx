@@ -114,11 +114,11 @@ export default async function DashboardPage() {
           <h2 className="font-semibold text-slate-900">Recent RFQs</h2>
           <div className="flex gap-2">
             {!isAdmin && (
-              <Link href="/dashboard/rfq/new" className="bg-orange-600 hover:bg-orange-700 text-white text-xs px-4 py-2 rounded-lg transition-colors">
+              <Link href="/dashboard/rfq/new" className="bg-brand-red-600 hover:bg-brand-red-700 text-white text-xs px-4 py-2 rounded-lg transition-colors">
                 + New RFQ
               </Link>
             )}
-            <Link href={isAdmin ? '/dashboard/admin' : '/dashboard/rfq'} className="text-xs text-orange-600 hover:text-orange-700 font-medium">
+            <Link href={isAdmin ? '/dashboard/admin' : '/dashboard/rfq'} className="text-xs text-brand-red-600 hover:text-brand-red-700 font-medium">
               View All →
             </Link>
           </div>
@@ -142,7 +142,7 @@ export default async function DashboardPage() {
                   <td colSpan={7} className="px-6 py-10 text-center text-slate-400 text-sm">
                     No RFQs yet.{' '}
                     {!isAdmin && (
-                      <Link href="/dashboard/rfq/new" className="text-orange-600 font-medium">Submit your first RFQ</Link>
+                      <Link href="/dashboard/rfq/new" className="text-brand-red-600 font-medium">Submit your first RFQ</Link>
                     )}
                   </td>
                 </tr>
