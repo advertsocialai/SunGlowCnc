@@ -116,15 +116,15 @@ export default function AdminRFQTable({ rfqs: initialRfqs }: { rfqs: RFQRow[] })
     <>
       {/* Filter tabs */}
       <div className="flex gap-2 mb-4 overflow-x-auto pb-1">
-        {[{ v: 'all', l: 'All' }, ...statusOptions].map(s => (
+        {[{ value: 'all', label: 'All' }, ...statusOptions].map(s => (
           <button
-            key={s.v}
-            onClick={() => setFilter(s.v)}
+            key={s.value}
+            onClick={() => setFilter(s.value)}
             className={`px-4 py-1.5 rounded-full text-xs font-medium whitespace-nowrap transition-colors ${
-              filter === s.v ? 'bg-orange-600 text-white' : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200'
+              filter === s.value ? 'bg-orange-600 text-white' : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200'
             }`}
           >
-            {s.l}
+            {s.label}
           </button>
         ))}
       </div>
