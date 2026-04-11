@@ -6,7 +6,8 @@ const industries = [
   {
     name: 'Aerospace',
     icon: '✈',
-    color: 'from-sky-500 to-blue-700',
+    color: 'from-sky-700 to-blue-900',
+    image: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&q=80&fit=crop',
     components: [
       { title: 'Airframe Structural Components', desc: 'Lightweight, high-strength brackets and mounts with complex geometry milled from aerospace-grade aluminum alloys.' },
       { title: 'Complex Manifolds', desc: 'Intricate fluid and gas flow components with high-tolerance drilling and precision-bored passages.' },
@@ -16,7 +17,8 @@ const industries = [
   {
     name: 'Automobile & EV',
     icon: '⚡',
-    color: 'from-yellow-500 to-brand-red-600',
+    color: 'from-yellow-600 to-orange-800',
+    image: 'https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=600&q=80&fit=crop',
     components: [
       { title: 'EV Battery Casings', desc: 'Precision-machined battery enclosures with thermal management features for electric vehicles.' },
       { title: 'Engine & Powertrain Parts', desc: 'Connecting rods, transmission components, and housing machined to tight tolerances.' },
@@ -28,7 +30,8 @@ const industries = [
   {
     name: 'Die & Mould',
     icon: '🔧',
-    color: 'from-slate-500 to-slate-700',
+    color: 'from-slate-600 to-slate-900',
+    image: 'https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=600&q=80&fit=crop',
     components: [
       { title: 'Textured Mould Plates', desc: 'High-detail surface texturing for plastic and rubber moulding applications.' },
       { title: 'Cavity & Core Inserts', desc: 'Precision 3D contouring for complex injection moulding dies with mirror-finish surfaces.' },
@@ -38,7 +41,8 @@ const industries = [
   {
     name: 'Electronics',
     icon: '💻',
-    color: 'from-indigo-500 to-purple-700',
+    color: 'from-indigo-600 to-purple-900',
+    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=80&fit=crop',
     components: [
       { title: 'Consumer Device Housing', desc: 'Finished aluminum casings for smartphones and tablets — iPhone-style precision milling.' },
       { title: 'Heat Sinks & Connector Blocks', desc: 'Multi-ported electronic housings and thermal management components.' },
@@ -48,7 +52,8 @@ const industries = [
   {
     name: 'Energy & Turbine',
     icon: '⚙',
-    color: 'from-green-500 to-emerald-700',
+    color: 'from-green-600 to-emerald-900',
+    image: 'https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=600&q=80&fit=crop',
     components: [
       { title: 'Turbine Blades', desc: 'High-precision aerodynamic profiles for power generation with complex 3D curved surfaces.' },
       { title: 'Stator & Rotor Components', desc: 'Durable components designed for high-stress, high-temperature energy environments.' },
@@ -58,7 +63,8 @@ const industries = [
   {
     name: 'Pharma & Medical',
     icon: '💊',
-    color: 'from-teal-500 to-cyan-700',
+    color: 'from-teal-600 to-cyan-900',
+    image: 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=600&q=80&fit=crop',
     components: [
       { title: 'Star Wheels & Guides', desc: 'Precision star wheels and linear guides for pharmaceutical filling machines.' },
       { title: 'Surgical Instrumentation', desc: 'Specialized guide rails and tools with clinical-grade electro-polished finishes.' },
@@ -70,7 +76,8 @@ const industries = [
   {
     name: 'Defence & Government',
     icon: '🛡',
-    color: 'from-red-600 to-rose-800',
+    color: 'from-red-700 to-rose-900',
+    image: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80&fit=crop',
     components: [
       { title: 'Microwave Systems Hardware', desc: 'Precision waveguide components and housings for microwave communication systems (Avantel).' },
       { title: 'Cell Jammer Components', desc: 'Critical RF hardware components for electronic warfare and jamming systems.' },
@@ -81,7 +88,8 @@ const industries = [
   {
     name: 'Industrial Production',
     icon: '🏭',
-    color: 'from-brand-red-500 to-amber-700',
+    color: 'from-orange-600 to-amber-900',
+    image: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?w=600&q=80&fit=crop',
     components: [
       { title: 'Engine Block Casings', desc: 'Heavy-duty, multi-axis machined cylinder heads and gearbox housings.' },
       { title: 'Mechanical Housing', desc: 'Rugged enclosures for industrial machinery with complex bore patterns.' },
@@ -91,7 +99,8 @@ const industries = [
   {
     name: 'Tool Room',
     icon: '🔩',
-    color: 'from-zinc-500 to-zinc-700',
+    color: 'from-zinc-600 to-zinc-900',
+    image: 'https://images.unsplash.com/photo-1585909695284-32d2985ac9c0?w=600&q=80&fit=crop',
     components: [
       { title: 'Custom Jigs & Fixtures', desc: 'Precision-aligned tooling for manufacturing assembly lines and QC operations.' },
       { title: 'Multi-Point Cutting Tools', desc: 'High-hardness tool holders and specialized machining bits for production use.' },
@@ -101,7 +110,8 @@ const industries = [
   {
     name: 'Robotics & Drones',
     icon: '🤖',
-    color: 'from-violet-500 to-purple-700',
+    color: 'from-violet-600 to-purple-900',
+    image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600&q=80&fit=crop',
     components: [
       { title: 'Drone Frame Components', desc: 'Lightweight structural frames and mounts for UAV systems — carbon fibre compatible.' },
       { title: 'Robotic Actuator Parts', desc: 'Precision actuator bodies, motor mounts, and gear housings for industrial robots.' },
@@ -132,10 +142,21 @@ export default function IndustriesPage() {
           <div className="grid md:grid-cols-2 gap-8">
             {industries.map((ind) => (
               <div key={ind.name} className="card overflow-hidden">
-                {/* Header bar */}
-                <div className={`bg-gradient-to-r ${ind.color} p-5 flex items-center gap-4`}>
-                  <div className="text-4xl">{ind.icon}</div>
-                  <h2 className="text-xl font-bold text-white">{ind.name}</h2>
+                {/* Image header with gradient overlay */}
+                <div className="relative h-48 overflow-hidden">
+                  <img
+                    src={ind.image}
+                    alt={ind.name}
+                    className="absolute inset-0 w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                  <div className={`absolute inset-0 bg-gradient-to-r ${ind.color} opacity-75`} />
+                  <div className="absolute inset-0 flex items-end p-5">
+                    <div className="flex items-center gap-3">
+                      <span className="text-4xl drop-shadow-lg">{ind.icon}</span>
+                      <h2 className="text-2xl font-black text-white drop-shadow-md">{ind.name}</h2>
+                    </div>
+                  </div>
                 </div>
                 <div className="p-6">
                   <div className="space-y-4 mb-5">

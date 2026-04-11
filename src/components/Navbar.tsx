@@ -45,6 +45,11 @@ const navLinks = [
     href: '/about',
     dropdown: null,
   },
+  {
+    label: 'Reach Us',
+    href: '/reach-us',
+    dropdown: null,
+  },
 ]
 
 export default function Navbar() {
@@ -179,6 +184,7 @@ export default function Navbar() {
               { href: '/resources', label: 'Resources' },
               { href: '/about', label: 'About' },
               { href: '/contact', label: 'Contact' },
+              { href: '/reach-us', label: 'Reach Us' },
             ].map((link) => (
               <Link
                 key={link.href}

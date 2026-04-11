@@ -253,6 +253,35 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Photo Gallery — Real Machining Work */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="section-title">Precision Work Gallery</h2>
+            <p className="section-subtitle">High-accuracy components delivered across pharma, defence, aerospace & EV sectors</p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {[
+              { src: 'https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=600&q=80&fit=crop', alt: 'CNC Milling precision work', label: 'CNC Milling' },
+              { src: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80&fit=crop', alt: 'Precision machined parts', label: 'Precision Parts' },
+              { src: 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=600&q=80&fit=crop', alt: 'Pharma components', label: 'Pharma Grade' },
+              { src: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?w=600&q=80&fit=crop', alt: 'Industrial machining facility', label: 'Our Facility' },
+            ].map((img) => (
+              <div key={img.label} className="relative group overflow-hidden rounded-xl">
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  className="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-navy-900/80 via-transparent to-transparent" />
+                <span className="absolute bottom-3 left-3 text-white text-sm font-bold">{img.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* How it Works — Xometry style */}
       <section className="py-16 bg-brand-navy-800 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
