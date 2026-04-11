@@ -58,8 +58,8 @@ export default function Footer() {
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
             <Link href="/" className="flex items-center mb-4">
-              <div className="bg-white rounded-lg px-2 py-1.5">
-                <Image src="/logo.png" alt="Sunglow CNC Technics" width={140} height={36} className="h-9 w-auto object-contain" />
+              <div className="bg-white rounded-lg px-3 py-2">
+                <Image src="/logo.svg" alt="Sunglow CNC Technics" width={160} height={42} className="h-10 w-auto object-contain" unoptimized />
               </div>
             </Link>
             <p className="text-sm text-slate-400 leading-relaxed mb-4">
@@ -159,7 +159,7 @@ export default function Footer() {
                 <svg className="w-3.5 h-3.5 text-brand-red-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.948V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
-                +91 81043 30xxx
+                +91 92463 51511
               </div>
               <div className="flex gap-2 text-xs text-slate-400">
                 <svg className="w-3.5 h-3.5 text-brand-red-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -171,7 +171,7 @@ export default function Footer() {
                 <svg className="w-3.5 h-3.5 text-brand-red-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                 </svg>
-                Near T-Works Hub, Hyderabad
+                Sai Baba Nagar, Balanagar, Hyderabad 500042
               </div>
             </div>
           </div>

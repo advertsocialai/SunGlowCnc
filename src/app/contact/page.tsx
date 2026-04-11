@@ -135,7 +135,7 @@ export default function ContactPage() {
                       </svg>
                     ),
                     label: 'Address',
-                    value: 'Near T-Works Hub, Hyderabad, Telangana, India - 500 084',
+                    value: '6-2-102-78/A, Near Bethal Fans, Sai Baba Nagar, Balanagar, Hyderabad, Telangana 500042, India',
                   },
                   {
                     icon: (
@@ -144,7 +144,7 @@ export default function ContactPage() {
                       </svg>
                     ),
                     label: 'Phone',
-                    value: '+91 81043 30xxx / +91 81999 7xxx',
+                    value: '+91 92463 51511',
                   },
                   {
                     icon: (
@@ -162,7 +162,7 @@ export default function ContactPage() {
                       </svg>
                     ),
                     label: 'Working Hours',
-                    value: 'Mon – Sat: 9:00 AM – 6:00 PM IST',
+                    value: 'Open 24 Hours · 7 Days a Week',
                   },
                 ].map((info) => (
                   <div key={info.label} className="flex gap-4 p-4 bg-slate-50 rounded-xl">

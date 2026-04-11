@@ -59,8 +59,8 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center flex-shrink-0">
-            <div className="bg-white rounded-lg px-2 py-1">
-              <Image src="/logo.png" alt="Sunglow CNC Technics" width={130} height={33} className="h-8 w-auto object-contain" />
+            <div className="bg-white rounded-lg px-3 py-1.5">
+              <Image src="/logo.svg" alt="Sunglow CNC Technics" width={160} height={42} className="h-10 w-auto object-contain" unoptimized />
             </div>
           </Link>
 
