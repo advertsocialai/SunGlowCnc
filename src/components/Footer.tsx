@@ -59,7 +59,7 @@ export default function Footer() {
           <div className="col-span-2 md:col-span-1">
             <Link href="/" className="flex items-center mb-4">
               <div className="bg-white rounded-lg px-3 py-2">
-                <Image src="/logo.svg" alt="Sunglow CNC Technics" width={160} height={42} className="h-10 w-auto object-contain" unoptimized />
+                <Image src="/logo.png" alt="Sunglow CNC Technics" width={180} height={48} className="h-11 w-auto object-contain" unoptimized />
               </div>
             </Link>
             <p className="text-sm text-slate-400 leading-relaxed mb-4">
