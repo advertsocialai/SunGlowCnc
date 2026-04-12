@@ -15,48 +15,69 @@ export default async function AdminContactsPage() {
 
   return (
     <DashboardLayout>
-      <div className="mb-6">
-        <h1 className="text-2xl font-bold text-slate-900">Contact Inquiries</h1>
-        <p className="text-slate-500 text-sm mt-1">{contacts.length} inquir{contacts.length !== 1 ? 'ies' : 'y'}</p>
+      <div className="mb-4">
+        <h1 className="text-white fw-bold mb-1" style={{ fontSize: '1.4rem' }}>Contact Inquiries</h1>
+        <p className="text-muted mb-0" style={{ fontSize: '0.875rem' }}>
+          {contacts.length} inquir{contacts.length !== 1 ? 'ies' : 'y'} received
+        </p>
       </div>
 
-      <div className="space-y-4">
+      <div className="d-flex flex-column gap-3">
         {contacts.length === 0 ? (
-          <div className="bg-white rounded-xl p-12 text-center text-slate-400 shadow-sm">
-            <div className="text-4xl mb-3">✉</div>
-            <div>No contact inquiries yet.</div>
+          <div className="dark-card p-5 text-center">
+            <div className="text-muted mb-2" style={{ fontSize: '2.5rem' }}>✉</div>
+            <div className="text-secondary fw-medium">No contact inquiries yet.</div>
           </div>
         ) : (
           contacts.map((c) => (
-            <div key={c.id} className="bg-white rounded-xl shadow-sm p-5">
-              <div className="flex items-start justify-between mb-3">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-brand-red-100 rounded-full flex items-center justify-center text-brand-red-700 font-bold text-sm flex-shrink-0">
+            <div key={c.id} className="dark-card p-4">
+              <div className="d-flex align-items-start justify-content-between mb-3">
+                <div className="d-flex align-items-center gap-3">
+                  <div
+                    className="rounded-circle d-flex align-items-center justify-content-center text-white fw-bold flex-shrink-0"
+                    style={{ width: 40, height: 40, background: 'rgba(200,32,46,0.2)', color: 'var(--brand-red)', fontSize: '0.9rem', border: '1px solid rgba(200,32,46,0.3)' }}
+                  >
                     {c.name[0]}
                   </div>
                   <div>
-                    <div className="font-semibold text-slate-900">{c.name}</div>
-                    <div className="text-xs text-slate-500">
-                      {c.email} {c.phone ? `· ${c.phone}` : ''} {c.company ? `· ${c.company}` : ''}
+                    <div className="text-white fw-semibold" style={{ fontSize: '0.9rem' }}>{c.name}</div>
+                    <div className="text-muted" style={{ fontSize: '0.75rem' }}>
+                      {c.email}{c.phone ? ` · ${c.phone}` : ''}{c.company ? ` · ${c.company}` : ''}
                     </div>
                   </div>
                 </div>
-                <div className="flex items-center gap-2">
-                  <span className={`badge text-xs ${
-                    c.status === 'new' ? 'bg-blue-100 text-blue-700' :
-                    c.status === 'replied' ? 'bg-green-100 text-green-700' :
-                    'bg-slate-100 text-slate-600'
-                  }`}>
+                <div className="d-flex align-items-center gap-2">
+                  <span
+                    className="badge-status"
+                    style={{
+                      background: c.status === 'new' ? 'rgba(96,165,250,0.15)' :
+                        c.status === 'replied' ? 'rgba(74,222,128,0.15)' :
+                        'rgba(148,163,184,0.15)',
+                      color: c.status === 'new' ? '#60a5fa' :
+                        c.status === 'replied' ? '#4ade80' :
+                        '#94a3b8',
+                    }}
+                  >
                     {c.status}
                   </span>
-                  <span className="text-xs text-slate-400">{new Date(c.createdAt).toLocaleDateString('en-IN')}</span>
+                  <span className="text-muted" style={{ fontSize: '0.75rem' }}>
+                    {new Date(c.createdAt).toLocaleDateString('en-IN')}
+                  </span>
                 </div>
               </div>
-              <p className="text-sm text-slate-700 bg-slate-50 rounded-lg p-3">{c.message}</p>
-              <div className="mt-3 flex gap-2">
+              <p className="text-secondary mb-3 p-3 rounded" style={{ fontSize: '0.85rem', background: 'var(--dark-elevated)', border: '1px solid var(--dark-border)' }}>
+                {c.message}
+              </p>
+              <div className="d-flex gap-2">
                 <a
                   href={`mailto:${c.email}`}
-                  className="text-xs bg-brand-red-50 hover:bg-brand-red-100 text-brand-red-700 border border-brand-red-200 px-3 py-1.5 rounded-lg transition-colors font-medium"
+                  className="btn px-3 py-1"
+                  style={{
+                    fontSize: '0.78rem', fontWeight: 500,
+                    background: 'rgba(200,32,46,0.12)', color: 'var(--brand-red)',
+                    border: '1px solid rgba(200,32,46,0.3)', borderRadius: '6px',
+                    textDecoration: 'none',
+                  }}
                 >
                   Reply via Email
                 </a>

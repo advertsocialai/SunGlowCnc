@@ -14,7 +14,18 @@ function StatusBadge({ status }: { status: string }) {
     pending: 'Pending', quoted: 'Quoted', approved: 'Approved',
     in_production: 'In Production', shipped: 'Shipped', completed: 'Completed', rejected: 'Rejected',
   }
-  return <span className={map[status] ?? 'badge bg-slate-100 text-slate-600'}>{labels[status] ?? status}</span>
+  return <span className={`badge-status ${map[status] ?? 'status-completed'}`}>{labels[status] ?? status}</span>
+}
+
+function PriorityBadge({ priority }: { priority: string }) {
+  const colors: Record<string, { bg: string; color: string }> = {
+    urgent: { bg: 'rgba(239,68,68,0.15)', color: '#f87171' },
+    high:   { bg: 'rgba(200,32,46,0.15)', color: '#fca5a5' },
+    normal: { bg: 'rgba(96,165,250,0.15)', color: '#60a5fa' },
+    low:    { bg: 'rgba(148,163,184,0.15)', color: '#94a3b8' },
+  }
+  const c = colors[priority] ?? colors.normal
+  return <span className="badge-status" style={{ background: c.bg, color: c.color }}>{priority}</span>
 }
 
 export default async function RFQListPage() {
@@ -29,80 +40,65 @@ export default async function RFQListPage() {
 
   return (
     <DashboardLayout>
-      <div className="flex justify-between items-center mb-6">
+      <div className="d-flex justify-content-between align-items-start mb-4">
         <div>
-          <h1 className="text-2xl font-bold text-slate-900">My RFQs</h1>
-          <p className="text-slate-500 text-sm mt-1">All your Request for Quotation submissions</p>
+          <h1 className="text-white fw-bold mb-1" style={{ fontSize: '1.4rem' }}>My RFQs</h1>
+          <p className="text-muted mb-0" style={{ fontSize: '0.875rem' }}>All your Request for Quotation submissions</p>
         </div>
-        <Link href="/dashboard/rfq/new" className="btn-primary">
+        <Link href="/dashboard/rfq/new" className="btn-brand" style={{ fontSize: '0.85rem', padding: '0.5rem 1.1rem' }}>
           + New RFQ
         </Link>
       </div>
 
-      <div className="bg-white rounded-xl shadow-sm overflow-hidden">
-        <div className="overflow-x-auto">
-          <table className="w-full">
+      <div className="dark-card overflow-hidden">
+        <div className="table-responsive">
+          <table className="table-dark-custom w-100">
             <thead>
-              <tr className="bg-slate-50">
-                <th className="px-6 py-3 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider">Title / ID</th>
-                <th className="px-6 py-3 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider">Material</th>
-                <th className="px-6 py-3 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider">Tolerance</th>
-                <th className="px-6 py-3 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider">Qty</th>
-                <th className="px-6 py-3 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider">Priority</th>
-                <th className="px-6 py-3 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider">Status</th>
-                <th className="px-6 py-3 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider">Quote</th>
-                <th className="px-6 py-3 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider">Submitted</th>
+              <tr>
+                <th>Title / ID</th>
+                <th>Material</th>
+                <th>Tolerance</th>
+                <th>Qty</th>
+                <th>Priority</th>
+                <th>Status</th>
+                <th>Quote</th>
+                <th>Submitted</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-100">
+            <tbody>
               {rfqs.length === 0 ? (
                 <tr>
-                  <td colSpan={8} className="px-6 py-16 text-center">
-                    <div className="text-slate-400 text-4xl mb-3">📋</div>
-                    <div className="text-slate-600 font-medium">No RFQs submitted yet</div>
-                    <div className="text-sm text-slate-400 mb-4">Submit your first Request for Quotation to get started</div>
-                    <Link href="/dashboard/rfq/new" className="btn-primary text-sm">
-                      Submit First RFQ
-                    </Link>
+                  <td colSpan={8} className="text-center py-5">
+                    <div className="text-muted mb-2" style={{ fontSize: '2.5rem' }}>📋</div>
+                    <div className="text-secondary fw-medium mb-1">No RFQs submitted yet</div>
+                    <div className="text-muted mb-4" style={{ fontSize: '0.82rem' }}>Submit your first Request for Quotation to get started</div>
+                    <Link href="/dashboard/rfq/new" className="btn-brand" style={{ fontSize: '0.82rem' }}>Submit First RFQ</Link>
                   </td>
                 </tr>
-              ) : (
-                rfqs.map((rfq) => (
-                  <tr key={rfq.id} className="hover:bg-slate-50 transition-colors">
-                    <td className="px-6 py-4">
-                      <div className="font-medium text-slate-900 text-sm">{rfq.title}</div>
-                      <div className="text-xs text-slate-400 font-mono">#{rfq.id.slice(-8)}</div>
-                    </td>
-                    <td className="px-6 py-4 text-sm text-slate-600">{rfq.material}</td>
-                    <td className="px-6 py-4 text-sm text-slate-600">{rfq.tolerance ?? '—'}</td>
-                    <td className="px-6 py-4 text-sm text-slate-600">{rfq.quantity}</td>
-                    <td className="px-6 py-4">
-                      <span className={`badge text-xs ${
-                        rfq.priority === 'urgent' ? 'bg-red-100 text-red-700' :
-                        rfq.priority === 'high' ? 'bg-brand-red-100 text-brand-red-700' :
-                        rfq.priority === 'normal' ? 'bg-blue-100 text-blue-700' :
-                        'bg-slate-100 text-slate-600'
-                      }`}>
-                        {rfq.priority}
-                      </span>
-                    </td>
-                    <td className="px-6 py-4"><StatusBadge status={rfq.status} /></td>
-                    <td className="px-6 py-4 text-sm">
-                      {rfq.quote ? (
-                        <div>
-                          <div className="font-semibold text-green-700">₹{rfq.quote.amount.toLocaleString('en-IN')}</div>
-                          <div className="text-xs text-slate-400">Valid till {new Date(rfq.quote.validUntil).toLocaleDateString('en-IN')}</div>
-                        </div>
-                      ) : (
-                        <span className="text-slate-400 text-xs">Awaiting quote</span>
-                      )}
-                    </td>
-                    <td className="px-6 py-4 text-xs text-slate-400">
-                      {new Date(rfq.createdAt).toLocaleDateString('en-IN')}
-                    </td>
-                  </tr>
-                ))
-              )}
+              ) : rfqs.map((rfq) => (
+                <tr key={rfq.id}>
+                  <td>
+                    <div className="text-white fw-medium" style={{ fontSize: '0.875rem' }}>{rfq.title}</div>
+                    <div className="text-muted" style={{ fontSize: '0.72rem', fontFamily: 'monospace' }}>#{rfq.id.slice(-8)}</div>
+                  </td>
+                  <td className="text-secondary">{rfq.material}</td>
+                  <td className="text-secondary">{rfq.tolerance ?? '—'}</td>
+                  <td className="text-secondary">{rfq.quantity}</td>
+                  <td><PriorityBadge priority={rfq.priority} /></td>
+                  <td><StatusBadge status={rfq.status} /></td>
+                  <td>
+                    {rfq.quote ? (
+                      <div>
+                        <div className="fw-semibold" style={{ color: '#4ade80', fontSize: '0.875rem' }}>₹{rfq.quote.amount.toLocaleString('en-IN')}</div>
+                        <div className="text-muted" style={{ fontSize: '0.72rem' }}>Valid till {new Date(rfq.quote.validUntil).toLocaleDateString('en-IN')}</div>
+                      </div>
+                    ) : (
+                      <span className="text-muted" style={{ fontSize: '0.78rem' }}>Awaiting quote</span>
+                    )}
+                  </td>
+                  <td className="text-muted" style={{ fontSize: '0.78rem' }}>{new Date(rfq.createdAt).toLocaleDateString('en-IN')}</td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>

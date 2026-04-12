@@ -26,15 +26,8 @@ export default function NewRFQPage() {
   const [uploadedFile, setUploadedFile] = useState<{ url: string; name: string; size: number } | null>(null)
   const fileInputRef = useRef<HTMLInputElement>(null)
   const [form, setForm] = useState({
-    title: '',
-    description: '',
-    material: '',
-    customMaterial: '',
-    tolerance: '',
-    quantity: '',
-    priority: 'normal',
-    industry: '',
-    notes: '',
+    title: '', description: '', material: '', customMaterial: '',
+    tolerance: '', quantity: '', priority: 'normal', industry: '', notes: '',
   })
 
   const set = (key: string, val: string) => setForm(prev => ({ ...prev, [key]: val }))
@@ -48,25 +41,15 @@ export default function NewRFQPage() {
       fd.append('file', file)
       const res = await fetch('/api/upload', { method: 'POST', body: fd })
       const data = await res.json()
-      if (res.ok) {
-        setUploadedFile({ url: data.url, name: data.name, size: data.size })
-        toast.success(`File uploaded: ${data.name}`)
-      } else {
-        toast.error(data.error || 'Upload failed')
-      }
-    } catch {
-      toast.error('Upload failed. Please try again.')
-    } finally {
-      setUploading(false)
-    }
+      if (res.ok) { setUploadedFile({ url: data.url, name: data.name, size: data.size }); toast.success(`File uploaded: ${data.name}`) }
+      else toast.error(data.error || 'Upload failed')
+    } catch { toast.error('Upload failed. Please try again.') }
+    finally { setUploading(false) }
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (!form.title || !form.material || !form.quantity) {
-      toast.error('Please fill in all required fields')
-      return
-    }
+    if (!form.title || !form.material || !form.quantity) { toast.error('Please fill in all required fields'); return }
     setLoading(true)
     try {
       const material = form.material === 'Other (specify in notes)' ? form.customMaterial : form.material
@@ -74,160 +57,88 @@ export default function NewRFQPage() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          title: form.title,
-          description: form.description,
-          material,
-          tolerance: form.tolerance,
-          quantity: parseInt(form.quantity),
-          priority: form.priority,
+          title: form.title, description: form.description, material, tolerance: form.tolerance,
+          quantity: parseInt(form.quantity), priority: form.priority,
           notes: `${form.industry ? `Industry: ${form.industry}\n` : ''}${form.notes}`,
-          fileUrl: uploadedFile?.url,
-          fileName: uploadedFile?.name,
+          fileUrl: uploadedFile?.url, fileName: uploadedFile?.name,
         }),
       })
-
-      if (res.ok) {
-        toast.success('RFQ submitted successfully! We will review and provide a quote within 24 hours.')
-        router.push('/dashboard/rfq')
-      } else {
-        const data = await res.json()
-        toast.error(data.error || 'Failed to submit RFQ')
-      }
-    } catch {
-      toast.error('Network error. Please try again.')
-    } finally {
-      setLoading(false)
-    }
+      if (res.ok) { toast.success('RFQ submitted! We will quote within 24 hours.'); router.push('/dashboard/rfq') }
+      else { const data = await res.json(); toast.error(data.error || 'Failed to submit RFQ') }
+    } catch { toast.error('Network error. Please try again.') }
+    finally { setLoading(false) }
   }
 
   return (
     <DashboardLayout>
-      <div className="max-w-3xl mx-auto">
-        <div className="mb-6">
-          <h1 className="text-2xl font-bold text-slate-900">Submit New RFQ</h1>
-          <p className="text-slate-500 text-sm mt-1">Request for Quotation — Our team will respond within 24 hours</p>
+      <div style={{ maxWidth: '760px' }}>
+        <div className="mb-4">
+          <h1 className="text-white fw-bold mb-1" style={{ fontSize: '1.4rem' }}>Submit New RFQ</h1>
+          <p className="text-muted mb-0" style={{ fontSize: '0.875rem' }}>Request for Quotation — Our team responds within 24 hours</p>
         </div>
 
         {/* Info banner */}
-        <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 mb-6">
-          <div className="flex gap-3">
-            <div className="text-blue-500 flex-shrink-0 mt-0.5">ℹ</div>
-            <div>
-              <p className="text-sm font-semibold text-blue-800">How It Works</p>
-              <p className="text-xs text-blue-600 mt-1">
-                Fill in your component requirements below. Our engineering team will review your RFQ and send a detailed quote
-                within 24 hours. You can also attach CAD files by mentioning file names in the notes.
-              </p>
-            </div>
+        <div className="p-3 rounded mb-4 d-flex gap-3" style={{ background: 'rgba(96,165,250,0.1)', border: '1px solid rgba(96,165,250,0.25)' }}>
+          <span style={{ color: '#60a5fa', flexShrink: 0 }}>ℹ</span>
+          <div>
+            <p className="fw-semibold mb-1" style={{ color: '#93c5fd', fontSize: '0.875rem' }}>How It Works</p>
+            <p className="text-muted mb-0" style={{ fontSize: '0.8rem' }}>
+              Fill in your component requirements. Our engineering team will review and send a detailed quote within 24 hours. Attach CAD files to speed up the process.
+            </p>
           </div>
         </div>
 
-        <form onSubmit={handleSubmit} className="bg-white rounded-xl shadow-sm p-8 space-y-6">
+        <form onSubmit={handleSubmit} className="dark-card p-4 d-flex flex-column gap-4">
           {/* Title */}
           <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Component Title / Name *
-            </label>
-            <input
-              type="text"
-              required
-              value={form.title}
-              onChange={(e) => set('title', e.target.value)}
-              placeholder="e.g., Star Wheel for Filling Machine - Batch 50"
-              className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-red-500 focus:border-transparent"
-            />
+            <label className="form-label-dark">Component Title / Name *</label>
+            <input type="text" required value={form.title} onChange={e => set('title', e.target.value)} className="form-control-dark" placeholder="e.g., Star Wheel for Filling Machine — Batch 50" />
           </div>
 
           {/* Description */}
           <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Description / Specifications
-            </label>
-            <textarea
-              rows={3}
-              value={form.description}
-              onChange={(e) => set('description', e.target.value)}
-              placeholder="Describe the component, its function, any reference standards, dimensional overview..."
-              className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-red-500 focus:border-transparent resize-none"
-            />
+            <label className="form-label-dark">Description / Specifications</label>
+            <textarea rows={3} value={form.description} onChange={e => set('description', e.target.value)} className="form-control-dark" style={{ resize: 'none' }} placeholder="Describe the component, its function, any reference standards, dimensional overview..." />
           </div>
 
           {/* Material & Industry */}
-          <div className="grid sm:grid-cols-2 gap-5">
-            <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-2">Material *</label>
-              <select
-                required
-                value={form.material}
-                onChange={(e) => set('material', e.target.value)}
-                className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-red-500 focus:border-transparent bg-white"
-              >
+          <div className="row g-3">
+            <div className="col-sm-6">
+              <label className="form-label-dark">Material *</label>
+              <select required value={form.material} onChange={e => set('material', e.target.value)} className="form-control-dark">
                 <option value="">Select material...</option>
-                {materials.map((m) => (
-                  <option key={m} value={m}>{m}</option>
-                ))}
+                {materials.map(m => <option key={m} value={m}>{m}</option>)}
               </select>
             </div>
-            <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-2">Industry Sector</label>
-              <select
-                value={form.industry}
-                onChange={(e) => set('industry', e.target.value)}
-                className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-red-500 focus:border-transparent bg-white"
-              >
+            <div className="col-sm-6">
+              <label className="form-label-dark">Industry Sector</label>
+              <select value={form.industry} onChange={e => set('industry', e.target.value)} className="form-control-dark">
                 <option value="">Select industry...</option>
-                {industries.map((i) => (
-                  <option key={i} value={i}>{i}</option>
-                ))}
+                {industries.map(i => <option key={i} value={i}>{i}</option>)}
               </select>
             </div>
           </div>
 
           {form.material === 'Other (specify in notes)' && (
             <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-2">Specify Material *</label>
-              <input
-                type="text"
-                required
-                value={form.customMaterial}
-                onChange={(e) => set('customMaterial', e.target.value)}
-                placeholder="e.g., Hastelloy C-276, Monel 400"
-                className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-red-500"
-              />
+              <label className="form-label-dark">Specify Material *</label>
+              <input type="text" required value={form.customMaterial} onChange={e => set('customMaterial', e.target.value)} className="form-control-dark" placeholder="e.g., Hastelloy C-276, Monel 400" />
             </div>
           )}
 
-          {/* Tolerance & Quantity */}
-          <div className="grid sm:grid-cols-3 gap-5">
-            <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-2">Tolerance</label>
-              <input
-                type="text"
-                value={form.tolerance}
-                onChange={(e) => set('tolerance', e.target.value)}
-                placeholder="e.g., ±0.01mm"
-                className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-red-500"
-              />
+          {/* Tolerance, Quantity, Priority */}
+          <div className="row g-3">
+            <div className="col-sm-4">
+              <label className="form-label-dark">Tolerance</label>
+              <input type="text" value={form.tolerance} onChange={e => set('tolerance', e.target.value)} className="form-control-dark" placeholder="e.g., ±0.01mm" />
             </div>
-            <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-2">Quantity *</label>
-              <input
-                type="number"
-                required
-                min={1}
-                value={form.quantity}
-                onChange={(e) => set('quantity', e.target.value)}
-                placeholder="Number of pieces"
-                className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-red-500"
-              />
+            <div className="col-sm-4">
+              <label className="form-label-dark">Quantity *</label>
+              <input type="number" required min={1} value={form.quantity} onChange={e => set('quantity', e.target.value)} className="form-control-dark" placeholder="No. of pieces" />
             </div>
-            <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-2">Priority</label>
-              <select
-                value={form.priority}
-                onChange={(e) => set('priority', e.target.value)}
-                className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-red-500 bg-white"
-              >
+            <div className="col-sm-4">
+              <label className="form-label-dark">Priority</label>
+              <select value={form.priority} onChange={e => set('priority', e.target.value)} className="form-control-dark">
                 <option value="low">Low</option>
                 <option value="normal">Normal</option>
                 <option value="high">High</option>
@@ -238,70 +149,49 @@ export default function NewRFQPage() {
 
           {/* File Upload */}
           <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-2">Attach CAD / Drawing File</label>
+            <label className="form-label-dark">Attach CAD / Drawing File</label>
             <div
-              className="border-2 border-dashed border-slate-300 rounded-lg p-6 text-center cursor-pointer hover:border-brand-red-400 hover:bg-brand-red-50 transition-colors"
+              className="rounded text-center p-4"
+              style={{ border: '2px dashed var(--dark-border)', cursor: 'pointer', transition: 'border-color 0.2s', background: 'var(--dark-elevated)' }}
               onClick={() => fileInputRef.current?.click()}
+              onMouseEnter={e => (e.currentTarget.style.borderColor = 'var(--brand-red)')}
+              onMouseLeave={e => (e.currentTarget.style.borderColor = 'var(--dark-border)')}
             >
               {uploadedFile ? (
-                <div className="text-sm text-green-700 font-medium">
-                  ✓ {uploadedFile.name}
-                  <span className="text-slate-400 font-normal ml-2">({(uploadedFile.size / 1024).toFixed(0)} KB)</span>
-                  <button
-                    type="button"
-                    onClick={(e) => { e.stopPropagation(); setUploadedFile(null) }}
-                    className="ml-3 text-red-500 hover:text-red-700 text-xs"
-                  >
-                    Remove
-                  </button>
+                <div className="text-secondary" style={{ fontSize: '0.875rem' }}>
+                  <span style={{ color: '#4ade80' }}>✓ {uploadedFile.name}</span>
+                  <span className="text-muted ms-2" style={{ fontSize: '0.78rem' }}>({(uploadedFile.size / 1024).toFixed(0)} KB)</span>
+                  <button type="button" onClick={e => { e.stopPropagation(); setUploadedFile(null) }} className="btn btn-link text-danger p-0 ms-3" style={{ fontSize: '0.78rem' }}>Remove</button>
                 </div>
               ) : uploading ? (
-                <div className="flex items-center justify-center gap-2 text-slate-500 text-sm">
-                  <div className="w-4 h-4 border-2 border-brand-red-500 border-t-transparent rounded-full animate-spin" />
+                <div className="d-flex align-items-center justify-content-center gap-2 text-muted" style={{ fontSize: '0.875rem' }}>
+                  <div className="spinner-border spinner-border-sm text-brand-red" style={{ color: 'var(--brand-red)' }} />
                   Uploading...
                 </div>
               ) : (
                 <div>
-                  <p className="text-slate-500 text-sm">Click to upload or drag &amp; drop</p>
-                  <p className="text-slate-400 text-xs mt-1">.STEP .STP .STL .DWG .DXF .PDF .IGES — max 50 MB</p>
+                  <p className="text-secondary mb-1" style={{ fontSize: '0.875rem' }}>Click to upload or drag &amp; drop</p>
+                  <p className="text-muted mb-0" style={{ fontSize: '0.78rem' }}>.STEP .STP .STL .DWG .DXF .PDF .IGES — max 50 MB</p>
                 </div>
               )}
             </div>
-            <input
-              ref={fileInputRef}
-              type="file"
-              className="hidden"
+            <input ref={fileInputRef} type="file" className="d-none"
               accept=".step,.stp,.stl,.iges,.igs,.dwg,.dxf,.sat,.ipt,.prt,.sldprt,.pdf,.jpg,.jpeg,.png"
-              onChange={handleFileChange}
-            />
+              onChange={handleFileChange} />
           </div>
 
           {/* Notes */}
           <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-2">Additional Notes</label>
-            <textarea
-              rows={4}
-              value={form.notes}
-              onChange={(e) => set('notes', e.target.value)}
-              placeholder="Any special requirements, surface finish specs, delivery timeline requirements..."
-              className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-red-500 resize-none"
-            />
+            <label className="form-label-dark">Additional Notes</label>
+            <textarea rows={4} value={form.notes} onChange={e => set('notes', e.target.value)} className="form-control-dark" style={{ resize: 'none' }} placeholder="Special requirements, surface finish specs, delivery timeline..." />
           </div>
 
           {/* Actions */}
-          <div className="flex gap-3 pt-2">
-            <button
-              type="submit"
-              disabled={loading}
-              className="flex-1 bg-brand-red-600 hover:bg-brand-red-700 disabled:bg-brand-red-300 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
-            >
+          <div className="d-flex gap-3">
+            <button type="submit" disabled={loading} className="btn-brand flex-grow-1 justify-content-center" style={{ opacity: loading ? 0.7 : 1 }}>
               {loading ? 'Submitting RFQ...' : 'Submit RFQ'}
             </button>
-            <button
-              type="button"
-              onClick={() => router.back()}
-              className="px-6 py-3 border border-slate-300 text-slate-600 rounded-lg hover:bg-slate-50 transition-colors font-medium"
-            >
+            <button type="button" onClick={() => router.back()} className="btn-brand-outline px-4">
               Cancel
             </button>
           </div>

@@ -17,59 +17,66 @@ export default async function AdminClientsPage() {
 
   return (
     <DashboardLayout>
-      <div className="mb-6">
-        <h1 className="text-2xl font-bold text-slate-900">Clients</h1>
-        <p className="text-slate-500 text-sm mt-1">{clients.length} registered client{clients.length !== 1 ? 's' : ''}</p>
+      <div className="mb-4">
+        <h1 className="text-white fw-bold mb-1" style={{ fontSize: '1.4rem' }}>Clients</h1>
+        <p className="text-muted mb-0" style={{ fontSize: '0.875rem' }}>
+          {clients.length} registered client{clients.length !== 1 ? 's' : ''}
+        </p>
       </div>
 
-      <div className="bg-white rounded-xl shadow-sm overflow-hidden">
-        <div className="overflow-x-auto">
-          <table className="w-full">
+      <div className="dark-card overflow-hidden">
+        <div className="table-responsive">
+          <table className="table-dark-custom w-100">
             <thead>
-              <tr className="bg-slate-50">
-                <th className="px-6 py-3 text-left text-xs font-semibold text-slate-500 uppercase">Client</th>
-                <th className="px-6 py-3 text-left text-xs font-semibold text-slate-500 uppercase">Contact</th>
-                <th className="px-6 py-3 text-left text-xs font-semibold text-slate-500 uppercase">RFQs</th>
-                <th className="px-6 py-3 text-left text-xs font-semibold text-slate-500 uppercase">Total Value</th>
-                <th className="px-6 py-3 text-left text-xs font-semibold text-slate-500 uppercase">Joined</th>
+              <tr>
+                <th>Client</th>
+                <th>Contact</th>
+                <th>RFQs</th>
+                <th>Total Value</th>
+                <th>Joined</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-100">
+            <tbody>
               {clients.length === 0 ? (
                 <tr>
-                  <td colSpan={5} className="px-6 py-12 text-center text-slate-400 text-sm">No clients yet.</td>
+                  <td colSpan={5} className="text-center py-5 text-secondary" style={{ fontSize: '0.875rem' }}>
+                    No clients yet.
+                  </td>
                 </tr>
               ) : (
                 clients.map((client) => {
                   const totalValue = client.rfqs.reduce((sum, rfq) => sum + (rfq.quote?.amount ?? 0), 0)
                   return (
-                    <tr key={client.id} className="hover:bg-slate-50">
-                      <td className="px-6 py-4">
-                        <div className="flex items-center gap-3">
-                          <div className="w-9 h-9 bg-brand-red-100 rounded-full flex items-center justify-center text-brand-red-700 font-bold text-sm flex-shrink-0">
+                    <tr key={client.id}>
+                      <td>
+                        <div className="d-flex align-items-center gap-3">
+                          <div
+                            className="rounded-circle d-flex align-items-center justify-content-center text-white fw-bold flex-shrink-0"
+                            style={{ width: 36, height: 36, background: 'rgba(200,32,46,0.2)', color: 'var(--brand-red)', fontSize: '0.85rem', border: '1px solid rgba(200,32,46,0.3)' }}
+                          >
                             {client.name[0]}
                           </div>
                           <div>
-                            <div className="font-medium text-slate-900 text-sm">{client.name}</div>
-                            {client.company && <div className="text-xs text-slate-500">{client.company}</div>}
+                            <div className="text-white fw-medium" style={{ fontSize: '0.875rem' }}>{client.name}</div>
+                            {client.company && <div className="text-muted" style={{ fontSize: '0.72rem' }}>{client.company}</div>}
                           </div>
                         </div>
                       </td>
-                      <td className="px-6 py-4">
-                        <div className="text-sm text-slate-700">{client.email}</div>
-                        {client.phone && <div className="text-xs text-slate-400">{client.phone}</div>}
+                      <td>
+                        <div className="text-secondary" style={{ fontSize: '0.875rem' }}>{client.email}</div>
+                        {client.phone && <div className="text-muted" style={{ fontSize: '0.72rem' }}>{client.phone}</div>}
                       </td>
-                      <td className="px-6 py-4 text-sm text-slate-700">{client.rfqs.length}</td>
-                      <td className="px-6 py-4">
+                      <td className="text-secondary" style={{ fontSize: '0.875rem' }}>{client.rfqs.length}</td>
+                      <td>
                         {totalValue > 0 ? (
-                          <span className="font-semibold text-green-700 text-sm">
+                          <span className="fw-semibold" style={{ color: '#4ade80', fontSize: '0.875rem' }}>
                             ₹{totalValue.toLocaleString('en-IN')}
                           </span>
                         ) : (
-                          <span className="text-slate-400 text-sm">—</span>
+                          <span className="text-muted" style={{ fontSize: '0.875rem' }}>—</span>
                         )}
                       </td>
-                      <td className="px-6 py-4 text-xs text-slate-400">
+                      <td className="text-muted" style={{ fontSize: '0.78rem' }}>
                         {new Date(client.createdAt).toLocaleDateString('en-IN')}
                       </td>
                     </tr>

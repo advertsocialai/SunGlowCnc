@@ -5,170 +5,100 @@ import Link from 'next/link'
 const clientGroups = [
   {
     sector: 'Pharmaceuticals & Healthcare',
-    color: 'bg-green-500',
-    textColor: 'text-green-700',
-    bgColor: 'bg-green-50',
-    borderColor: 'border-green-200',
+    accentColor: '#4ade80',
     clients: [
-      {
-        name: 'Bharat Biotech',
-        desc: 'One of India\'s leading vaccine manufacturers. We supply precision pharma components including star wheels, filling needles, and fermenter templates.',
-        since: '2003',
-        parts: ['Star wheels & guides', 'Filling needles', 'Fermenter templates'],
-      },
-      {
-        name: 'Sanofi India',
-        desc: 'Global pharmaceutical giant. We manufacture specialized pharma equipment parts meeting GMP standards for their Hyderabad operations.',
-        since: '2006',
-        parts: ['Vacuum star wheels', 'Machine chain parts', 'TC Connectors'],
-      },
-      {
-        name: 'Gland Pharma',
-        desc: 'Leading injectable pharma company. We provide high-precision stainless steel components for their filling and washing operations.',
-        since: '2010',
-        parts: ['Washing needles', 'Y & Straight connectors', 'Guide assemblies'],
-      },
-      {
-        name: 'ICLEAN',
-        desc: 'Specialized pharma cleaning solutions company. Precision-machined parts for cleanroom-compatible equipment.',
-        since: '2015',
-        parts: ['Stainless steel components', 'Custom fixtures'],
-      },
+      { name: 'Bharat Biotech', since: '2003', desc: "India's leading vaccine manufacturer. We supply star wheels, filling needles, fermenter templates and precision pharma components.", parts: ['Star wheels & guides', 'Filling needles', 'Fermenter templates'] },
+      { name: 'Sanofi India', since: '2006', desc: 'Global pharma giant. We manufacture specialized pharma equipment parts meeting GMP standards for Hyderabad operations.', parts: ['Vacuum star wheels', 'Machine chain parts', 'TC Connectors'] },
+      { name: 'Gland Pharma', since: '2010', desc: 'Leading injectable pharma company. High-precision stainless steel components for filling and washing operations.', parts: ['Washing needles', 'Y & Straight connectors', 'Guide assemblies'] },
+      { name: 'ICLEAN', since: '2015', desc: 'Pharma cleaning solutions company. Precision-machined parts for cleanroom-compatible equipment.', parts: ['Stainless steel components', 'Custom fixtures'] },
     ],
   },
   {
     sector: 'Defence & Government',
-    color: 'bg-red-600',
-    textColor: 'text-red-700',
-    bgColor: 'bg-red-50',
-    borderColor: 'border-red-200',
+    accentColor: '#f87171',
     clients: [
-      {
-        name: 'Bharat Electronics Limited (BEL)',
-        desc: 'India\'s premier defence electronics company. We manufacture critical precision components for defence electronics systems under strict quality standards.',
-        since: '2005',
-        parts: ['Electronic enclosures', 'Precision housings', 'Structural brackets'],
-      },
-      {
-        name: 'ECIL',
-        desc: 'Electronics Corporation of India Ltd. Supplying high-accuracy mechanical parts for their strategic electronics and nuclear instrumentation division.',
-        since: '2008',
-        parts: ['Instrument housings', 'Precision brackets', 'Custom fixtures'],
-      },
-      {
-        name: 'BHEL',
-        desc: 'Bharat Heavy Electricals Limited. Manufacturing turbine and heavy engineering components for one of India\'s largest engineering companies.',
-        since: '2007',
-        parts: ['Turbine components', 'Structural parts', 'Industrial housings'],
-      },
-      {
-        name: 'Avantel Limited',
-        desc: 'Specializing in microwave systems hardware and cell jammers. We produce precision waveguide components and RF hardware for their defence-grade systems.',
-        since: '2012',
-        parts: ['Waveguide components', 'RF hardware', 'Cell jammer parts', 'Microwave housings'],
-      },
+      { name: 'Bharat Electronics Limited (BEL)', since: '2005', desc: "India's premier defence electronics company. Critical precision components for defence electronics systems.", parts: ['Electronic enclosures', 'Precision housings', 'Structural brackets'] },
+      { name: 'ECIL', since: '2007', desc: 'Electronics Corporation of India Ltd. Precision hardware for nuclear and defence electronics.', parts: ['Control system components', 'Custom enclosures'] },
+      { name: 'BHEL', since: '2009', desc: "India's largest power equipment manufacturer. Turbine and power generation components.", parts: ['Turbine hardware', 'Valve bodies', 'Manifold components'] },
+      { name: 'Avantel Limited', since: '2012', desc: 'Defence & space communications. Microwave and satellite communications hardware with AS9100 capability.', parts: ['Microwave hardware', 'Waveguide components', 'Cell jammer parts'] },
     ],
   },
   {
     sector: 'Technology & Innovation',
-    color: 'bg-purple-600',
-    textColor: 'text-purple-700',
-    bgColor: 'bg-purple-50',
-    borderColor: 'border-purple-200',
+    accentColor: '#60a5fa',
     clients: [
-      {
-        name: 'Zen Technologies',
-        desc: 'Defence simulation and training solutions provider. We manufacture precision mechanical components for their advanced defence training simulators and drone systems.',
-        since: '2014',
-        parts: ['Simulator components', 'Drone parts', 'Precision mechanisms'],
-      },
-      {
-        name: 'T-Works Hub',
-        desc: 'India\'s largest prototyping centre, Hyderabad. Supporting their ecosystem with high-precision prototype machining for startups and researchers.',
-        since: '2018',
-        parts: ['Prototypes', 'Custom components', 'Research parts'],
-      },
+      { name: 'Zen Technologies', since: '2016', desc: 'Defence simulation and training systems manufacturer. Precision components for simulators and training equipment.', parts: ['Simulator components', 'Precision assemblies'] },
+      { name: 'T-Works Hub', since: '2018', desc: "India's largest prototyping facility. We provide rapid CNC machining support for innovators and startups.", parts: ['Prototype components', 'Custom parts', 'Short-run production'] },
     ],
-  },
-  {
-    sector: 'EV & Automotive',
-    color: 'bg-yellow-500',
-    textColor: 'text-yellow-700',
-    bgColor: 'bg-yellow-50',
-    borderColor: 'border-yellow-200',
-    clients: [
-      {
-        name: 'EV OEMs & Tier-1 Suppliers',
-        desc: 'Manufacturing precision EV battery casings, heat sinks, and thermal management components for India\'s growing electric vehicle sector.',
-        since: '2019',
-        parts: ['EV battery casings', 'Heat sinks', 'Motor housings', 'Power electronics enclosures'],
-      },
-    ],
-  },
-]
-
-const testimonials = [
-  {
-    quote: 'Sunglow CNC has been our trusted partner for over 15 years. Their precision and reliability in delivering pharma-grade components is unmatched.',
-    company: 'Senior Engineer, Bharat Biotech',
-  },
-  {
-    quote: 'The quality of defence components we receive from Sunglow consistently meets our stringent BEL standards. Highly recommended.',
-    company: 'Procurement Manager, BEL Hyderabad',
-  },
-  {
-    quote: 'For our T-Works prototyping facility, Sunglow CNC is our go-to partner. Fast turnaround and excellent precision.',
-    company: 'Operations Lead, T-Works Hub',
   },
 ]
 
 export default function ClientsPage() {
+  const allClients = clientGroups.flatMap(g => g.clients)
+
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="d-flex flex-column min-vh-100" style={{ background: 'var(--dark-bg)' }}>
       <Navbar />
 
       {/* Header */}
-      <section className="bg-gradient-to-r from-brand-navy-800 to-slate-800 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-brand-red-400 text-sm font-semibold uppercase tracking-wider mb-2">20+ Years of Partnership</p>
-          <h1 className="text-4xl md:text-5xl font-black mb-4">Our Valued Clients</h1>
-          <p className="text-lg text-slate-300 max-w-2xl">
-            Trusted by India&apos;s leading organizations in Pharma, Defence, Technology, and EV sectors since 2003.
+      <section className="page-header">
+        <div className="container-xl">
+          <p className="text-brand-red fw-semibold text-uppercase letter-wide mb-2" style={{ fontSize: '0.8rem' }}>Trusted Partners</p>
+          <h1 className="fw-black text-white mb-3" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)' }}>Our Clients</h1>
+          <p className="text-secondary" style={{ maxWidth: '560px', fontSize: '1.05rem' }}>
+            Long-term supply partnerships with India&apos;s most respected organizations across pharma, defence, and technology.
           </p>
         </div>
       </section>
 
-      {/* Client Groups */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {clientGroups.map((group) => (
-            <div key={group.sector} className="mb-16">
-              <div className="flex items-center gap-3 mb-8">
-                <div className={`w-4 h-4 rounded-full ${group.color}`} />
-                <h2 className="text-2xl font-bold text-slate-900">{group.sector}</h2>
+      {/* Stats bar */}
+      <div style={{ background: 'var(--brand-navy)', borderBottom: '1px solid var(--dark-border)' }}>
+        <div className="container-xl py-4">
+          <div className="row g-4 text-center">
+            {[
+              { val: '10+', label: 'Active Clients' },
+              { val: '20+', label: 'Years of Service' },
+              { val: '500+', label: 'Projects Delivered' },
+              { val: '3', label: 'Industry Sectors' },
+            ].map(s => (
+              <div key={s.label} className="col-6 col-md-3">
+                <div className="text-brand-red fw-black" style={{ fontSize: '1.75rem' }}>{s.val}</div>
+                <div className="text-secondary" style={{ fontSize: '0.82rem' }}>{s.label}</div>
               </div>
-              <div className="grid md:grid-cols-2 gap-6">
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Client groups */}
+      <section className="section-py" style={{ background: 'var(--dark-surface)' }}>
+        <div className="container-xl">
+          {clientGroups.map((group) => (
+            <div key={group.sector} className="mb-5">
+              <div className="d-flex align-items-center gap-3 mb-4">
+                <div className="rounded-pill" style={{ width: 12, height: 12, background: group.accentColor, flexShrink: 0 }} />
+                <h2 className="text-white fw-bold mb-0" style={{ fontSize: '1.15rem' }}>{group.sector}</h2>
+              </div>
+              <div className="row g-4">
                 {group.clients.map((client) => (
-                  <div key={client.name} className={`rounded-xl border-2 ${group.borderColor} ${group.bgColor} p-6`}>
-                    <div className="flex items-start justify-between mb-3">
-                      <div className="flex items-center gap-3">
-                        <div className={`w-12 h-12 ${group.color} rounded-xl flex items-center justify-center`}>
-                          <span className="text-white font-black text-lg">{client.name[0]}</span>
+                  <div key={client.name} className="col-md-6">
+                    <div className="dark-card p-4 h-100">
+                      <div className="d-flex align-items-start justify-content-between mb-3">
+                        <div
+                          className="rounded d-flex align-items-center justify-content-center text-white fw-black flex-shrink-0"
+                          style={{ width: 48, height: 48, background: 'var(--dark-elevated)', fontSize: '1.2rem', border: `1px solid ${group.accentColor}33` }}
+                        >
+                          {client.name[0]}
                         </div>
-                        <div>
-                          <h3 className="font-bold text-slate-900">{client.name}</h3>
-                          <span className={`text-xs ${group.textColor} font-semibold`}>Since {client.since}</span>
-                        </div>
+                        <span className="badge-status" style={{ background: `${group.accentColor}18`, color: group.accentColor }}>
+                          Since {client.since}
+                        </span>
                       </div>
-                    </div>
-                    <p className="text-sm text-slate-600 mb-4 leading-relaxed">{client.desc}</p>
-                    <div>
-                      <p className="text-xs uppercase tracking-wider text-slate-500 font-semibold mb-2">Components Supplied</p>
-                      <div className="flex flex-wrap gap-1.5">
-                        {client.parts.map((part) => (
-                          <span key={part} className="bg-white border border-slate-200 text-slate-600 text-xs px-2 py-0.5 rounded">
-                            {part}
-                          </span>
+                      <h3 className="text-white fw-bold mb-2" style={{ fontSize: '0.95rem' }}>{client.name}</h3>
+                      <p className="text-secondary mb-3" style={{ fontSize: '0.83rem', lineHeight: 1.6 }}>{client.desc}</p>
+                      <div className="d-flex flex-wrap gap-1">
+                        {client.parts.map(p => (
+                          <span key={p} className="capability-chip" style={{ fontSize: '0.72rem' }}>{p}</span>
                         ))}
                       </div>
                     </div>
@@ -180,16 +110,14 @@ export default function ClientsPage() {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="py-16 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-center section-title mb-12">What Our Clients Say</h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            {testimonials.map((t, i) => (
-              <div key={i} className="bg-white rounded-xl p-6 shadow-md">
-                <div className="text-brand-red-500 text-4xl mb-4">&ldquo;</div>
-                <p className="text-slate-700 text-sm leading-relaxed mb-4 italic">{t.quote}</p>
-                <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider">{t.company}</p>
+      {/* All clients logos strip */}
+      <section className="py-4" style={{ background: 'var(--dark-bg)', borderTop: '1px solid var(--dark-border)' }}>
+        <div className="container-xl">
+          <p className="text-muted text-uppercase letter-wide fw-semibold text-center mb-3" style={{ fontSize: '0.7rem' }}>All Partners</p>
+          <div className="d-flex flex-wrap justify-content-center gap-3">
+            {allClients.map(c => (
+              <div key={c.name} className="dark-card px-4 py-2 text-center" style={{ borderRadius: '9999px' }}>
+                <span className="text-secondary fw-medium" style={{ fontSize: '0.82rem' }}>{c.name}</span>
               </div>
             ))}
           </div>
@@ -197,13 +125,18 @@ export default function ClientsPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-brand-red-600 text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-black mb-4">Become Our Next Partner</h2>
-          <p className="text-brand-red-100 mb-6">Join India&apos;s most trusted CNC manufacturing network.</p>
-          <Link href="/contact" className="bg-white text-brand-red-600 hover:bg-brand-red-50 font-bold py-3 px-8 rounded-lg transition-colors inline-block">
-            Get In Touch
-          </Link>
+      <section className="section-py cta-red text-white">
+        <div className="container-xl text-center">
+          <h2 className="fw-black text-white mb-3" style={{ fontSize: 'clamp(1.5rem, 3vw, 2.25rem)' }}>Become a Partner</h2>
+          <p className="mb-5 mx-auto" style={{ opacity: 0.85, maxWidth: '480px' }}>
+            Join India&apos;s leading organizations who trust Sunglow CNC for precision manufacturing.
+          </p>
+          <div className="d-flex flex-column flex-sm-row gap-3 justify-content-center">
+            <Link href="/register" className="btn-ghost-white" style={{ background: 'white' }}>
+              <span style={{ color: 'var(--brand-red)', fontWeight: 800 }}>Get Started</span>
+            </Link>
+            <Link href="/contact" className="btn-ghost-white">Contact Us</Link>
+          </div>
         </div>
       </section>
 

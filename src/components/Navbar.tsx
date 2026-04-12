@@ -16,21 +16,9 @@ const navLinks = [
       { href: '/materials', label: 'Materials' },
     ],
   },
-  {
-    label: 'Industries',
-    href: '/industries',
-    dropdown: null,
-  },
-  {
-    label: 'Materials',
-    href: '/materials',
-    dropdown: null,
-  },
-  {
-    label: 'Clients',
-    href: '/clients',
-    dropdown: null,
-  },
+  { label: 'Industries', href: '/industries', dropdown: null },
+  { label: 'Materials', href: '/materials', dropdown: null },
+  { label: 'Clients', href: '/clients', dropdown: null },
   {
     label: 'Resources',
     href: '/resources',
@@ -40,16 +28,8 @@ const navLinks = [
       { href: '/about', label: 'About Us' },
     ],
   },
-  {
-    label: 'About',
-    href: '/about',
-    dropdown: null,
-  },
-  {
-    label: 'Reach Us',
-    href: '/reach-us',
-    dropdown: null,
-  },
+  { label: 'About', href: '/about', dropdown: null },
+  { label: 'Reach Us', href: '/reach-us', dropdown: null },
 ]
 
 export default function Navbar() {
@@ -59,165 +39,152 @@ export default function Navbar() {
   const pathname = usePathname()
 
   return (
-    <nav className="bg-brand-navy-800 text-white sticky top-0 z-50 shadow-xl">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <Link href="/" className="flex items-center flex-shrink-0">
-            <div className="bg-white rounded-lg px-3 py-1.5">
-              <Image src="/logo.svg" alt="Sunglow CNC Technics" width={180} height={48} className="h-11 w-auto object-contain" unoptimized />
-            </div>
-          </Link>
+    <nav className="navbar-dark-brand sticky-top w-100">
+      <div className="container-xl d-flex align-items-center justify-content-between h-100">
+        {/* Logo */}
+        <Link href="/" className="text-decoration-none flex-shrink-0">
+          <div className="bg-white rounded px-3 py-2">
+            <Image
+              src="/logo.svg"
+              alt="Sunglow CNC Technics"
+              width={160}
+              height={40}
+              style={{ height: '38px', width: 'auto' }}
+              unoptimized
+            />
+          </div>
+        </Link>
 
-          {/* Desktop nav */}
-          <div className="hidden lg:flex items-center gap-1">
-            {navLinks.map((link) => (
-              <div
-                key={link.href}
-                className="relative"
-                onMouseEnter={() => link.dropdown && setOpenDropdown(link.href)}
-                onMouseLeave={() => setOpenDropdown(null)}
+        {/* Desktop nav */}
+        <div className="d-none d-lg-flex align-items-center gap-1">
+          {navLinks.map((link) => (
+            <div
+              key={link.href}
+              className="position-relative"
+              onMouseEnter={() => link.dropdown && setOpenDropdown(link.href)}
+              onMouseLeave={() => setOpenDropdown(null)}
+            >
+              <Link
+                href={link.href}
+                className={`nav-link-brand ${pathname === link.href || pathname.startsWith(link.href + '/') ? 'active' : ''}`}
               >
-                <Link
-                  href={link.href}
-                  className={`px-3 py-2 rounded-md text-sm font-medium transition-colors flex items-center gap-1 ${
-                    pathname === link.href || pathname.startsWith(link.href + '/')
-                      ? 'bg-brand-red-600 text-white'
-                      : 'text-slate-300 hover:bg-brand-navy-600 hover:text-white'
-                  }`}
-                >
-                  {link.label}
-                  {link.dropdown && (
-                    <svg className="w-3 h-3 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  )}
-                </Link>
-                {link.dropdown && openDropdown === link.href && (
-                  <div className="absolute top-full left-0 mt-1 w-52 bg-white rounded-xl shadow-xl border border-slate-100 py-1 z-50">
-                    {link.dropdown.map((item) => (
-                      <Link
-                        key={item.href}
-                        href={item.href}
-                        className="block px-4 py-2.5 text-sm text-slate-700 hover:bg-brand-red-50 hover:text-brand-red-700 transition-colors"
-                      >
-                        {item.label}
-                      </Link>
-                    ))}
-                  </div>
+                {link.label}
+                {link.dropdown && (
+                  <svg width="10" height="10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                  </svg>
                 )}
-              </div>
-            ))}
-          </div>
-
-          {/* Auth + CTA */}
-          <div className="hidden lg:flex items-center gap-3">
-            {session ? (
-              <>
-                <Link
-                  href="/dashboard"
-                  className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                    pathname.startsWith('/dashboard')
-                      ? 'bg-brand-red-600 text-white'
-                      : 'text-slate-300 hover:bg-brand-navy-600 hover:text-white'
-                  }`}
-                >
-                  Dashboard
-                </Link>
-                <div className="flex items-center gap-2">
-                  <div className="w-7 h-7 bg-brand-red-600/30 rounded-full flex items-center justify-center text-brand-red-400 text-xs font-bold">
-                    {session.user.name?.[0]?.toUpperCase()}
-                  </div>
-                  <button
-                    onClick={() => signOut({ callbackUrl: '/' })}
-                    className="text-slate-400 hover:text-slate-200 text-xs transition-colors"
-                  >
-                    Logout
-                  </button>
+              </Link>
+              {link.dropdown && openDropdown === link.href && (
+                <div className="nav-dropdown">
+                  {link.dropdown.map((item) => (
+                    <Link key={item.href} href={item.href} className="nav-dropdown-item">
+                      {item.label}
+                    </Link>
+                  ))}
                 </div>
-              </>
-            ) : (
-              <>
-                <Link
-                  href="/login"
-                  className="text-slate-300 hover:text-white text-sm font-medium transition-colors"
-                >
-                  Sign In
-                </Link>
-                <Link
-                  href="/dashboard/rfq/new"
-                  className="bg-brand-red-600 hover:bg-brand-red-700 text-white text-sm px-4 py-2 rounded-lg transition-colors font-semibold"
-                >
-                  Get Instant Quote
-                </Link>
-              </>
-            )}
-          </div>
-
-          {/* Mobile toggle */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-2 rounded-md text-slate-300 hover:text-white hover:bg-brand-navy-600"
-          >
-            <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              {isOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
               )}
-            </svg>
-          </button>
+            </div>
+          ))}
         </div>
+
+        {/* Auth + CTA */}
+        <div className="d-none d-lg-flex align-items-center gap-3">
+          {session ? (
+            <>
+              <Link
+                href="/dashboard"
+                className={`nav-link-brand ${pathname.startsWith('/dashboard') ? 'active' : ''}`}
+              >
+                Dashboard
+              </Link>
+              <div className="d-flex align-items-center gap-2">
+                <div
+                  className="d-flex align-items-center justify-content-center rounded-circle bg-brand-red text-white fw-bold"
+                  style={{ width: 28, height: 28, fontSize: 11, opacity: 0.9 }}
+                >
+                  {session.user.name?.[0]?.toUpperCase()}
+                </div>
+                <button
+                  onClick={() => signOut({ callbackUrl: '/' })}
+                  className="btn btn-link p-0 text-secondary text-decoration-none"
+                  style={{ fontSize: '0.8rem' }}
+                >
+                  Logout
+                </button>
+              </div>
+            </>
+          ) : (
+            <>
+              <Link href="/login" className="nav-link-brand">Sign In</Link>
+              <Link href="/dashboard/rfq/new" className="btn-brand" style={{ fontSize: '0.82rem', padding: '0.45rem 1rem' }}>
+                Get Instant Quote
+              </Link>
+            </>
+          )}
+        </div>
+
+        {/* Mobile toggle */}
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="d-lg-none btn btn-link text-secondary p-2"
+          aria-label="Toggle menu"
+        >
+          <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            {isOpen
+              ? <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              : <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            }
+          </svg>
+        </button>
       </div>
 
       {/* Mobile menu */}
       {isOpen && (
-        <div className="lg:hidden border-t border-brand-navy-600 bg-brand-navy-800">
-          <div className="px-4 pt-2 pb-4 space-y-1">
-            {[
-              { href: '/', label: 'Home' },
-              { href: '/services', label: 'Services' },
-              { href: '/capabilities', label: 'Capabilities' },
-              { href: '/materials', label: 'Materials' },
-              { href: '/industries', label: 'Industries' },
-              { href: '/clients', label: 'Clients' },
-              { href: '/resources', label: 'Resources' },
-              { href: '/about', label: 'About' },
-              { href: '/contact', label: 'Contact' },
-              { href: '/reach-us', label: 'Reach Us' },
-            ].map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setIsOpen(false)}
-                className={`block px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                  pathname === link.href
-                    ? 'bg-brand-red-600 text-white'
-                    : 'text-slate-300 hover:bg-brand-navy-600 hover:text-white'
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
-            <div className="pt-2 border-t border-brand-navy-600 flex flex-col gap-2">
-              {session ? (
-                <>
-                  <Link href="/dashboard" onClick={() => setIsOpen(false)} className="block px-3 py-2 rounded-md text-sm text-slate-300 hover:bg-brand-navy-600">
-                    Dashboard
-                  </Link>
-                  <button onClick={() => { setIsOpen(false); signOut({ callbackUrl: '/' }) }} className="bg-red-800/30 text-red-400 text-sm px-4 py-2 rounded-lg text-left">
-                    Logout
-                  </button>
-                </>
-              ) : (
-                <>
-                  <Link href="/login" onClick={() => setIsOpen(false)} className="block px-3 py-2 text-slate-300 text-sm">Sign In</Link>
-                  <Link href="/dashboard/rfq/new" onClick={() => setIsOpen(false)} className="bg-brand-red-600 text-white text-sm px-4 py-2 rounded-lg text-center font-semibold">
-                    Get Instant Quote
-                  </Link>
-                </>
-              )}
-            </div>
+        <div className="mobile-menu px-3 py-3">
+          {[
+            { href: '/', label: 'Home' },
+            { href: '/services', label: 'Services' },
+            { href: '/capabilities', label: 'Capabilities' },
+            { href: '/materials', label: 'Materials' },
+            { href: '/industries', label: 'Industries' },
+            { href: '/clients', label: 'Clients' },
+            { href: '/resources', label: 'Resources' },
+            { href: '/about', label: 'About' },
+            { href: '/contact', label: 'Contact' },
+            { href: '/reach-us', label: 'Reach Us' },
+          ].map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              onClick={() => setIsOpen(false)}
+              className={`mobile-nav-link ${pathname === link.href ? 'active' : ''}`}
+            >
+              {link.label}
+            </Link>
+          ))}
+          <div className="border-top border-dark-custom pt-2 mt-2">
+            {session ? (
+              <>
+                <Link href="/dashboard" onClick={() => setIsOpen(false)} className="mobile-nav-link">
+                  Dashboard
+                </Link>
+                <button
+                  onClick={() => { setIsOpen(false); signOut({ callbackUrl: '/' }) }}
+                  className="btn btn-link text-danger p-0 ps-3 py-2 text-decoration-none w-100 text-start"
+                  style={{ fontSize: '0.875rem' }}
+                >
+                  Logout
+                </button>
+              </>
+            ) : (
+              <>
+                <Link href="/login" onClick={() => setIsOpen(false)} className="mobile-nav-link">Sign In</Link>
+                <Link href="/dashboard/rfq/new" onClick={() => setIsOpen(false)} className="btn-brand d-block text-center mt-2">
+                  Get Instant Quote
+                </Link>
+              </>
+            )}
           </div>
         </div>
       )}

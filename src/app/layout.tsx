@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import 'bootstrap/dist/css/bootstrap.min.css'
 import './globals.css'
 import { Providers } from './providers'
 
@@ -16,7 +17,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" data-bs-theme="dark">
       <body>
         <Providers>{children}</Providers>
       </body>

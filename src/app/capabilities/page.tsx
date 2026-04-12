@@ -3,81 +3,22 @@ import Footer from '@/components/Footer'
 import Link from 'next/link'
 
 const capabilityTable = [
-  {
-    service: 'CNC VMC Milling (3-Axis)',
-    leadTime: '3–7 working days',
-    materials: 'Metals & Plastics',
-    tolerance: '±0.05mm standard / ±0.01mm precision',
-    maxSize: '600 × 400 × 400 mm',
-    machines: '3 VMC machines',
-  },
-  {
-    service: 'CNC Turning / Lathe',
-    leadTime: '3–7 working days',
-    materials: 'Metals & Plastics',
-    tolerance: '±0.01mm',
-    maxSize: 'Ø300mm × 600mm L',
-    machines: '1 CNC Lathe',
-  },
-  {
-    service: 'Wire Cut EDM',
-    leadTime: '5–10 working days',
-    materials: 'All conductive metals',
-    tolerance: '±0.005mm',
-    maxSize: '400 × 300 × 200 mm',
-    machines: '1 Wire Cut EDM',
-  },
-  {
-    service: 'Die Sinking EDM',
-    leadTime: '5–10 working days',
-    materials: 'Hardened steels, carbide',
-    tolerance: '±0.01mm',
-    maxSize: '300 × 200 × 200 mm',
-    machines: '1 EDM Machine',
-  },
-  {
-    service: 'Conventional Machining',
-    leadTime: '2–5 working days',
-    materials: 'Metals',
-    tolerance: '±0.1mm',
-    maxSize: 'Varies',
-    machines: 'Full conventional setup',
-  },
+  { service: 'CNC VMC Milling (3-Axis)', leadTime: '3–7 working days', materials: 'Metals & Plastics', tolerance: '±0.05mm standard / ±0.01mm precision', maxSize: '600 × 400 × 400 mm', machines: '3 VMC machines' },
+  { service: 'CNC Turning / Lathe', leadTime: '3–7 working days', materials: 'Metals & Plastics', tolerance: '±0.01mm', maxSize: 'Ø300mm × 600mm L', machines: '1 CNC Lathe' },
+  { service: 'Wire Cut EDM', leadTime: '5–10 working days', materials: 'All conductive metals', tolerance: '±0.005mm', maxSize: '400 × 300 × 200 mm', machines: '1 Wire Cut EDM' },
+  { service: 'Die Sinking EDM', leadTime: '5–10 working days', materials: 'Hardened steels, carbide', tolerance: '±0.01mm', maxSize: '300 × 200 × 200 mm', machines: '1 EDM Machine' },
+  { service: 'Conventional Machining', leadTime: '2–5 working days', materials: 'Metals', tolerance: '±0.1mm', maxSize: 'Varies', machines: 'Full conventional setup' },
 ]
 
 const machiningFAQ = [
-  {
-    q: 'What is CNC machining?',
-    a: 'CNC (Computer Numerical Control) machining uses automated high-speed cutting tools guided by digital programs (G-code) to precisely shape metal or plastic from raw stock. It is highly accurate, repeatable, and suitable for both prototypes and production runs.',
-  },
-  {
-    q: 'What tolerances can you achieve?',
-    a: 'Standard CNC milling achieves ±0.05mm for metals. For precision fits, bores, and critical dimensions, we achieve ±0.01mm. Wire Cut EDM reaches ±0.005mm for hardened materials. All tolerances are inspection-verified.',
-  },
-  {
-    q: 'What is the minimum order quantity?',
-    a: 'We accept orders from 1 piece (prototype) to large production batches. There is no minimum order quantity — we serve both one-off prototypes for T-Works startups and repeat bulk orders for Bharat Biotech and BEL.',
-  },
-  {
-    q: 'Do you accept CAD files?',
-    a: 'Yes. We accept STEP, STP, IGES, DXF, DWG, and PDF drawing files. Upload your file with your RFQ and our engineers will review and confirm manufacturability within 24 hours.',
-  },
-  {
-    q: 'What surface finishes are available?',
-    a: 'As-machined (Ra 1.6μm), bead blast, anodize Type II/III, hard anodize, passivation, electropolish, powder coat, chrome/nickel plating, and custom finishes. See our Materials page for a full list.',
-  },
-  {
-    q: 'Can you machine hardened steel?',
-    a: 'Yes. Our Wire Cut EDM and Die Sinking EDM machines work with hardened steels (H13, D2, EN31 etc.) up to 60+ HRC. This is essential for mould cavities, punches, and tool room applications.',
-  },
-  {
-    q: 'Do you provide quality inspection reports?',
-    a: 'Yes. We provide dimensional inspection using precision measuring instruments. For critical pharma and defence components, we provide full inspection reports with material certificates.',
-  },
-  {
-    q: 'What industries do you serve?',
-    a: 'Pharma (Bharat Biotech, Sanofi, Gland Pharma), Defence (BEL, ECIL, BHEL, Avantel), Technology (Zen Technologies, T-Works), EV/Automotive, Medical, Aerospace, Energy, and Robotics.',
-  },
+  { q: 'What is CNC machining?', a: 'CNC (Computer Numerical Control) machining uses automated high-speed cutting tools guided by digital programs (G-code) to precisely shape metal or plastic from raw stock. It is highly accurate, repeatable, and suitable for both prototypes and production runs.' },
+  { q: 'What tolerances can you achieve?', a: 'Standard CNC milling achieves ±0.05mm for metals. For precision fits, bores, and critical dimensions, we achieve ±0.01mm. Wire Cut EDM reaches ±0.005mm for hardened materials. All tolerances are inspection-verified.' },
+  { q: 'What is the minimum order quantity?', a: 'We accept orders from 1 piece (prototype) to large production batches. There is no minimum order quantity — we serve both one-off prototypes for T-Works startups and repeat bulk orders for Bharat Biotech and BEL.' },
+  { q: 'Do you accept CAD files?', a: 'Yes. We accept STEP, STP, IGES, DXF, DWG, and PDF drawing files. Upload your file with your RFQ and our engineers will review and confirm manufacturability within 24 hours.' },
+  { q: 'What surface finishes are available?', a: 'As-machined (Ra 1.6μm), bead blast, anodize Type II/III, hard anodize, passivation, electropolish, powder coat, chrome/nickel plating, and custom finishes. See our Materials page for a full list.' },
+  { q: 'Can you machine hardened steel?', a: 'Yes. Our Wire Cut EDM and Die Sinking EDM machines work with hardened steels (H13, D2, EN31 etc.) up to 60+ HRC. This is essential for mould cavities, punches, and tool room applications.' },
+  { q: 'Do you provide quality inspection reports?', a: 'Yes. We provide dimensional inspection using precision measuring instruments. For critical pharma and defence components, we provide full inspection reports with material certificates.' },
+  { q: 'What industries do you serve?', a: 'Pharma (Bharat Biotech, Sanofi, Gland Pharma), Defence (BEL, ECIL, BHEL, Avantel), Technology (Zen Technologies, T-Works), EV/Automotive, Medical, Aerospace, Energy, and Robotics.' },
 ]
 
 const designGuidelines = [
@@ -93,84 +34,91 @@ const designGuidelines = [
 
 export default function CapabilitiesPage() {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="d-flex flex-column min-vh-100" style={{ background: 'var(--dark-bg)' }}>
       <Navbar />
 
       {/* Header */}
-      <section className="bg-gradient-to-r from-brand-navy-800 to-slate-800 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-brand-red-400 text-sm font-semibold uppercase tracking-wider mb-2">Technical Specifications</p>
-          <h1 className="text-4xl md:text-5xl font-black mb-4">Machining Capabilities</h1>
-          <p className="text-lg text-slate-300 max-w-2xl mb-6">
+      <section className="page-header">
+        <div className="container-xl">
+          <p className="text-brand-red fw-semibold text-uppercase letter-wide mb-2" style={{ fontSize: '0.8rem' }}>Technical Specifications</p>
+          <h1 className="fw-black text-white mb-3" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)' }}>Machining Capabilities</h1>
+          <p className="text-secondary mb-4" style={{ maxWidth: '560px', fontSize: '1.05rem' }}>
             Complete specifications for our CNC machining services — tolerances, lead times, part sizes, and design guidelines.
           </p>
-          <div className="flex flex-wrap gap-2">
-            {['±0.01mm Precision', 'Pharma-Grade Finishing', 'Defence-Certified QC', 'CAD File Support'].map((badge) => (
-              <span key={badge} className="bg-brand-red-600/30 border border-brand-red-500/40 text-brand-red-300 text-sm px-4 py-1.5 rounded-full">{badge}</span>
+          <div className="d-flex flex-wrap gap-2">
+            {['±0.01mm Precision', 'Pharma-Grade Finishing', 'Defence-Certified QC', 'CAD File Support'].map(b => (
+              <span key={b} className="badge-status" style={{ background: 'rgba(200,32,46,0.15)', color: '#fca5a5', border: '1px solid rgba(200,32,46,0.3)' }}>{b}</span>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Capability Comparison Table */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-slate-900 mb-6">Service Capabilities at a Glance</h2>
-          <div className="overflow-x-auto rounded-xl border border-slate-200 shadow-sm">
-            <table className="w-full">
-              <thead>
-                <tr className="bg-brand-navy-800 text-white">
-                  <th className="px-5 py-4 text-left text-sm font-semibold">Service</th>
-                  <th className="px-5 py-4 text-left text-sm font-semibold">Lead Time</th>
-                  <th className="px-5 py-4 text-left text-sm font-semibold">Tolerance</th>
-                  <th className="px-5 py-4 text-left text-sm font-semibold">Max Part Size</th>
-                  <th className="px-5 py-4 text-left text-sm font-semibold">Equipment</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-100">
-                {capabilityTable.map((row, i) => (
-                  <tr key={row.service} className={i % 2 === 0 ? 'bg-white' : 'bg-slate-50'}>
-                    <td className="px-5 py-4">
-                      <div className="font-semibold text-slate-900 text-sm">{row.service}</div>
-                      <div className="text-xs text-slate-500 mt-0.5">{row.materials}</div>
-                    </td>
-                    <td className="px-5 py-4 text-sm text-brand-red-700 font-medium">{row.leadTime}</td>
-                    <td className="px-5 py-4 text-sm text-slate-700 font-semibold">{row.tolerance}</td>
-                    <td className="px-5 py-4 text-sm text-slate-600">{row.maxSize}</td>
-                    <td className="px-5 py-4 text-sm text-slate-600">{row.machines}</td>
+      {/* Capability Table */}
+      <section className="section-py" style={{ background: 'var(--dark-surface)' }}>
+        <div className="container-xl">
+          <h2 className="text-white fw-bold mb-4" style={{ fontSize: '1.3rem' }}>Service Capabilities at a Glance</h2>
+          <div className="dark-card overflow-hidden">
+            <div className="table-responsive">
+              <table className="table-dark-custom w-100">
+                <thead>
+                  <tr>
+                    <th>Service</th>
+                    <th>Lead Time</th>
+                    <th>Tolerance</th>
+                    <th>Max Part Size</th>
+                    <th>Equipment</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {capabilityTable.map((row) => (
+                    <tr key={row.service}>
+                      <td>
+                        <div className="text-white fw-semibold" style={{ fontSize: '0.875rem' }}>{row.service}</div>
+                        <div className="text-muted" style={{ fontSize: '0.72rem' }}>{row.materials}</div>
+                      </td>
+                      <td style={{ color: 'var(--brand-red)', fontWeight: 600, fontSize: '0.85rem' }}>{row.leadTime}</td>
+                      <td className="text-white fw-semibold" style={{ fontSize: '0.85rem' }}>{row.tolerance}</td>
+                      <td className="text-secondary" style={{ fontSize: '0.85rem' }}>{row.maxSize}</td>
+                      <td className="text-secondary" style={{ fontSize: '0.85rem' }}>{row.machines}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
-          <p className="text-xs text-slate-400 mt-3">* Lead times are estimates and may vary based on complexity and current capacity. Contact us for urgent orders.</p>
+          <p className="text-muted mt-2" style={{ fontSize: '0.75rem' }}>* Lead times are estimates and may vary based on complexity and current capacity. Contact us for urgent orders.</p>
         </div>
       </section>
 
-      {/* Design Guidelines */}
-      <section className="py-16 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-slate-900 mb-3">Design for Manufacturability (DFM) Guidelines</h2>
-          <p className="text-slate-600 mb-8">
+      {/* DFM Guidelines */}
+      <section className="section-py" style={{ background: 'var(--dark-bg)' }}>
+        <div className="container-xl">
+          <h2 className="text-white fw-bold mb-2" style={{ fontSize: '1.3rem' }}>Design for Manufacturability (DFM) Guidelines</h2>
+          <p className="text-secondary mb-4" style={{ fontSize: '0.875rem' }}>
             Following these guidelines helps reduce machining cost, improve part quality, and speed up delivery.
           </p>
-          <div className="grid sm:grid-cols-2 gap-5">
+          <div className="row g-3 mb-4">
             {designGuidelines.map((g) => (
-              <div key={g.rule} className="bg-white rounded-xl p-5 shadow-sm flex gap-4">
-                <div className="w-8 h-8 bg-brand-red-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <svg className="w-4 h-4 text-brand-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-slate-900 text-sm">{g.rule}</h4>
-                  <p className="text-xs text-slate-600 mt-1 leading-relaxed">{g.desc}</p>
+              <div key={g.rule} className="col-sm-6">
+                <div className="dark-card p-3 d-flex gap-3 h-100">
+                  <div
+                    className="rounded d-flex align-items-center justify-content-center flex-shrink-0"
+                    style={{ width: 32, height: 32, background: 'rgba(200,32,46,0.15)', border: '1px solid rgba(200,32,46,0.3)', marginTop: '2px' }}
+                  >
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--brand-red)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="text-white fw-semibold mb-1" style={{ fontSize: '0.875rem' }}>{g.rule}</h4>
+                    <p className="text-muted mb-0" style={{ fontSize: '0.78rem', lineHeight: 1.5 }}>{g.desc}</p>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
-          <div className="mt-6 bg-brand-red-50 border border-brand-red-200 rounded-xl p-5">
-            <p className="text-sm text-brand-red-800">
+          <div className="rounded p-3" style={{ background: 'rgba(200,32,46,0.08)', border: '1px solid rgba(200,32,46,0.25)' }}>
+            <p className="mb-0" style={{ fontSize: '0.875rem', color: '#fca5a5' }}>
               <strong>Free DFM Review:</strong> Upload your CAD file with your RFQ and our engineers will review your design for manufacturability and suggest cost-saving optimizations at no charge.
             </p>
           </div>
@@ -178,14 +126,14 @@ export default function CapabilitiesPage() {
       </section>
 
       {/* FAQ */}
-      <section className="py-16 bg-white">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-slate-900 mb-8">Frequently Asked Questions</h2>
-          <div className="space-y-4">
+      <section className="section-py" style={{ background: 'var(--dark-surface)' }}>
+        <div className="container-xl" style={{ maxWidth: '860px' }}>
+          <h2 className="text-white fw-bold mb-4" style={{ fontSize: '1.3rem' }}>Frequently Asked Questions</h2>
+          <div className="d-flex flex-column gap-3">
             {machiningFAQ.map((item) => (
-              <div key={item.q} className="bg-slate-50 rounded-xl p-5">
-                <h3 className="font-semibold text-slate-900 mb-2 text-sm">{item.q}</h3>
-                <p className="text-sm text-slate-600 leading-relaxed">{item.a}</p>
+              <div key={item.q} className="dark-card p-4">
+                <h3 className="text-white fw-semibold mb-2" style={{ fontSize: '0.9rem' }}>{item.q}</h3>
+                <p className="text-secondary mb-0" style={{ fontSize: '0.85rem', lineHeight: 1.6 }}>{item.a}</p>
               </div>
             ))}
           </div>
@@ -193,19 +141,19 @@ export default function CapabilitiesPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-12 bg-brand-red-600 text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
-          <div>
-            <h2 className="text-2xl font-black">Ready to Start Your Project?</h2>
-            <p className="text-brand-red-100 text-sm mt-1">Upload your design and get a quote in 24 hours.</p>
-          </div>
-          <div className="flex gap-3">
-            <Link href="/dashboard/rfq/new" className="bg-white text-brand-red-600 hover:bg-brand-red-50 font-bold py-3 px-6 rounded-lg transition-colors whitespace-nowrap">
-              Get Instant Quote
-            </Link>
-            <Link href="/contact" className="border border-white/50 text-white hover:bg-white/10 font-bold py-3 px-6 rounded-lg transition-colors">
-              Contact Us
-            </Link>
+      <section className="section-py cta-red text-white">
+        <div className="container-xl">
+          <div className="d-flex flex-column flex-md-row align-items-center justify-content-between gap-4">
+            <div>
+              <h2 className="fw-black text-white mb-1" style={{ fontSize: 'clamp(1.25rem, 2.5vw, 1.75rem)' }}>Ready to Start Your Project?</h2>
+              <p className="mb-0" style={{ opacity: 0.85 }}>Upload your design and get a quote in 24 hours.</p>
+            </div>
+            <div className="d-flex gap-3 flex-shrink-0">
+              <Link href="/dashboard/rfq/new" className="btn-ghost-white" style={{ background: 'white' }}>
+                <span style={{ color: 'var(--brand-red)', fontWeight: 800 }}>Get Instant Quote</span>
+              </Link>
+              <Link href="/contact" className="btn-ghost-white">Contact Us</Link>
+            </div>
           </div>
         </div>
       </section>

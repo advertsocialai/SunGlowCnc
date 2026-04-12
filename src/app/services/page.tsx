@@ -10,18 +10,9 @@ const services = [
     title: 'CNC Precision Machining',
     subtitle: 'Our Core Capability',
     desc: 'Using advanced Vertical Machining Centers (VMC), we deliver high-tolerance milling, turning, drilling, and finishing operations for complex components.',
-    items: [
-      '3-axis & multi-axis CNC milling',
-      'CNC turning and boring',
-      'Wire cut & EDM machining',
-      'Surface and cylindrical grinding',
-      'Tolerances down to ±0.01mm',
-      'Superior surface finishes (Ra 0.4 – 1.6)',
-    ],
+    items: ['3-axis & multi-axis CNC milling', 'CNC turning and boring', 'Wire cut & EDM machining', 'Surface and cylindrical grinding', 'Tolerances down to ±0.01mm', 'Superior surface finishes (Ra 0.4 – 1.6)'],
     machinery: ['3× VMC Milling Machines', 'CNC Lathe', 'Wire Cut EDM', 'EDM Machine', 'Conventional Setup'],
-    color: 'bg-blue-50 border-blue-200',
-    iconBg: 'bg-blue-100',
-    iconColor: 'text-blue-700',
+    accentColor: '#3b82f6',
   },
   {
     id: 'pharma',
@@ -30,18 +21,9 @@ const services = [
     title: 'Pharma Component Manufacturing',
     subtitle: 'Regular Supplies to Leading Pharma Companies',
     desc: 'We are a trusted supplier of precision pharma components to Bharat Biotech, Sanofi, Gland Pharma, and ICLEAN — maintaining the highest hygiene and tolerance standards.',
-    items: [
-      'Star wheels and guides',
-      'Vacuum star wheels',
-      'Filling machine chain parts',
-      'Filling needles & washing needles',
-      'Fermenter templates',
-      'TC, Y & Straight connectors',
-    ],
+    items: ['Star wheels and guides', 'Vacuum star wheels', 'Filling machine chain parts', 'Filling needles & washing needles', 'Fermenter templates', 'TC, Y & Straight connectors'],
     machinery: ['316L Stainless Steel capability', 'Electro-polished finishes', 'GMP-compliant components'],
-    color: 'bg-green-50 border-green-200',
-    iconBg: 'bg-green-100',
-    iconColor: 'text-green-700',
+    accentColor: '#22c55e',
   },
   {
     id: 'defence',
@@ -50,38 +32,20 @@ const services = [
     title: 'Defence & Aerospace Hardware',
     subtitle: 'Critical Precision for National Security',
     desc: 'Trusted by BEL, ECIL, BHEL, and Avantel Limited for producing high-precision defence and aerospace hardware including microwave systems and jamming devices.',
-    items: [
-      'Microwave systems hardware',
-      'Cell jammer components',
-      'Aerospace structural brackets',
-      'Complex manifolds & fluid components',
-      'High-tolerance drilling',
-      'Lightweight structural parts',
-    ],
+    items: ['Microwave systems hardware', 'Cell jammer components', 'Aerospace structural brackets', 'Complex manifolds & fluid components', 'High-tolerance drilling', 'Lightweight structural parts'],
     machinery: ['Titanium & Aluminium alloy machining', 'High-speed milling', 'Aerospace-grade QC'],
-    color: 'bg-red-50 border-red-200',
-    iconBg: 'bg-red-100',
-    iconColor: 'text-red-700',
+    accentColor: '#ef4444',
   },
   {
     id: 'ev',
     image: 'https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=800&q=80&fit=crop',
     icon: '⚡',
     title: 'EV & Automotive Components',
-    subtitle: 'Powering India\'s EV Revolution',
+    subtitle: "Powering India's EV Revolution",
     desc: 'From EV battery casings to heat sinks and engine parts, we manufacture precision automotive components that meet stringent performance and safety requirements.',
-    items: [
-      'EV battery casings',
-      'Thermal management heat sinks',
-      'Engine & powertrain parts',
-      'Connecting rods (precision-milled)',
-      'Alloy wheel prototypes',
-      'Transmission components',
-    ],
+    items: ['EV battery casings', 'Thermal management heat sinks', 'Engine & powertrain parts', 'Connecting rods (precision-milled)', 'Alloy wheel prototypes', 'Transmission components'],
     machinery: ['Aluminium alloy machining', 'High-volume capability', 'Dimensional inspection'],
-    color: 'bg-yellow-50 border-yellow-200',
-    iconBg: 'bg-yellow-100',
-    iconColor: 'text-yellow-700',
+    accentColor: '#eab308',
   },
   {
     id: 'robotics',
@@ -90,18 +54,9 @@ const services = [
     title: 'Robotics & Drones',
     subtitle: 'Precision Parts for Future Technologies',
     desc: 'Supporting T-Works Hub and Zen Technologies with precision components for drone frames, robotic actuators, and motion control systems.',
-    items: [
-      'Drone frame structures',
-      'Robotic arm components',
-      'Actuator housings',
-      'Servo motor mounts',
-      'Landing gear parts',
-      'Custom precision parts',
-    ],
+    items: ['Drone frame structures', 'Robotic arm components', 'Actuator housings', 'Servo motor mounts', 'Landing gear parts', 'Custom precision parts'],
     machinery: ['Lightweight alloy machining', 'High-precision boring', 'Custom geometry capability'],
-    color: 'bg-purple-50 border-purple-200',
-    iconBg: 'bg-purple-100',
-    iconColor: 'text-purple-700',
+    accentColor: '#a855f7',
   },
   {
     id: 'medical',
@@ -110,100 +65,74 @@ const services = [
     title: 'Medical Devices',
     subtitle: 'Clinical-Grade Precision',
     desc: 'Manufacturing surgical instruments, guide rails, and orthopedic implants with biocompatible materials and clinical-grade surface finishes.',
-    items: [
-      'Surgical guide rails & instruments',
-      'Orthopedic implant components',
-      'Biocompatible material machining',
-      'Titanium & SS 316L capability',
-      'Complex geometry implants',
-      'High-polish surgical finishes',
-    ],
+    items: ['Surgical guide rails & instruments', 'Orthopedic implant components', 'Biocompatible material machining', 'Titanium & SS 316L capability', 'Complex geometry implants', 'High-polish surgical finishes'],
     machinery: ['Ti-6Al-4V machining', 'Medical-grade finishing', 'Dimensional traceability'],
-    color: 'bg-teal-50 border-teal-200',
-    iconBg: 'bg-teal-100',
-    iconColor: 'text-teal-700',
+    accentColor: '#14b8a6',
   },
 ]
 
 export default function ServicesPage() {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="d-flex flex-column min-vh-100" style={{ background: 'var(--dark-bg)' }}>
       <Navbar />
 
       {/* Header */}
-      <section className="bg-gradient-to-r from-brand-navy-800 to-slate-800 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-2xl">
-            <p className="text-brand-red-400 text-sm font-semibold uppercase tracking-wider mb-2">What We Do</p>
-            <h1 className="text-4xl md:text-5xl font-black mb-4">Our Services &amp; Capabilities</h1>
-            <p className="text-lg text-slate-300">
-              Comprehensive CNC precision machining services for critical industries. From prototypes to production runs.
-            </p>
-          </div>
+      <section className="page-header">
+        <div className="container-xl">
+          <p className="text-brand-red fw-semibold text-uppercase letter-wide mb-2" style={{ fontSize: '0.8rem' }}>What We Do</p>
+          <h1 className="fw-black text-white mb-3" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)' }}>Our Services &amp; Capabilities</h1>
+          <p className="text-secondary" style={{ maxWidth: '520px', fontSize: '1.05rem' }}>
+            Comprehensive CNC precision machining services for critical industries. From prototypes to production runs.
+          </p>
         </div>
       </section>
 
       {/* Services */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="space-y-12">
-            {services.map((svc, i) => (
-              <div
-                key={svc.id}
-                className={`rounded-2xl border-2 overflow-hidden ${svc.color}`}
-              >
-                {/* Service image banner */}
-                <div className="relative h-52 overflow-hidden">
-                  <img
-                    src={svc.image}
-                    alt={svc.title}
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-r from-brand-navy-900/70 to-transparent" />
-                  <div className="absolute bottom-4 left-6 flex items-center gap-3">
-                    <span className="text-4xl">{svc.icon}</span>
+      <section className="section-py" style={{ background: 'var(--dark-surface)' }}>
+        <div className="container-xl">
+          <div className="d-flex flex-column gap-4">
+            {services.map((svc) => (
+              <div key={svc.id} className="dark-card overflow-hidden">
+                {/* Image banner */}
+                <div className="position-relative overflow-hidden" style={{ height: '200px' }}>
+                  <img src={svc.image} alt={svc.title} className="w-100 h-100" style={{ objectFit: 'cover' }} loading="lazy" />
+                  <div className="img-overlay-dark" />
+                  <div className="position-absolute bottom-0 start-0 p-4 d-flex align-items-center gap-3">
+                    <span style={{ fontSize: '2.5rem' }}>{svc.icon}</span>
                     <div>
-                      <p className="text-brand-red-300 text-xs font-semibold uppercase tracking-wider">{svc.subtitle}</p>
-                      <h2 className="text-2xl font-black text-white">{svc.title}</h2>
+                      <p className="mb-0 text-brand-red fw-semibold text-uppercase letter-wide" style={{ fontSize: '0.72rem' }}>{svc.subtitle}</p>
+                      <h2 className="text-white fw-black mb-0" style={{ fontSize: '1.4rem' }}>{svc.title}</h2>
                     </div>
                   </div>
                 </div>
-                <div className="p-8">
-                <div className="grid md:grid-cols-2 gap-8">
-                  <div>
-                    <div className={`w-14 h-14 ${svc.iconBg} rounded-2xl flex items-center justify-center text-3xl mb-4 hidden`}>
-                      {svc.icon}
-                    </div>
-                    <p className={`text-sm font-semibold uppercase tracking-wider ${svc.iconColor} mb-1`}>{svc.subtitle}</p>
-                    <h2 className="text-2xl font-bold text-slate-900 mb-3">{svc.title}</h2>
-                    <p className="text-slate-600 leading-relaxed">{svc.desc}</p>
-                    <div className="mt-4">
-                      <h4 className="text-xs uppercase tracking-wider text-slate-500 font-semibold mb-2">Key Capabilities</h4>
-                      <div className="flex flex-wrap gap-2">
+
+                {/* Content */}
+                <div className="p-4">
+                  <div className="row g-4">
+                    <div className="col-md-6">
+                      <p className="text-secondary mb-4" style={{ lineHeight: 1.7 }}>{svc.desc}</p>
+                      <h4 className="text-muted text-uppercase letter-wide fw-semibold mb-3" style={{ fontSize: '0.72rem' }}>Key Capabilities</h4>
+                      <div className="d-flex flex-wrap gap-2">
                         {svc.machinery.map((m) => (
-                          <span key={m} className="bg-white/70 border border-slate-200 text-slate-700 text-xs px-3 py-1 rounded-full">
-                            {m}
-                          </span>
+                          <span key={m} className="capability-chip">{m}</span>
                         ))}
                       </div>
                     </div>
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-semibold text-slate-700 mb-3 uppercase tracking-wider">Components & Parts</h4>
-                    <ul className="space-y-2">
-                      {svc.items.map((item) => (
-                        <li key={item} className="flex items-start gap-3">
-                          <svg className={`w-4 h-4 mt-0.5 flex-shrink-0 ${svc.iconColor}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-                          </svg>
-                          <span className="text-slate-700 text-sm">{item}</span>
-                        </li>
-                      ))}
-                    </ul>
+                    <div className="col-md-6">
+                      <h4 className="text-secondary text-uppercase letter-wide fw-semibold mb-3" style={{ fontSize: '0.72rem' }}>Components &amp; Parts</h4>
+                      <ul className="list-unstyled d-flex flex-column gap-2 mb-0">
+                        {svc.items.map((item) => (
+                          <li key={item} className="d-flex align-items-start gap-2">
+                            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="var(--brand-red)" className="flex-shrink-0 mt-1">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span className="text-secondary" style={{ fontSize: '0.875rem' }}>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
                 </div>
-                </div>{/* close p-8 wrapper */}
               </div>
             ))}
           </div>
@@ -211,12 +140,14 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-brand-red-600 text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-black mb-4">Need a Custom Component?</h2>
-          <p className="text-brand-red-100 mb-6">Upload your design and our team will provide a detailed quote within 24 hours.</p>
-          <Link href="/register" className="bg-white text-brand-red-600 hover:bg-brand-red-50 font-bold py-3 px-8 rounded-lg transition-colors inline-block">
-            Request a Quote
+      <section className="section-py cta-red text-white">
+        <div className="container-xl text-center">
+          <h2 className="fw-black text-white mb-3" style={{ fontSize: 'clamp(1.5rem, 3vw, 2.25rem)' }}>Need a Custom Component?</h2>
+          <p className="mb-5 mx-auto" style={{ opacity: 0.85, maxWidth: '480px' }}>
+            Upload your design and our team will provide a detailed quote within 24 hours.
+          </p>
+          <Link href="/register" className="btn-ghost-white" style={{ background: 'white' }}>
+            <span style={{ color: 'var(--brand-red)', fontWeight: 800 }}>Request a Quote</span>
           </Link>
         </div>
       </section>

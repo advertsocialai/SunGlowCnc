@@ -37,66 +37,46 @@ function LoginForm() {
   }
 
   return (
-    <div className="bg-white rounded-2xl shadow-2xl p-8">
-      <h1 className="text-2xl font-bold text-slate-900 mb-1">Welcome back</h1>
-      <p className="text-sm text-slate-500 mb-6">Sign in to your account to continue</p>
+    <div className="dark-card p-4 p-md-5">
+      <h1 className="text-white fw-bold mb-1" style={{ fontSize: '1.4rem' }}>Welcome back</h1>
+      <p className="text-muted mb-4" style={{ fontSize: '0.875rem' }}>Sign in to your account to continue</p>
 
       {error && (
-        <div className="bg-red-50 border border-red-200 text-red-700 rounded-lg px-4 py-3 text-sm mb-5">
+        <div className="p-3 rounded mb-4" style={{ background: 'rgba(239,68,68,0.12)', border: '1px solid rgba(239,68,68,0.3)', color: '#f87171', fontSize: '0.875rem' }}>
           {error}
         </div>
       )}
 
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form onSubmit={handleSubmit} className="d-flex flex-column gap-4">
         <div>
-          <label className="block text-sm font-medium text-slate-700 mb-1.5">Email Address</label>
-          <input
-            type="email"
-            required
-            value={form.email}
-            onChange={(e) => setForm({ ...form, email: e.target.value })}
-            className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-red-500 focus:border-transparent"
-            placeholder="your@company.com"
-          />
+          <label className="form-label-dark">Email Address</label>
+          <input type="email" required value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className="form-control-dark" placeholder="your@company.com" />
         </div>
         <div>
-          <label className="block text-sm font-medium text-slate-700 mb-1.5">Password</label>
-          <input
-            type="password"
-            required
-            value={form.password}
-            onChange={(e) => setForm({ ...form, password: e.target.value })}
-            className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-red-500 focus:border-transparent"
-            placeholder="••••••••"
-          />
+          <label className="form-label-dark">Password</label>
+          <input type="password" required value={form.password} onChange={(e) => setForm({ ...form, password: e.target.value })} className="form-control-dark" placeholder="••••••••" />
         </div>
-        <button
-          type="submit"
-          disabled={loading}
-          className="w-full bg-brand-red-600 hover:bg-brand-red-700 disabled:bg-brand-red-300 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
-        >
+        <button type="submit" disabled={loading} className="btn-brand w-100 justify-content-center" style={{ opacity: loading ? 0.7 : 1 }}>
           {loading ? 'Signing in...' : 'Sign In'}
         </button>
       </form>
 
-      <div className="mt-6 text-center">
-        <p className="text-sm text-slate-500">
+      <div className="text-center mt-4">
+        <p className="text-muted" style={{ fontSize: '0.875rem' }}>
           Don&apos;t have an account?{' '}
-          <Link href="/register" className="text-brand-red-600 hover:text-brand-red-700 font-semibold">
-            Register here
-          </Link>
+          <Link href="/register" className="text-brand-red text-decoration-none fw-semibold">Register here</Link>
         </p>
       </div>
 
       {/* Demo credentials */}
-      <div className="mt-6 bg-slate-50 rounded-xl p-4 border border-slate-200">
-        <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">Demo Credentials</p>
-        <div className="space-y-1.5">
-          <div className="text-xs text-slate-600">
-            <span className="font-semibold">Admin:</span> admin@sunglowcnc.com / admin123
+      <div className="dark-card-elevated p-3 mt-4" style={{ border: '1px solid var(--dark-border)' }}>
+        <p className="text-muted text-uppercase letter-wide fw-semibold mb-2" style={{ fontSize: '0.7rem' }}>Demo Credentials</p>
+        <div className="d-flex flex-column gap-2">
+          <div className="text-secondary" style={{ fontSize: '0.8rem' }}>
+            <span className="fw-semibold text-white">Admin:</span> admin@sunglowcnc.com / admin123
           </div>
-          <div className="text-xs text-slate-600">
-            <span className="font-semibold">Client:</span> client@bharatbiotech.com / client123
+          <div className="text-secondary" style={{ fontSize: '0.8rem' }}>
+            <span className="fw-semibold text-white">Client:</span> client@bharatbiotech.com / client123
           </div>
         </div>
       </div>
@@ -106,23 +86,23 @@ function LoginForm() {
 
 export default function LoginPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-brand-navy-800 via-brand-navy-700 to-brand-navy-800 flex items-center justify-center p-4">
-      <div className="w-full max-w-md">
+    <div className="d-flex align-items-center justify-content-center min-vh-100 p-4" style={{ background: 'linear-gradient(135deg, var(--dark-bg) 0%, var(--brand-navy-dark) 50%, var(--dark-bg) 100%)' }}>
+      <div className="w-100" style={{ maxWidth: '440px' }}>
         {/* Logo */}
-        <div className="flex justify-center mb-8">
-          <Link href="/">
-            <div className="bg-white rounded-xl px-5 py-3 shadow-lg">
-              <Image src="/logo.svg" alt="Sunglow CNC Technics" width={200} height={50} className="h-12 w-auto object-contain" />
+        <div className="text-center mb-4">
+          <Link href="/" className="d-inline-block">
+            <div className="bg-white rounded px-4 py-2 d-inline-block shadow">
+              <Image src="/logo.svg" alt="Sunglow CNC Technics" width={200} height={50} style={{ height: '44px', width: 'auto' }} unoptimized />
             </div>
           </Link>
         </div>
 
-        <Suspense fallback={<div className="bg-white rounded-2xl shadow-2xl p-8 text-center text-slate-400 text-sm">Loading...</div>}>
+        <Suspense fallback={<div className="dark-card p-5 text-center text-muted" style={{ fontSize: '0.875rem' }}>Loading...</div>}>
           <LoginForm />
         </Suspense>
 
-        <div className="text-center mt-6">
-          <Link href="/" className="text-slate-400 hover:text-slate-300 text-sm transition-colors">
+        <div className="text-center mt-4">
+          <Link href="/" className="text-muted text-decoration-none" style={{ fontSize: '0.875rem' }}>
             ← Back to Website
           </Link>
         </div>

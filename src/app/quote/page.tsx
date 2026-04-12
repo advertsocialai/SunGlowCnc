@@ -38,21 +38,13 @@ export default function QuotePage() {
   const [submitting, setSubmitting] = useState(false)
 
   const [form, setForm] = useState({
-    title: '',
-    materialGroup: '',
-    materialItem: '',
-    tolerance: '±0.05mm',
-    customTolerance: '',
-    finish: 'As-Machined',
-    quantity: '1',
-    description: '',
-    notes: '',
-    fileUrl: '',
-    fileName: '',
+    title: '', materialGroup: '', materialItem: '',
+    tolerance: '±0.05mm', customTolerance: '',
+    finish: 'As-Machined', quantity: '1',
+    description: '', notes: '', fileUrl: '', fileName: '',
   })
 
   const set = (k: string, v: string) => setForm((p) => ({ ...p, [k]: v }))
-
   const selectedGroup = materials.find((m) => m.group === form.materialGroup)
 
   const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -64,18 +56,10 @@ export default function QuotePage() {
       fd.append('file', file)
       const res = await fetch('/api/upload', { method: 'POST', body: fd })
       const data = await res.json()
-      if (res.ok) {
-        set('fileUrl', data.url)
-        set('fileName', data.name)
-        toast.success(`File uploaded: ${data.name}`)
-      } else {
-        toast.error(data.error || 'Upload failed')
-      }
-    } catch {
-      toast.error('Upload failed. Please try again.')
-    } finally {
-      setUploading(false)
-    }
+      if (res.ok) { set('fileUrl', data.url); set('fileName', data.name); toast.success(`File uploaded: ${data.name}`) }
+      else toast.error(data.error || 'Upload failed')
+    } catch { toast.error('Upload failed. Please try again.') }
+    finally { setUploading(false) }
   }
 
   const handleSubmit = async () => {
@@ -85,28 +69,18 @@ export default function QuotePage() {
     }
     setSubmitting(true)
     try {
-      const material = form.materialItem
-        ? `${form.materialGroup} ${form.materialItem}`
-        : form.materialGroup
-
+      const material = form.materialItem ? `${form.materialGroup} ${form.materialItem}` : form.materialGroup
       const tolerance = form.tolerance === 'custom' ? form.customTolerance : form.tolerance
-
       const res = await fetch('/api/rfq', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          title: form.title,
-          description: form.description,
-          material,
-          tolerance,
-          quantity: parseInt(form.quantity),
-          priority: 'normal',
+          title: form.title, description: form.description, material, tolerance,
+          quantity: parseInt(form.quantity), priority: 'normal',
           notes: `Surface Finish: ${form.finish}\n${form.notes}`,
-          fileUrl: form.fileUrl || undefined,
-          fileName: form.fileName || undefined,
+          fileUrl: form.fileUrl || undefined, fileName: form.fileName || undefined,
         }),
       })
-
       if (res.ok) {
         setStep(3)
       } else {
@@ -118,33 +92,33 @@ export default function QuotePage() {
           toast.error(data.error || 'Failed to submit')
         }
       }
-    } catch {
-      toast.error('Network error. Please try again.')
-    } finally {
-      setSubmitting(false)
-    }
+    } catch { toast.error('Network error. Please try again.') }
+    finally { setSubmitting(false) }
   }
 
   if (step === 3) {
     return (
-      <div className="min-h-screen bg-slate-50 flex items-center justify-center px-4">
-        <div className="bg-white rounded-2xl shadow-lg p-12 max-w-md w-full text-center">
-          <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6 text-3xl">✓</div>
-          <h1 className="text-2xl font-bold text-slate-900 mb-3">Quote Request Submitted!</h1>
-          <p className="text-slate-500 text-sm mb-6">
-            Our engineering team will review your requirements and send a detailed quote within <strong>24 hours</strong>.
+      <div className="min-vh-100 d-flex align-items-center justify-content-center px-3" style={{ background: 'var(--dark-bg)' }}>
+        <div className="dark-card p-5 text-center w-100" style={{ maxWidth: '440px' }}>
+          <div
+            className="rounded-circle d-flex align-items-center justify-content-center mx-auto mb-4"
+            style={{ width: 64, height: 64, background: 'rgba(74,222,128,0.15)', border: '1px solid rgba(74,222,128,0.3)', fontSize: '1.75rem', color: '#4ade80' }}
+          >
+            ✓
+          </div>
+          <h1 className="text-white fw-bold mb-2" style={{ fontSize: '1.3rem' }}>Quote Request Submitted!</h1>
+          <p className="text-secondary mb-4" style={{ fontSize: '0.875rem' }}>
+            Our engineering team will review your requirements and send a detailed quote within <strong className="text-white">24 hours</strong>.
             You&apos;ll receive an email notification once ready.
           </p>
-          <div className="flex flex-col gap-3">
-            <Link
-              href="/dashboard/rfq"
-              className="bg-brand-red-600 hover:bg-brand-red-700 text-white font-bold py-3 px-6 rounded-lg transition-colors"
-            >
+          <div className="d-flex flex-column gap-2">
+            <Link href="/dashboard/rfq" className="btn-brand justify-content-center">
               Track Your RFQ
             </Link>
             <button
               onClick={() => { setStep(1); setForm({ title: '', materialGroup: '', materialItem: '', tolerance: '±0.05mm', customTolerance: '', finish: 'As-Machined', quantity: '1', description: '', notes: '', fileUrl: '', fileName: '' }) }}
-              className="text-slate-500 hover:text-slate-700 text-sm py-2"
+              className="btn p-2 text-muted"
+              style={{ fontSize: '0.875rem' }}
             >
               Submit Another Request
             </button>
@@ -155,142 +129,113 @@ export default function QuotePage() {
   }
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-vh-100" style={{ background: 'var(--dark-bg)' }}>
       {/* Top bar */}
-      <div className="bg-white border-b border-slate-200 px-6 py-4 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2">
-          <span className="text-brand-red-600 font-black text-xl">SUNGLOW</span>
-          <span className="text-slate-600 font-light text-sm">CNC</span>
-        </Link>
-        <div className="text-sm text-slate-500">
-          Have an account?{' '}
-          <Link href="/login" className="text-brand-red-600 hover:underline font-medium">
-            Sign in
+      <div style={{ background: 'var(--dark-card)', borderBottom: '1px solid var(--dark-border)' }}>
+        <div className="container-xl py-3 d-flex align-items-center justify-content-between">
+          <Link href="/" className="d-flex align-items-center gap-2 text-decoration-none">
+            <span className="fw-black" style={{ color: 'var(--brand-red)', fontSize: '1.15rem' }}>SUNGLOW</span>
+            <span className="text-muted" style={{ fontSize: '0.85rem', fontWeight: 300 }}>CNC</span>
           </Link>
+          <div className="text-muted" style={{ fontSize: '0.875rem' }}>
+            Have an account?{' '}
+            <Link href="/login" className="fw-medium text-decoration-none" style={{ color: 'var(--brand-red)' }}>Sign in</Link>
+          </div>
         </div>
       </div>
 
-      <div className="max-w-3xl mx-auto px-4 py-10">
+      <div className="container-xl py-5" style={{ maxWidth: '700px' }}>
         {/* Progress */}
-        <div className="flex items-center gap-3 mb-8">
+        <div className="d-flex align-items-center gap-3 mb-5">
           {[1, 2].map((s) => (
-            <div key={s} className="flex items-center gap-2">
-              <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${step >= s ? 'bg-brand-red-600 text-white' : 'bg-slate-200 text-slate-500'}`}>
+            <div key={s} className="d-flex align-items-center gap-2">
+              <div
+                className="rounded-circle d-flex align-items-center justify-content-center fw-bold"
+                style={{
+                  width: 32, height: 32, fontSize: '0.82rem',
+                  background: step >= s ? 'var(--brand-red)' : 'var(--dark-elevated)',
+                  color: step >= s ? '#fff' : '#6b7280',
+                  border: `1px solid ${step >= s ? 'var(--brand-red)' : 'var(--dark-border)'}`,
+                }}
+              >
                 {step > s ? '✓' : s}
               </div>
-              <span className={`text-sm font-medium ${step >= s ? 'text-slate-900' : 'text-slate-400'}`}>
+              <span className="fw-medium" style={{ fontSize: '0.875rem', color: step >= s ? '#fff' : '#6b7280' }}>
                 {s === 1 ? 'Component Details' : 'Files & Notes'}
               </span>
-              {s < 2 && <div className="w-12 h-0.5 bg-slate-200 mx-1" />}
+              {s < 2 && <div style={{ width: 40, height: 2, background: 'var(--dark-border)', margin: '0 4px' }} />}
             </div>
           ))}
         </div>
 
-        <div className="bg-white rounded-2xl shadow-sm p-8">
+        <div className="dark-card p-4 p-md-5">
           {step === 1 && (
-            <div className="space-y-6">
+            <div className="d-flex flex-column gap-4">
               <div>
-                <h1 className="text-2xl font-bold text-slate-900">Get an Instant Quote</h1>
-                <p className="text-slate-500 text-sm mt-1">Tell us about your component and we&apos;ll get back within 24 hours.</p>
+                <h1 className="text-white fw-bold mb-1" style={{ fontSize: '1.4rem' }}>Get an Instant Quote</h1>
+                <p className="text-muted mb-0" style={{ fontSize: '0.875rem' }}>Tell us about your component and we&apos;ll get back within 24 hours.</p>
               </div>
 
-              {/* Title */}
               <div>
-                <label className="block text-sm font-semibold text-slate-700 mb-2">Component Name / Title *</label>
+                <label className="form-label-dark">Component Name / Title *</label>
                 <input
-                  type="text"
-                  value={form.title}
-                  onChange={(e) => set('title', e.target.value)}
-                  placeholder="e.g., Impeller Housing — 3-inch"
-                  className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-red-500"
+                  type="text" value={form.title} onChange={(e) => set('title', e.target.value)}
+                  placeholder="e.g., Impeller Housing — 3-inch" className="form-control-dark"
                 />
               </div>
 
-              {/* Material */}
-              <div className="grid sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm font-semibold text-slate-700 mb-2">Material Family *</label>
-                  <select
-                    value={form.materialGroup}
-                    onChange={(e) => { set('materialGroup', e.target.value); set('materialItem', '') }}
-                    className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-red-500 bg-white"
-                  >
+              <div className="row g-3">
+                <div className="col-sm-6">
+                  <label className="form-label-dark">Material Family *</label>
+                  <select value={form.materialGroup} onChange={(e) => { set('materialGroup', e.target.value); set('materialItem', '') }} className="form-control-dark">
                     <option value="">Select...</option>
-                    {materials.map((m) => (
-                      <option key={m.group} value={m.group}>{m.group}</option>
-                    ))}
+                    {materials.map((m) => <option key={m.group} value={m.group}>{m.group}</option>)}
                   </select>
                 </div>
                 {selectedGroup && (
-                  <div>
-                    <label className="block text-sm font-semibold text-slate-700 mb-2">Grade / Alloy</label>
-                    <select
-                      value={form.materialItem}
-                      onChange={(e) => set('materialItem', e.target.value)}
-                      className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-red-500 bg-white"
-                    >
+                  <div className="col-sm-6">
+                    <label className="form-label-dark">Grade / Alloy</label>
+                    <select value={form.materialItem} onChange={(e) => set('materialItem', e.target.value)} className="form-control-dark">
                       <option value="">Any / specify in notes</option>
-                      {selectedGroup.items.map((i) => (
-                        <option key={i} value={i}>{i}</option>
-                      ))}
+                      {selectedGroup.items.map((i) => <option key={i} value={i}>{i}</option>)}
                     </select>
                   </div>
                 )}
               </div>
 
-              {/* Tolerance & Quantity */}
-              <div className="grid sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm font-semibold text-slate-700 mb-2">Tolerance</label>
-                  <select
-                    value={form.tolerance}
-                    onChange={(e) => set('tolerance', e.target.value)}
-                    className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-red-500 bg-white"
-                  >
-                    {toleranceOptions.map((t) => (
-                      <option key={t.value} value={t.value}>{t.label}</option>
-                    ))}
+              <div className="row g-3">
+                <div className="col-sm-6">
+                  <label className="form-label-dark">Tolerance</label>
+                  <select value={form.tolerance} onChange={(e) => set('tolerance', e.target.value)} className="form-control-dark">
+                    {toleranceOptions.map((t) => <option key={t.value} value={t.value}>{t.label}</option>)}
                   </select>
                 </div>
-                <div>
-                  <label className="block text-sm font-semibold text-slate-700 mb-2">Quantity *</label>
-                  <input
-                    type="number"
-                    min={1}
-                    value={form.quantity}
-                    onChange={(e) => set('quantity', e.target.value)}
-                    className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-red-500"
-                  />
+                <div className="col-sm-6">
+                  <label className="form-label-dark">Quantity *</label>
+                  <input type="number" min={1} value={form.quantity} onChange={(e) => set('quantity', e.target.value)} className="form-control-dark" />
                 </div>
               </div>
 
               {form.tolerance === 'custom' && (
                 <div>
-                  <label className="block text-sm font-semibold text-slate-700 mb-2">Custom Tolerance *</label>
-                  <input
-                    type="text"
-                    value={form.customTolerance}
-                    onChange={(e) => set('customTolerance', e.target.value)}
-                    placeholder="e.g., H7/g6 shaft/hole fit"
-                    className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-red-500"
-                  />
+                  <label className="form-label-dark">Custom Tolerance *</label>
+                  <input type="text" value={form.customTolerance} onChange={(e) => set('customTolerance', e.target.value)} placeholder="e.g., H7/g6 shaft/hole fit" className="form-control-dark" />
                 </div>
               )}
 
-              {/* Surface Finish */}
               <div>
-                <label className="block text-sm font-semibold text-slate-700 mb-2">Surface Finish</label>
-                <div className="flex flex-wrap gap-2">
+                <label className="form-label-dark">Surface Finish</label>
+                <div className="d-flex flex-wrap gap-2">
                   {finishOptions.map((f) => (
                     <button
-                      key={f}
-                      type="button"
-                      onClick={() => set('finish', f)}
-                      className={`px-3 py-1.5 rounded-lg text-xs font-medium border transition-colors ${
-                        form.finish === f
-                          ? 'bg-brand-red-600 text-white border-brand-red-600'
-                          : 'border-slate-200 text-slate-600 hover:border-brand-red-400 hover:text-brand-red-600'
-                      }`}
+                      key={f} type="button" onClick={() => set('finish', f)}
+                      className="btn px-3 py-1"
+                      style={{
+                        fontSize: '0.78rem', fontWeight: 500, borderRadius: '6px',
+                        background: form.finish === f ? 'var(--brand-red)' : 'var(--dark-elevated)',
+                        color: form.finish === f ? '#fff' : 'var(--text-secondary)',
+                        border: `1px solid ${form.finish === f ? 'var(--brand-red)' : 'var(--dark-border)'}`,
+                      }}
                     >
                       {f}
                     </button>
@@ -301,7 +246,8 @@ export default function QuotePage() {
               <button
                 onClick={() => setStep(2)}
                 disabled={!form.title || !form.materialGroup || !form.quantity}
-                className="w-full bg-brand-red-600 hover:bg-brand-red-700 disabled:bg-brand-red-300 text-white font-bold py-3 rounded-lg transition-colors"
+                className="btn-brand justify-content-center w-100"
+                style={{ opacity: (!form.title || !form.materialGroup || !form.quantity) ? 0.5 : 1 }}
               >
                 Next: Add Files →
               </button>
@@ -309,91 +255,65 @@ export default function QuotePage() {
           )}
 
           {step === 2 && (
-            <div className="space-y-6">
+            <div className="d-flex flex-column gap-4">
               <div>
-                <h2 className="text-xl font-bold text-slate-900">Upload Files &amp; Notes</h2>
-                <p className="text-slate-500 text-sm mt-1">Attach your CAD or drawing files to get a more accurate quote.</p>
+                <h2 className="text-white fw-bold mb-1" style={{ fontSize: '1.2rem' }}>Upload Files &amp; Notes</h2>
+                <p className="text-muted mb-0" style={{ fontSize: '0.875rem' }}>Attach your CAD or drawing files to get a more accurate quote.</p>
               </div>
 
-              {/* File Upload */}
               <div>
-                <label className="block text-sm font-semibold text-slate-700 mb-2">CAD / Drawing File (optional)</label>
+                <label className="form-label-dark">CAD / Drawing File (optional)</label>
                 <div
-                  className={`border-2 border-dashed rounded-xl p-8 text-center cursor-pointer transition-colors ${
-                    form.fileUrl ? 'border-green-300 bg-green-50' : 'border-slate-300 hover:border-brand-red-400 hover:bg-brand-red-50'
-                  }`}
+                  className="rounded text-center p-4"
                   onClick={() => fileInputRef.current?.click()}
+                  style={{
+                    border: `2px dashed ${form.fileUrl ? 'rgba(74,222,128,0.4)' : 'var(--dark-border)'}`,
+                    background: form.fileUrl ? 'rgba(74,222,128,0.06)' : 'var(--dark-elevated)',
+                    cursor: 'pointer',
+                  }}
                 >
                   {form.fileUrl ? (
                     <div>
-                      <p className="text-green-700 font-semibold text-sm">✓ {form.fileName}</p>
-                      <button
-                        type="button"
-                        onClick={(e) => { e.stopPropagation(); set('fileUrl', ''); set('fileName', '') }}
-                        className="text-xs text-red-500 mt-2 hover:underline"
-                      >
+                      <p className="fw-semibold mb-1" style={{ color: '#4ade80', fontSize: '0.875rem' }}>✓ {form.fileName}</p>
+                      <button type="button" onClick={(e) => { e.stopPropagation(); set('fileUrl', ''); set('fileName', '') }} className="btn p-0 text-danger" style={{ fontSize: '0.78rem' }}>
                         Remove file
                       </button>
                     </div>
                   ) : uploading ? (
-                    <div className="flex items-center justify-center gap-2 text-slate-500">
-                      <div className="w-5 h-5 border-2 border-brand-red-500 border-t-transparent rounded-full animate-spin" />
-                      <span className="text-sm">Uploading...</span>
+                    <div className="d-flex align-items-center justify-content-center gap-2 text-muted">
+                      <div className="spinner-border spinner-border-sm" style={{ color: 'var(--brand-red)' }} />
+                      <span style={{ fontSize: '0.875rem' }}>Uploading...</span>
                     </div>
                   ) : (
                     <div>
-                      <div className="text-4xl mb-3">📁</div>
-                      <p className="text-slate-700 font-medium text-sm">Click or drag your file here</p>
-                      <p className="text-slate-400 text-xs mt-1">STEP • STP • STL • DWG • DXF • IGES • PDF • PNG</p>
-                      <p className="text-slate-400 text-xs">Maximum 50 MB</p>
+                      <div className="mb-2" style={{ fontSize: '2rem' }}>📁</div>
+                      <p className="text-secondary fw-medium mb-1" style={{ fontSize: '0.875rem' }}>Click or drag your file here</p>
+                      <p className="text-muted mb-0" style={{ fontSize: '0.75rem' }}>STEP · STP · STL · DWG · DXF · IGES · PDF · PNG — max 50 MB</p>
                     </div>
                   )}
                 </div>
-                <input
-                  ref={fileInputRef}
-                  type="file"
-                  className="hidden"
+                <input ref={fileInputRef} type="file" className="d-none"
                   accept=".step,.stp,.stl,.iges,.igs,.dwg,.dxf,.sat,.ipt,.prt,.sldprt,.pdf,.jpg,.jpeg,.png"
-                  onChange={handleFileChange}
-                />
+                  onChange={handleFileChange} />
               </div>
 
-              {/* Description */}
               <div>
-                <label className="block text-sm font-semibold text-slate-700 mb-2">Component Description</label>
-                <textarea
-                  rows={3}
-                  value={form.description}
-                  onChange={(e) => set('description', e.target.value)}
+                <label className="form-label-dark">Component Description</label>
+                <textarea rows={3} value={form.description} onChange={(e) => set('description', e.target.value)}
                   placeholder="Describe the component function, any critical features, reference drawings..."
-                  className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-red-500 resize-none"
-                />
+                  className="form-control-dark" style={{ resize: 'none' }} />
               </div>
 
-              {/* Notes */}
               <div>
-                <label className="block text-sm font-semibold text-slate-700 mb-2">Additional Notes</label>
-                <textarea
-                  rows={3}
-                  value={form.notes}
-                  onChange={(e) => set('notes', e.target.value)}
+                <label className="form-label-dark">Additional Notes</label>
+                <textarea rows={3} value={form.notes} onChange={(e) => set('notes', e.target.value)}
                   placeholder="Delivery timeline, special packaging, export compliance, inspection requirements..."
-                  className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-red-500 resize-none"
-                />
+                  className="form-control-dark" style={{ resize: 'none' }} />
               </div>
 
-              <div className="flex gap-3">
-                <button
-                  onClick={() => setStep(1)}
-                  className="px-6 py-3 border border-slate-300 text-slate-600 rounded-lg hover:bg-slate-50 font-medium text-sm"
-                >
-                  ← Back
-                </button>
-                <button
-                  onClick={handleSubmit}
-                  disabled={submitting}
-                  className="flex-1 bg-brand-red-600 hover:bg-brand-red-700 disabled:bg-brand-red-300 text-white font-bold py-3 rounded-lg transition-colors"
-                >
+              <div className="d-flex gap-3">
+                <button onClick={() => setStep(1)} className="btn-brand-outline px-4">← Back</button>
+                <button onClick={handleSubmit} disabled={submitting} className="btn-brand flex-grow-1 justify-content-center" style={{ opacity: submitting ? 0.7 : 1 }}>
                   {submitting ? 'Submitting...' : 'Submit Quote Request'}
                 </button>
               </div>
@@ -402,11 +322,11 @@ export default function QuotePage() {
         </div>
 
         {/* Trust badges */}
-        <div className="mt-8 flex flex-wrap gap-4 justify-center text-xs text-slate-400">
+        <div className="d-flex flex-wrap gap-3 justify-content-center mt-4 text-muted" style={{ fontSize: '0.78rem' }}>
           <span>✓ Response within 24 hours</span>
           <span>✓ No commitment quote</span>
           <span>✓ ISO 9001 processes</span>
-          <span>✓ Trusted by Bharat Biotech, BEL & more</span>
+          <span>✓ Trusted by Bharat Biotech, BEL &amp; more</span>
         </div>
       </div>
     </div>

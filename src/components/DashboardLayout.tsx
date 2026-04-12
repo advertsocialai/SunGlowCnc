@@ -26,45 +26,48 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   const navItems = isAdmin ? adminNav : clientNav
 
   return (
-    <div className="min-h-screen bg-slate-100 flex">
+    <div className="d-flex min-vh-100" style={{ background: 'var(--dark-bg)' }}>
       {/* Sidebar */}
-      <aside className="w-64 bg-brand-navy-800 text-white flex flex-col flex-shrink-0">
+      <aside className="dashboard-sidebar">
         {/* Logo */}
-        <div className="p-5 border-b border-brand-navy-600">
-          <Link href="/" className="flex flex-col items-start gap-1">
-            <div className="bg-white rounded-lg px-2 py-1">
-              <Image src="/logo.svg" alt="Sunglow CNC Technics" width={120} height={30} className="h-7 w-auto object-contain" />
+        <div className="p-4 border-bottom border-dark-custom">
+          <Link href="/" className="d-flex flex-column gap-1 text-decoration-none">
+            <div className="bg-white rounded px-2 py-1 d-inline-block">
+              <Image src="/logo.svg" alt="Sunglow CNC Technics" width={120} height={30} style={{ height: '28px', width: 'auto' }} unoptimized />
             </div>
-            <div className="text-brand-red-400 text-xs pl-1">
+            <span className="text-brand-red" style={{ fontSize: '0.75rem', marginTop: '4px' }}>
               {isAdmin ? 'Admin Panel' : 'Client Portal'}
-            </div>
+            </span>
           </Link>
         </div>
 
         {/* User info */}
-        <div className="p-4 border-b border-brand-navy-600">
-          <div className="flex items-center gap-3">
-            <div className="w-9 h-9 bg-brand-red-600/30 rounded-full flex items-center justify-center text-brand-red-400 font-bold text-sm flex-shrink-0">
+        <div className="p-3 border-bottom border-dark-custom">
+          <div className="d-flex align-items-center gap-3">
+            <div
+              className="rounded-circle d-flex align-items-center justify-content-center text-white fw-bold flex-shrink-0"
+              style={{ width: 36, height: 36, background: 'rgba(200,32,46,0.3)', color: 'var(--brand-red)', fontSize: 13 }}
+            >
               {session?.user?.name?.[0]?.toUpperCase() ?? 'U'}
             </div>
             <div className="min-w-0">
-              <div className="font-medium text-sm truncate">{session?.user?.name}</div>
-              <div className="text-xs text-slate-400 truncate">{session?.user?.company ?? session?.user?.email}</div>
+              <div className="fw-medium text-truncate" style={{ fontSize: '0.875rem', color: 'var(--text-primary)' }}>
+                {session?.user?.name}
+              </div>
+              <div className="text-muted text-truncate" style={{ fontSize: '0.75rem' }}>
+                {session?.user?.company ?? session?.user?.email}
+              </div>
             </div>
           </div>
         </div>
 
         {/* Nav */}
-        <nav className="flex-1 p-3 space-y-1">
+        <nav className="flex-grow-1 p-3">
           {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
-                pathname === item.href
-                  ? 'bg-brand-red-600 text-white'
-                  : 'text-slate-300 hover:bg-brand-navy-600 hover:text-white'
-              }`}
+              className={`sidebar-nav-link ${pathname === item.href ? 'active' : ''}`}
             >
               <span>{item.icon}</span>
               {item.label}
@@ -73,25 +76,23 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
         </nav>
 
         {/* Bottom */}
-        <div className="p-3 border-t border-brand-navy-600 space-y-1">
-          <Link
-            href="/"
-            className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-slate-400 hover:bg-brand-navy-600 hover:text-white transition-colors"
-          >
+        <div className="p-3 border-top border-dark-custom">
+          <Link href="/" className="sidebar-nav-link">
             <span>🌐</span> Public Website
           </Link>
           <button
             onClick={() => signOut({ callbackUrl: '/' })}
-            className="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-slate-400 hover:bg-red-900/30 hover:text-red-400 transition-colors"
+            className="sidebar-nav-link w-100 border-0 bg-transparent text-start"
+            style={{ color: 'var(--text-secondary)' }}
           >
             <span>🚪</span> Sign Out
           </button>
         </div>
       </aside>
 
-      {/* Main */}
-      <main className="flex-1 overflow-auto">
-        <div className="p-8">
+      {/* Main content */}
+      <main className="flex-grow-1 overflow-auto">
+        <div className="p-4 p-md-5">
           {children}
         </div>
       </main>

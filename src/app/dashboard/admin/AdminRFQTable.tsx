@@ -39,7 +39,7 @@ const statusOptions = [
 function StatusBadge({ status }: { status: string }) {
   const map: Record<string, string> = {
     pending: 'status-pending', quoted: 'status-quoted', approved: 'status-approved',
-    in_production: 'status-production', quality_check: 'bg-indigo-100 text-indigo-800 badge',
+    in_production: 'status-production', quality_check: 'badge-status',
     shipped: 'status-shipped', completed: 'status-completed', rejected: 'status-rejected',
   }
   const labels: Record<string, string> = {
@@ -47,7 +47,8 @@ function StatusBadge({ status }: { status: string }) {
     in_production: 'In Production', quality_check: 'Quality Check',
     shipped: 'Shipped', completed: 'Completed', rejected: 'Rejected',
   }
-  return <span className={map[status] ?? 'badge bg-slate-100 text-slate-600'}>{labels[status] ?? status}</span>
+  const qcStyle = status === 'quality_check' ? { background: 'rgba(167,139,250,0.15)', color: '#a78bfa' } : undefined
+  return <span className={`badge-status ${map[status] ?? 'badge-status'}`} style={qcStyle}>{labels[status] ?? status}</span>
 }
 
 export default function AdminRFQTable({ rfqs: initialRfqs }: { rfqs: RFQRow[] }) {
@@ -115,87 +116,97 @@ export default function AdminRFQTable({ rfqs: initialRfqs }: { rfqs: RFQRow[] })
   return (
     <>
       {/* Filter tabs */}
-      <div className="flex gap-2 mb-4 overflow-x-auto pb-1">
+      <div className="d-flex gap-2 mb-4 overflow-x-auto pb-1 flex-wrap">
         {[{ value: 'all', label: 'All' }, ...statusOptions].map(s => (
           <button
             key={s.value}
             onClick={() => setFilter(s.value)}
-            className={`px-4 py-1.5 rounded-full text-xs font-medium whitespace-nowrap transition-colors ${
-              filter === s.value ? 'bg-brand-red-600 text-white' : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200'
-            }`}
+            className="btn px-3 py-1 rounded-pill"
+            style={{
+              fontSize: '0.75rem',
+              fontWeight: 500,
+              whiteSpace: 'nowrap',
+              background: filter === s.value ? 'var(--brand-red)' : 'var(--dark-elevated)',
+              color: filter === s.value ? '#fff' : 'var(--text-secondary)',
+              border: filter === s.value ? '1px solid var(--brand-red)' : '1px solid var(--dark-border)',
+              transition: 'all 0.2s',
+            }}
           >
             {s.label}
           </button>
         ))}
       </div>
 
-      <div className="bg-white rounded-xl shadow-sm overflow-hidden">
-        <div className="overflow-x-auto">
-          <table className="w-full">
+      <div className="dark-card overflow-hidden">
+        <div className="table-responsive">
+          <table className="table-dark-custom w-100">
             <thead>
-              <tr className="bg-slate-50">
-                <th className="px-5 py-3 text-left text-xs font-semibold text-slate-500 uppercase">RFQ / Client</th>
-                <th className="px-5 py-3 text-left text-xs font-semibold text-slate-500 uppercase">Material / Qty</th>
-                <th className="px-5 py-3 text-left text-xs font-semibold text-slate-500 uppercase">Priority</th>
-                <th className="px-5 py-3 text-left text-xs font-semibold text-slate-500 uppercase">Status</th>
-                <th className="px-5 py-3 text-left text-xs font-semibold text-slate-500 uppercase">Quote</th>
-                <th className="px-5 py-3 text-left text-xs font-semibold text-slate-500 uppercase">Actions</th>
-                <th className="px-5 py-3 text-left text-xs font-semibold text-slate-500 uppercase">Date</th>
+              <tr>
+                <th>RFQ / Client</th>
+                <th>Material / Qty</th>
+                <th>Priority</th>
+                <th>Status</th>
+                <th>Quote</th>
+                <th>Actions</th>
+                <th>Date</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-100">
+            <tbody>
               {filteredRfqs.length === 0 ? (
                 <tr>
-                  <td colSpan={7} className="px-6 py-12 text-center text-slate-400 text-sm">
+                  <td colSpan={7} className="text-center py-5 text-secondary" style={{ fontSize: '0.875rem' }}>
                     No RFQs found for this filter.
                   </td>
                 </tr>
               ) : (
                 filteredRfqs.map((rfq) => (
-                  <tr key={rfq.id} className="hover:bg-slate-50">
-                    <td className="px-5 py-4">
-                      <div className="font-medium text-slate-900 text-sm">{rfq.title}</div>
-                      <div className="text-xs text-slate-500 mt-0.5">
-                        {rfq.user.company ?? rfq.user.name}
-                      </div>
-                      <div className="text-xs text-slate-400">{rfq.user.email}</div>
+                  <tr key={rfq.id}>
+                    <td>
+                      <div className="text-white fw-medium" style={{ fontSize: '0.875rem' }}>{rfq.title}</div>
+                      <div className="text-secondary" style={{ fontSize: '0.72rem' }}>{rfq.user.company ?? rfq.user.name}</div>
+                      <div className="text-muted" style={{ fontSize: '0.72rem' }}>{rfq.user.email}</div>
                     </td>
-                    <td className="px-5 py-4">
-                      <div className="text-sm text-slate-700">{rfq.material}</div>
-                      <div className="text-xs text-slate-400">Qty: {rfq.quantity} {rfq.tolerance ? `· ${rfq.tolerance}` : ''}</div>
+                    <td>
+                      <div className="text-secondary" style={{ fontSize: '0.875rem' }}>{rfq.material}</div>
+                      <div className="text-muted" style={{ fontSize: '0.72rem' }}>Qty: {rfq.quantity}{rfq.tolerance ? ` · ${rfq.tolerance}` : ''}</div>
                     </td>
-                    <td className="px-5 py-4">
-                      <span className={`badge text-xs ${
-                        rfq.priority === 'urgent' ? 'bg-red-100 text-red-700' :
-                        rfq.priority === 'high' ? 'bg-brand-red-100 text-brand-red-700' :
-                        rfq.priority === 'normal' ? 'bg-blue-100 text-blue-700' :
-                        'bg-slate-100 text-slate-600'
-                      }`}>
+                    <td>
+                      <span className="badge-status" style={{
+                        background: rfq.priority === 'urgent' ? 'rgba(239,68,68,0.15)' :
+                          rfq.priority === 'high' ? 'rgba(200,32,46,0.15)' :
+                          rfq.priority === 'normal' ? 'rgba(96,165,250,0.15)' :
+                          'rgba(148,163,184,0.15)',
+                        color: rfq.priority === 'urgent' ? '#f87171' :
+                          rfq.priority === 'high' ? '#fca5a5' :
+                          rfq.priority === 'normal' ? '#60a5fa' :
+                          '#94a3b8',
+                      }}>
                         {rfq.priority}
                       </span>
                     </td>
-                    <td className="px-5 py-4">
+                    <td>
                       <select
                         value={rfq.status}
                         onChange={(e) => updateStatus(rfq.id, e.target.value)}
                         disabled={updating}
-                        className="text-xs border border-slate-200 rounded-lg px-2 py-1.5 bg-white focus:outline-none focus:ring-1 focus:ring-brand-red-500"
+                        className="form-control-dark"
+                        style={{ fontSize: '0.75rem', padding: '0.3rem 0.5rem' }}
                       >
                         {statusOptions.map(s => (
                           <option key={s.value} value={s.value}>{s.label}</option>
                         ))}
                       </select>
                     </td>
-                    <td className="px-5 py-4">
+                    <td>
                       {rfq.quote ? (
-                        <div className="text-sm font-semibold text-green-700">
+                        <div className="fw-semibold" style={{ color: '#4ade80', fontSize: '0.875rem' }}>
                           ₹{rfq.quote.amount.toLocaleString('en-IN')}
                         </div>
                       ) : (
-                        <span className="text-xs text-slate-400">No quote</span>
+                        <span className="text-muted" style={{ fontSize: '0.78rem' }}>No quote</span>
                       )}
                     </td>
-                    <td className="px-5 py-4">
+                    <td>
                       <button
                         onClick={() => {
                           setSelectedRfq(rfq)
@@ -203,12 +214,17 @@ export default function AdminRFQTable({ rfqs: initialRfqs }: { rfqs: RFQRow[] })
                             setQuoteForm({ amount: String(rfq.quote.amount), validDays: '30', notes: rfq.quote.notes ?? '' })
                           }
                         }}
-                        className="text-xs bg-brand-red-50 hover:bg-brand-red-100 text-brand-red-700 border border-brand-red-200 px-3 py-1.5 rounded-lg transition-colors font-medium"
+                        className="btn px-3 py-1"
+                        style={{
+                          fontSize: '0.75rem', fontWeight: 500,
+                          background: 'rgba(200,32,46,0.12)', color: 'var(--brand-red)',
+                          border: '1px solid rgba(200,32,46,0.3)', borderRadius: '6px',
+                        }}
                       >
                         {rfq.quote ? 'View / Edit' : 'Add Quote'}
                       </button>
                     </td>
-                    <td className="px-5 py-4 text-xs text-slate-400">
+                    <td className="text-muted" style={{ fontSize: '0.78rem' }}>
                       {new Date(rfq.createdAt).toLocaleDateString('en-IN')}
                     </td>
                   </tr>
@@ -221,84 +237,101 @@ export default function AdminRFQTable({ rfqs: initialRfqs }: { rfqs: RFQRow[] })
 
       {/* Quote Modal */}
       {selectedRfq && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-2xl shadow-2xl w-full max-w-lg">
-            <div className="p-6 border-b border-slate-100">
-              <div className="flex justify-between items-start">
-                <div>
-                  <h2 className="font-bold text-slate-900">Submit Quote</h2>
-                  <p className="text-sm text-slate-500 mt-0.5">{selectedRfq.title}</p>
-                </div>
-                <button
-                  onClick={() => { setSelectedRfq(null); setQuoteForm({ amount: '', validDays: '30', notes: '' }) }}
-                  className="text-slate-400 hover:text-slate-600 text-xl leading-none"
-                >
-                  ×
-                </button>
+        <div
+          className="position-fixed top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center"
+          style={{ background: 'rgba(0,0,0,0.7)', zIndex: 9999, padding: '1rem' }}
+        >
+          <div className="dark-card w-100" style={{ maxWidth: '520px', borderRadius: '16px' }}>
+            {/* Modal header */}
+            <div className="d-flex justify-content-between align-items-start p-4" style={{ borderBottom: '1px solid var(--dark-border)' }}>
+              <div>
+                <h2 className="text-white fw-bold mb-1" style={{ fontSize: '1rem' }}>Submit Quote</h2>
+                <p className="text-muted mb-0" style={{ fontSize: '0.8rem' }}>{selectedRfq.title}</p>
               </div>
+              <button
+                onClick={() => { setSelectedRfq(null); setQuoteForm({ amount: '', validDays: '30', notes: '' }) }}
+                className="btn p-0 text-secondary"
+                style={{ fontSize: '1.4rem', lineHeight: 1 }}
+              >
+                ×
+              </button>
             </div>
 
             {/* RFQ details */}
-            <div className="px-6 py-4 bg-slate-50 border-b border-slate-100">
-              <div className="grid grid-cols-2 gap-2 text-xs">
-                <div><span className="text-slate-500">Client:</span> <span className="font-medium">{selectedRfq.user.company ?? selectedRfq.user.name}</span></div>
-                <div><span className="text-slate-500">Material:</span> <span className="font-medium">{selectedRfq.material}</span></div>
-                <div><span className="text-slate-500">Quantity:</span> <span className="font-medium">{selectedRfq.quantity} pcs</span></div>
-                <div><span className="text-slate-500">Tolerance:</span> <span className="font-medium">{selectedRfq.tolerance ?? 'Standard'}</span></div>
+            <div className="px-4 py-3" style={{ background: 'var(--dark-elevated)', borderBottom: '1px solid var(--dark-border)' }}>
+              <div className="row g-2" style={{ fontSize: '0.78rem' }}>
+                <div className="col-6">
+                  <span className="text-muted">Client: </span>
+                  <span className="text-secondary fw-medium">{selectedRfq.user.company ?? selectedRfq.user.name}</span>
+                </div>
+                <div className="col-6">
+                  <span className="text-muted">Material: </span>
+                  <span className="text-secondary fw-medium">{selectedRfq.material}</span>
+                </div>
+                <div className="col-6">
+                  <span className="text-muted">Quantity: </span>
+                  <span className="text-secondary fw-medium">{selectedRfq.quantity} pcs</span>
+                </div>
+                <div className="col-6">
+                  <span className="text-muted">Tolerance: </span>
+                  <span className="text-secondary fw-medium">{selectedRfq.tolerance ?? 'Standard'}</span>
+                </div>
               </div>
               {selectedRfq.notes && (
-                <div className="mt-2 text-xs text-slate-600 bg-white rounded p-2 border border-slate-200">
-                  <span className="font-medium">Notes:</span> {selectedRfq.notes}
+                <div className="mt-2 p-2 rounded" style={{ background: 'var(--dark-card)', fontSize: '0.75rem', color: 'var(--text-secondary)', border: '1px solid var(--dark-border)' }}>
+                  <span className="fw-medium">Notes:</span> {selectedRfq.notes}
                 </div>
               )}
             </div>
 
-            <div className="p-6 space-y-4">
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm font-semibold text-slate-700 mb-1.5">Quote Amount (₹ INR) *</label>
+            <div className="p-4 d-flex flex-column gap-3">
+              <div className="row g-3">
+                <div className="col-6">
+                  <label className="form-label-dark">Quote Amount (₹ INR) *</label>
                   <input
                     type="number"
                     min={0}
                     value={quoteForm.amount}
                     onChange={(e) => setQuoteForm(p => ({ ...p, amount: e.target.value }))}
-                    className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-red-500"
+                    className="form-control-dark"
                     placeholder="75000"
                   />
                 </div>
-                <div>
-                  <label className="block text-sm font-semibold text-slate-700 mb-1.5">Valid For (days)</label>
+                <div className="col-6">
+                  <label className="form-label-dark">Valid For (days)</label>
                   <input
                     type="number"
                     min={1}
                     max={90}
                     value={quoteForm.validDays}
                     onChange={(e) => setQuoteForm(p => ({ ...p, validDays: e.target.value }))}
-                    className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-red-500"
+                    className="form-control-dark"
                   />
                 </div>
               </div>
               <div>
-                <label className="block text-sm font-semibold text-slate-700 mb-1.5">Quote Notes / Breakdown</label>
+                <label className="form-label-dark">Quote Notes / Breakdown</label>
                 <textarea
                   rows={3}
                   value={quoteForm.notes}
                   onChange={(e) => setQuoteForm(p => ({ ...p, notes: e.target.value }))}
                   placeholder="Includes material, machining, finishing. Delivery in 15 working days..."
-                  className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-red-500 resize-none"
+                  className="form-control-dark"
+                  style={{ resize: 'none' }}
                 />
               </div>
-              <div className="flex gap-3">
+              <div className="d-flex gap-3">
                 <button
                   onClick={() => addQuote(selectedRfq.id)}
                   disabled={updating}
-                  className="flex-1 bg-brand-red-600 hover:bg-brand-red-700 disabled:bg-brand-red-300 text-white font-semibold py-2.5 rounded-lg transition-colors text-sm"
+                  className="btn-brand flex-grow-1 justify-content-center"
+                  style={{ opacity: updating ? 0.7 : 1 }}
                 >
                   {updating ? 'Submitting...' : 'Submit Quote'}
                 </button>
                 <button
                   onClick={() => { setSelectedRfq(null); setQuoteForm({ amount: '', validDays: '30', notes: '' }) }}
-                  className="px-5 py-2.5 border border-slate-200 text-slate-600 rounded-lg hover:bg-slate-50 text-sm"
+                  className="btn-brand-outline px-4"
                 >
                   Cancel
                 </button>
