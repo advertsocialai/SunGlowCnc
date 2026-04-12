@@ -33,7 +33,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
         <div className="p-5 border-b border-brand-navy-600">
           <Link href="/" className="flex flex-col items-start gap-1">
             <div className="bg-white rounded-lg px-2 py-1">
-              <Image src="/logo.png" alt="Sunglow CNC Technics" width={120} height={30} className="h-7 w-auto object-contain" />
+              <Image src="/logo.svg" alt="Sunglow CNC Technics" width={120} height={30} className="h-7 w-auto object-contain" />
             </div>
             <div className="text-brand-red-400 text-xs pl-1">
               {isAdmin ? 'Admin Panel' : 'Client Portal'}

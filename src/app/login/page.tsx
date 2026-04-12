@@ -112,7 +112,7 @@ export default function LoginPage() {
         <div className="flex justify-center mb-8">
           <Link href="/">
             <div className="bg-white rounded-xl px-5 py-3 shadow-lg">
-              <Image src="/logo.png" alt="Sunglow CNC Technics" width={200} height={50} className="h-12 w-auto object-contain" />
+              <Image src="/logo.svg" alt="Sunglow CNC Technics" width={200} height={50} className="h-12 w-auto object-contain" />
             </div>
           </Link>
         </div>

@@ -1,41 +1,44 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 120" role="img" aria-label="Sunglow CNC Technics">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 125" role="img" aria-label="Sunglow CNC Technics">
 
-  <!-- ═══ EMBLEM MARK — traced from actual logo ═══ -->
+  <!-- ═══ EMBLEM MARK ═══
+       Layout: large red swept-wing upper, two navy blade diamonds lower,
+       small red centre accent between navy pieces.
+  -->
 
-  <!-- NAVY lower-left blade (behind red) -->
-  <polygon points="15,68 42,52 48,76 23,90" fill="#1C2B5E"/>
+  <!-- NAVY lower-left blade (drawn first / behind red) -->
+  <polygon points="14,68 42,52 48,76 22,90" fill="#1C2B5E"/>
 
-  <!-- NAVY lower-right blade (behind red) -->
-  <polygon points="58,42 96,62 84,100 52,100" fill="#1C2B5E"/>
+  <!-- NAVY lower-right blade -->
+  <polygon points="60,45 96,64 86,104 54,104" fill="#1C2B5E"/>
 
-  <!-- RED main swept-wing shape: pointed left tip, sweeps right, two-dip bottom -->
-  <polygon points="0,46 16,20 82,6 120,36 96,60 62,36 36,57 0,50" fill="#C8202E"/>
+  <!-- RED main upper wing: pointed left, sweeps right, two-dip bottom -->
+  <polygon points="0,42 14,16 85,7 120,38 96,62 66,38 40,58 0,50" fill="#C8202E"/>
 
-  <!-- RED small centre accent (between navy pieces) -->
-  <polygon points="40,70 62,60 64,80 44,88" fill="#C8202E"/>
+  <!-- RED small centre accent between the two navy pieces -->
+  <polygon points="42,72 66,62 68,82 46,90" fill="#C8202E"/>
 
-  <!-- ═══ TEXT SECTION ═══ -->
+  <!-- ═══ TEXT ═══ -->
 
-  <!-- SUNGLOW CNC — large bold navy -->
-  <text x="130" y="48"
+  <!-- SUNGLOW CNC — heavy bold navy, left-aligned -->
+  <text x="132" y="48"
     font-family="'Arial Black','Helvetica Neue',Arial,sans-serif"
     font-size="38" font-weight="900" fill="#1C2B5E"
     text-anchor="start" letter-spacing="1">SUNGLOW CNC</text>
 
-  <!-- Red horizontal separator -->
-  <rect x="130" y="57" width="428" height="4" fill="#C8202E"/>
+  <!-- Red horizontal separator line -->
+  <rect x="132" y="57" width="426" height="4" fill="#C8202E"/>
 
-  <!-- Technics — bold, right-aligned -->
-  <text x="558" y="87"
+  <!-- Technics — bold, right-aligned, below red line -->
+  <text x="558" y="88"
     font-family="'Arial Black','Helvetica Neue',Arial,sans-serif"
-    font-size="25" font-weight="700" fill="#1C2B5E"
+    font-size="26" font-weight="700" fill="#1C2B5E"
     text-anchor="end">Technics</text>
 
-  <!-- Thin dark separator line -->
-  <rect x="130" y="95" width="428" height="2" fill="#1C2B5E"/>
+  <!-- Thin black separator line -->
+  <rect x="132" y="97" width="426" height="2" fill="#1C2B5E"/>
 
-  <!-- CNC MILLING WORKS — letter-spaced, centred -->
-  <text x="344" y="113"
+  <!-- CNC MILLING WORKS — letter-spaced, centred under the block -->
+  <text x="345" y="116"
     font-family="Arial,Helvetica,sans-serif"
     font-size="14" font-weight="700" fill="#1C2B5E"
     text-anchor="middle" letter-spacing="5">CNC MILLING WORKS</text>

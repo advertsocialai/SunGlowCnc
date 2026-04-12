@@ -23,7 +23,7 @@ async function sendEmail(payload: EmailPayload): Promise<void> {
   //   port: Number(process.env.SMTP_PORT),
   //   auth: { user: process.env.SMTP_USER, pass: process.env.SMTP_PASS },
   // })
-  // await transporter.sendMail({ from: '"Sunglow CNC" <info@sunglowcnc.com>', ...payload })
+  // await transporter.sendMail({ from: '"Sunglow CNC" <Sunglowcnctechnics@gmail.com>', ...payload })
 
   // ── Development stub ──────────────────────────────────────────────────────
   console.log('[EMAIL]', {

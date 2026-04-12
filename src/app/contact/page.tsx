@@ -153,7 +153,7 @@ export default function ContactPage() {
                       </svg>
                     ),
                     label: 'Email',
-                    value: 'info@sunglowcnc.com',
+                    value: 'Sunglowcnctechnics@gmail.com',
                   },
                   {
                     icon: (

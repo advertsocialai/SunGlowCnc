@@ -5,6 +5,7 @@ import Link from 'next/link'
 const services = [
   {
     id: 'cnc',
+    image: 'https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=800&q=80&fit=crop',
     icon: '⚙',
     title: 'CNC Precision Machining',
     subtitle: 'Our Core Capability',
@@ -24,6 +25,7 @@ const services = [
   },
   {
     id: 'pharma',
+    image: 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=800&q=80&fit=crop',
     icon: '💊',
     title: 'Pharma Component Manufacturing',
     subtitle: 'Regular Supplies to Leading Pharma Companies',
@@ -43,6 +45,7 @@ const services = [
   },
   {
     id: 'defence',
+    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80&fit=crop',
     icon: '🛡',
     title: 'Defence & Aerospace Hardware',
     subtitle: 'Critical Precision for National Security',
@@ -62,6 +65,7 @@ const services = [
   },
   {
     id: 'ev',
+    image: 'https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=800&q=80&fit=crop',
     icon: '⚡',
     title: 'EV & Automotive Components',
     subtitle: 'Powering India\'s EV Revolution',
@@ -81,6 +85,7 @@ const services = [
   },
   {
     id: 'robotics',
+    image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&q=80&fit=crop',
     icon: '🤖',
     title: 'Robotics & Drones',
     subtitle: 'Precision Parts for Future Technologies',
@@ -100,6 +105,7 @@ const services = [
   },
   {
     id: 'medical',
+    image: 'https://images.unsplash.com/photo-1551601651-2a8555f1a136?w=800&q=80&fit=crop',
     icon: '🏥',
     title: 'Medical Devices',
     subtitle: 'Clinical-Grade Precision',
@@ -144,11 +150,29 @@ export default function ServicesPage() {
             {services.map((svc, i) => (
               <div
                 key={svc.id}
-                className={`rounded-2xl border-2 p-8 ${svc.color} ${i % 2 === 0 ? '' : ''}`}
+                className={`rounded-2xl border-2 overflow-hidden ${svc.color}`}
               >
+                {/* Service image banner */}
+                <div className="relative h-52 overflow-hidden">
+                  <img
+                    src={svc.image}
+                    alt={svc.title}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-r from-brand-navy-900/70 to-transparent" />
+                  <div className="absolute bottom-4 left-6 flex items-center gap-3">
+                    <span className="text-4xl">{svc.icon}</span>
+                    <div>
+                      <p className="text-brand-red-300 text-xs font-semibold uppercase tracking-wider">{svc.subtitle}</p>
+                      <h2 className="text-2xl font-black text-white">{svc.title}</h2>
+                    </div>
+                  </div>
+                </div>
+                <div className="p-8">
                 <div className="grid md:grid-cols-2 gap-8">
                   <div>
-                    <div className={`w-14 h-14 ${svc.iconBg} rounded-2xl flex items-center justify-center text-3xl mb-4`}>
+                    <div className={`w-14 h-14 ${svc.iconBg} rounded-2xl flex items-center justify-center text-3xl mb-4 hidden`}>
                       {svc.icon}
                     </div>
                     <p className={`text-sm font-semibold uppercase tracking-wider ${svc.iconColor} mb-1`}>{svc.subtitle}</p>
@@ -179,6 +203,7 @@ export default function ServicesPage() {
                     </ul>
                   </div>
                 </div>
+                </div>{/* close p-8 wrapper */}
               </div>
             ))}
           </div>

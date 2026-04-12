@@ -128,8 +128,8 @@ export default function ReachUsPage() {
                   </div>
                   <div>
                     <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Email</p>
-                    <a href="mailto:info@sunglowcnc.com" className="text-slate-900 font-bold text-lg hover:text-brand-red-600 transition-colors">
-                      info@sunglowcnc.com
+                    <a href="mailto:Sunglowcnctechnics@gmail.com" className="text-slate-900 font-bold text-lg hover:text-brand-red-600 transition-colors">
+                      Sunglowcnctechnics@gmail.com
                     </a>
                     <p className="text-slate-500 text-xs mt-1">We respond within 24 hours</p>
                   </div>

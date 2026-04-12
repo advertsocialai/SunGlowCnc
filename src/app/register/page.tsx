@@ -79,7 +79,7 @@ export default function RegisterPage() {
           {/* Logo */}
           <Link href="/" className="flex items-center mb-12">
             <div className="bg-white rounded-xl px-3 py-2">
-              <Image src="/logo.png" alt="Sunglow CNC Technics" width={160} height={40} className="h-10 w-auto object-contain" />
+              <Image src="/logo.svg" alt="Sunglow CNC Technics" width={160} height={40} className="h-10 w-auto object-contain" />
             </div>
           </Link>
 
@@ -133,7 +133,7 @@ export default function RegisterPage() {
           {/* Mobile logo */}
           <div className="lg:hidden flex justify-center mb-8">
             <Link href="/">
-              <Image src="/logo.png" alt="Sunglow CNC Technics" width={160} height={40} className="h-10 w-auto object-contain" />
+              <Image src="/logo.svg" alt="Sunglow CNC Technics" width={160} height={40} className="h-10 w-auto object-contain" />
             </Link>
           </div>
 

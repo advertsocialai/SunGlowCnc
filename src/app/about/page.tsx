@@ -45,6 +45,22 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Facility photo strip */}
+      <section className="bg-white">
+        <div className="grid grid-cols-3 h-56 overflow-hidden">
+          {[
+            { src: 'https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=600&q=80&fit=crop', alt: 'CNC milling in progress' },
+            { src: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?w=600&q=80&fit=crop', alt: 'Industrial machining facility' },
+            { src: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80&fit=crop', alt: 'Precision machined components' },
+          ].map((img) => (
+            <div key={img.src} className="relative overflow-hidden">
+              <img src={img.src} alt={img.alt} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy" />
+              <div className="absolute inset-0 bg-brand-navy-800/20" />
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* Mission */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

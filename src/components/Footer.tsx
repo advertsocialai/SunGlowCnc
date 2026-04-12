@@ -59,7 +59,7 @@ export default function Footer() {
           <div className="col-span-2 md:col-span-1">
             <Link href="/" className="flex items-center mb-4">
               <div className="bg-white rounded-lg px-3 py-2">
-                <Image src="/logo.png" alt="Sunglow CNC Technics" width={180} height={48} className="h-11 w-auto object-contain" unoptimized />
+                <Image src="/logo.svg" alt="Sunglow CNC Technics" width={180} height={48} className="h-11 w-auto object-contain" unoptimized />
               </div>
             </Link>
             <p className="text-sm text-slate-400 leading-relaxed mb-4">
@@ -165,7 +165,7 @@ export default function Footer() {
                 <svg className="w-3.5 h-3.5 text-brand-red-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
-                info@sunglowcnc.com
+                Sunglowcnctechnics@gmail.com
               </div>
               <div className="flex gap-2 text-xs text-slate-400">
                 <svg className="w-3.5 h-3.5 text-brand-red-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
