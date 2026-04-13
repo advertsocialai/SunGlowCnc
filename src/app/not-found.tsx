@@ -2,24 +2,18 @@ import Link from 'next/link'
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen bg-slate-50 flex items-center justify-center px-4">
-      <div className="text-center max-w-md">
-        <div className="text-8xl font-black text-brand-red-600 mb-4">404</div>
-        <h1 className="text-2xl font-bold text-slate-900 mb-3">Page Not Found</h1>
-        <p className="text-slate-500 mb-8">
+    <div className="min-vh-100 d-flex align-items-center justify-content-center px-3" style={{ background: 'var(--dark-bg)' }}>
+      <div className="text-center" style={{ maxWidth: '440px' }}>
+        <div className="fw-black mb-4" style={{ fontSize: '5rem', color: 'var(--brand-red)' }}>404</div>
+        <h1 className="text-white fw-bold mb-3" style={{ fontSize: '1.4rem' }}>Page Not Found</h1>
+        <p className="text-secondary mb-5" style={{ fontSize: '0.9rem' }}>
           The page you&apos;re looking for doesn&apos;t exist or has been moved.
         </p>
-        <div className="flex flex-col sm:flex-row gap-3 justify-center">
-          <Link
-            href="/"
-            className="bg-brand-red-600 hover:bg-brand-red-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors"
-          >
+        <div className="d-flex flex-column flex-sm-row gap-3 justify-content-center">
+          <Link href="/" className="btn-brand">
             Go Home
           </Link>
-          <Link
-            href="/dashboard"
-            className="border border-slate-300 text-slate-700 hover:bg-slate-100 font-semibold px-6 py-3 rounded-lg transition-colors"
-          >
+          <Link href="/dashboard" className="btn-brand-outline">
             Dashboard
           </Link>
         </div>

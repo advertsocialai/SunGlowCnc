@@ -14,24 +14,18 @@ export default function ErrorPage({
   }, [error])
 
   return (
-    <div className="min-h-screen bg-slate-50 flex items-center justify-center px-4">
-      <div className="text-center max-w-md">
-        <div className="text-6xl font-black text-red-500 mb-4">!</div>
-        <h1 className="text-2xl font-bold text-slate-900 mb-3">Something went wrong</h1>
-        <p className="text-slate-500 mb-8">
+    <div className="min-vh-100 d-flex align-items-center justify-content-center px-3" style={{ background: 'var(--dark-bg)' }}>
+      <div className="text-center" style={{ maxWidth: '440px' }}>
+        <div className="fw-black mb-4" style={{ fontSize: '4rem', color: 'var(--brand-red)' }}>!</div>
+        <h1 className="text-white fw-bold mb-3" style={{ fontSize: '1.4rem' }}>Something went wrong</h1>
+        <p className="text-secondary mb-5" style={{ fontSize: '0.9rem' }}>
           An unexpected error occurred. Please try again or contact support if the issue persists.
         </p>
-        <div className="flex flex-col sm:flex-row gap-3 justify-center">
-          <button
-            onClick={reset}
-            className="bg-brand-red-600 hover:bg-brand-red-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors"
-          >
+        <div className="d-flex flex-column flex-sm-row gap-3 justify-content-center">
+          <button onClick={reset} className="btn-brand">
             Try Again
           </button>
-          <a
-            href="/"
-            className="border border-slate-300 text-slate-700 hover:bg-slate-100 font-semibold px-6 py-3 rounded-lg transition-colors"
-          >
+          <a href="/" className="btn-brand-outline">
             Go Home
           </a>
         </div>

@@ -540,7 +540,14 @@ body {
 .divider-dark { border-color: var(--dark-border) !important; }
 .rounded-xl { border-radius: 0.75rem !important; }
 .rounded-2xl { border-radius: 1rem !important; }
+.rounded-lg { border-radius: 0.5rem !important; }
+.rounded-full { border-radius: 9999px !important; }
 .shadow-brand { box-shadow: 0 4px 20px rgba(200, 32, 46, 0.2) !important; }
+.min-h-screen { min-height: 100vh !important; }
+
+/* Spinner animation */
+@keyframes spin { to { transform: rotate(360deg); } }
+.animate-spin { animation: spin 1s linear infinite; }
 .text-inherit { color: inherit !important; }
 
 /* Cert / quality badges */
