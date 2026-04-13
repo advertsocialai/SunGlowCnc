@@ -1,40 +1,46 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 120" role="img" aria-label="Sunglow CNC Technics">
 
-  <!-- ═══ EMBLEM MARK ═══ -->
+  <!-- ═══ ICON MARK ═══ -->
 
-  <!-- NAVY lower-left elongated parallelogram bar (behind red) -->
-  <polygon points="6,72 38,52 46,78 14,96" fill="#1C2B5E"/>
+  <!-- RED main shape: wide horizontal arm + angled downward stem (angular T/arrow) -->
+  <!-- Horizontal arm -->
+  <polygon points="0,20 65,10 72,32 44,36 44,30 0,28" fill="#C8202E"/>
+  <!-- Diagonal stem (connects downward from arm) -->
+  <polygon points="40,32 72,32 76,60 54,64 50,48 44,36" fill="#C8202E"/>
 
-  <!-- NAVY lower-right elongated parallelogram bar -->
-  <polygon points="50,46 96,68 84,108 40,104" fill="#1C2B5E"/>
+  <!-- RED small accent arrow (lower-right) -->
+  <polygon points="53,67 72,61 67,80" fill="#C8202E"/>
 
-  <!-- RED main wing: single sharp left tip, sweeps right, two-dip bottom -->
-  <polygon points="0,52 16,14 86,5 124,38 96,64 64,36 34,58" fill="#C8202E"/>
+  <!-- NAVY bar upper-right (short diagonal rectangle) -->
+  <polygon points="82,14 106,8 108,26 84,32" fill="#1C2B5E"/>
 
-  <!-- RED small centre accent between the two navy bars -->
-  <polygon points="38,74 62,64 64,84 42,93" fill="#C8202E"/>
+  <!-- NAVY bar lower-right (short diagonal rectangle) -->
+  <polygon points="79,56 103,50 105,68 81,74" fill="#1C2B5E"/>
+
+  <!-- NAVY oval dot (centre accent) -->
+  <ellipse cx="47" cy="68" rx="7" ry="5" fill="#1C2B5E"/>
 
   <!-- ═══ TEXT BLOCK ═══ -->
 
-  <!-- SUNGLOW CNC — heavy bold navy -->
+  <!-- SUNGLOW CNC -->
   <text x="136" y="46"
     font-family="'Arial Black','Helvetica Neue',Arial,sans-serif"
     font-size="36" font-weight="900" fill="#1C2B5E"
     text-anchor="start" letter-spacing="1">SUNGLOW CNC</text>
 
-  <!-- Red horizontal separator line -->
+  <!-- Red separator line -->
   <rect x="136" y="54" width="422" height="4" fill="#C8202E"/>
 
-  <!-- Technics — bold, right-aligned -->
+  <!-- Technics -->
   <text x="558" y="84"
     font-family="'Arial Black','Helvetica Neue',Arial,sans-serif"
     font-size="25" font-weight="700" fill="#1C2B5E"
     text-anchor="end">Technics</text>
 
-  <!-- Thin navy separator line -->
+  <!-- Navy bottom line -->
   <rect x="136" y="93" width="422" height="2" fill="#1C2B5E"/>
 
-  <!-- CNC MILLING WORKS — letter-spaced, centred -->
+  <!-- CNC MILLING WORKS -->
   <text x="347" y="111"
     font-family="Arial,Helvetica,sans-serif"
     font-size="13" font-weight="700" fill="#1C2B5E"
