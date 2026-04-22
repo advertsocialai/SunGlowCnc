@@ -113,7 +113,7 @@ export default function MaterialsPage() {
       {/* Header */}
       <section className="page-header">
         <div className="container-xl">
-          <p className="text-brand-red fw-semibold text-uppercase letter-wide mb-2" style={{ fontSize: '0.8rem' }}>Material Selection</p>
+          <p className="text-brand-red fw-semibold text-uppercase letter-wide mb-2" style={{ fontSize: '0.9rem' }}>Material Selection</p>
           <h1 className="fw-black text-white mb-3" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)' }}>Machining Materials</h1>
           <p className="text-secondary mb-4" style={{ maxWidth: '560px', fontSize: '1.05rem' }}>
             We machine 40+ metals and engineering plastics — from commodity aluminium to aerospace-grade titanium and Inconel superalloys.
@@ -131,7 +131,7 @@ export default function MaterialsPage() {
         <div className="container-xl">
           <h2 className="text-white fw-bold mb-3" style={{ fontSize: '1rem' }}>Quick Tolerance Reference</h2>
           <div className="table-responsive">
-            <table className="table-dark-custom w-100" style={{ fontSize: '0.82rem' }}>
+            <table className="table-dark-custom w-100" style={{ fontSize: '0.92rem' }}>
               <thead>
                 <tr>
                   <th>Feature</th>
@@ -157,7 +157,7 @@ export default function MaterialsPage() {
       <section className="section-py" style={{ background: 'var(--dark-surface)' }}>
         <div className="container-xl">
           <div className="d-flex align-items-center gap-3 mb-4">
-            <div className="rounded d-flex align-items-center justify-content-center text-white fw-bold" style={{ width: 32, height: 32, background: 'var(--dark-elevated)', border: '1px solid var(--dark-border)', fontSize: '0.85rem' }}>M</div>
+            <div className="rounded d-flex align-items-center justify-content-center text-white fw-bold" style={{ width: 32, height: 32, background: 'var(--dark-elevated)', border: '1px solid var(--dark-border)', fontSize: '0.95rem' }}>M</div>
             <h2 className="text-white fw-bold mb-0" style={{ fontSize: '1.4rem' }}>Metal Materials</h2>
           </div>
           <div className="d-flex flex-column gap-4">
@@ -166,17 +166,17 @@ export default function MaterialsPage() {
                 <div className="d-flex align-items-center gap-3 mb-4">
                   <span style={{ fontSize: '1.5rem' }}>{group.icon}</span>
                   <h3 className="text-white fw-bold mb-0" style={{ fontSize: '1rem' }}>{group.name}</h3>
-                  <span className="text-muted" style={{ fontSize: '0.75rem' }}>{group.materials.length} grades</span>
+                  <span className="text-muted" style={{ fontSize: '0.85rem' }}>{group.materials.length} grades</span>
                 </div>
                 <div className="row g-3">
                   {group.materials.map((mat) => (
                     <div key={mat.grade} className="col-sm-6 col-lg-4">
                       <div className="p-3 rounded h-100" style={{ background: 'var(--dark-elevated)', border: '1px solid var(--dark-border)' }}>
-                        <div className="text-white fw-semibold mb-1" style={{ fontSize: '0.85rem' }}>{mat.grade}</div>
-                        <p className="text-muted mb-2" style={{ fontSize: '0.75rem', lineHeight: 1.5 }}>{mat.desc}</p>
+                        <div className="text-white fw-semibold mb-1" style={{ fontSize: '0.95rem' }}>{mat.grade}</div>
+                        <p className="text-muted mb-2" style={{ fontSize: '0.85rem', lineHeight: 1.5 }}>{mat.desc}</p>
                         <div className="d-flex flex-wrap gap-1">
                           {mat.uses.map((use) => (
-                            <span key={use} className="capability-chip" style={{ fontSize: '0.68rem', color: group.accentColor, background: group.accentColor + '18', borderColor: group.accentColor + '33' }}>{use}</span>
+                            <span key={use} className="capability-chip" style={{ fontSize: '0.8rem', color: group.accentColor, background: group.accentColor + '18', borderColor: group.accentColor + '33' }}>{use}</span>
                           ))}
                         </div>
                       </div>
@@ -193,18 +193,18 @@ export default function MaterialsPage() {
       <section className="section-py" style={{ background: 'var(--dark-bg)' }}>
         <div className="container-xl">
           <div className="d-flex align-items-center gap-3 mb-4">
-            <div className="rounded d-flex align-items-center justify-content-center text-white fw-bold" style={{ width: 32, height: 32, background: 'rgba(74,222,128,0.15)', border: '1px solid rgba(74,222,128,0.3)', fontSize: '0.85rem', color: '#4ade80' }}>P</div>
+            <div className="rounded d-flex align-items-center justify-content-center text-white fw-bold" style={{ width: 32, height: 32, background: 'rgba(74,222,128,0.15)', border: '1px solid rgba(74,222,128,0.3)', fontSize: '0.95rem', color: '#4ade80' }}>P</div>
             <h2 className="text-white fw-bold mb-0" style={{ fontSize: '1.4rem' }}>Engineering Plastics</h2>
           </div>
           <div className="row g-3">
             {plasticMaterials.map((mat) => (
               <div key={mat.grade} className="col-sm-6 col-lg-3">
                 <div className="dark-card p-3 h-100" style={{ borderColor: 'rgba(74,222,128,0.2)' }}>
-                  <div className="text-white fw-semibold mb-1" style={{ fontSize: '0.85rem' }}>{mat.grade}</div>
-                  <p className="text-muted mb-2" style={{ fontSize: '0.75rem', lineHeight: 1.5 }}>{mat.desc}</p>
+                  <div className="text-white fw-semibold mb-1" style={{ fontSize: '0.95rem' }}>{mat.grade}</div>
+                  <p className="text-muted mb-2" style={{ fontSize: '0.85rem', lineHeight: 1.5 }}>{mat.desc}</p>
                   <div className="d-flex flex-wrap gap-1">
                     {mat.uses.map((use) => (
-                      <span key={use} className="capability-chip" style={{ fontSize: '0.68rem', color: '#4ade80', background: 'rgba(74,222,128,0.1)', borderColor: 'rgba(74,222,128,0.25)' }}>{use}</span>
+                      <span key={use} className="capability-chip" style={{ fontSize: '0.8rem', color: '#4ade80', background: 'rgba(74,222,128,0.1)', borderColor: 'rgba(74,222,128,0.25)' }}>{use}</span>
                     ))}
                   </div>
                 </div>
@@ -222,8 +222,8 @@ export default function MaterialsPage() {
             {finishes.map((finish) => (
               <div key={finish.name} className="col-sm-6 col-lg-3">
                 <div className="dark-card p-3 h-100">
-                  <div className="text-white fw-semibold mb-1" style={{ fontSize: '0.85rem' }}>{finish.name}</div>
-                  <p className="text-muted mb-0" style={{ fontSize: '0.78rem', lineHeight: 1.5 }}>{finish.desc}</p>
+                  <div className="text-white fw-semibold mb-1" style={{ fontSize: '0.95rem' }}>{finish.name}</div>
+                  <p className="text-muted mb-0" style={{ fontSize: '0.88rem', lineHeight: 1.5 }}>{finish.desc}</p>
                 </div>
               </div>
             ))}

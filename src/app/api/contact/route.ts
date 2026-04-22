@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { prisma } from '@/lib/db'
+import { notifyContactReceived } from '@/lib/email'
 
 export async function POST(req: NextRequest) {
   try {
@@ -23,6 +24,16 @@ export async function POST(req: NextRequest) {
         status: 'new',
       },
     })
+
+    // Send email notification to admin
+    notifyContactReceived({
+      adminEmail: process.env.ADMIN_EMAIL || 'Sunglowcnctechnics@gmail.com',
+      name,
+      email,
+      phone: phone || null,
+      company: company || null,
+      message,
+    }).catch(console.error)
 
     return NextResponse.json({ id: contact.id, success: true }, { status: 201 })
   } catch (err) {

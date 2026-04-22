@@ -142,12 +142,12 @@ export default function RFQDetailPage() {
             <button
               onClick={() => router.back()}
               className="btn p-0 text-muted mb-2 d-flex align-items-center gap-1"
-              style={{ fontSize: '0.85rem' }}
+              style={{ fontSize: '0.95rem' }}
             >
               ← Back to RFQs
             </button>
             <h1 className="text-white fw-bold mb-1" style={{ fontSize: '1.4rem' }}>{rfq.title}</h1>
-            <p className="text-muted mb-0" style={{ fontSize: '0.82rem' }}>
+            <p className="text-muted mb-0" style={{ fontSize: '0.92rem' }}>
               Submitted {new Date(rfq.createdAt).toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })}
             </p>
           </div>
@@ -164,39 +164,39 @@ export default function RFQDetailPage() {
         {/* RFQ Details */}
         <div className="dark-card p-4 mb-4">
           <h2 className="text-white fw-semibold mb-3" style={{ fontSize: '0.95rem' }}>Component Details</h2>
-          <div className="row g-3 mb-3" style={{ fontSize: '0.875rem' }}>
+          <div className="row g-3 mb-3" style={{ fontSize: '0.95rem' }}>
             <div className="col-sm-4">
-              <p className="text-muted text-uppercase mb-1" style={{ fontSize: '0.68rem', letterSpacing: '0.05em' }}>Material</p>
+              <p className="text-muted text-uppercase mb-1" style={{ fontSize: '0.8rem', letterSpacing: '0.05em' }}>Material</p>
               <p className="text-white fw-medium mb-0">{rfq.material}</p>
             </div>
             <div className="col-sm-4">
-              <p className="text-muted text-uppercase mb-1" style={{ fontSize: '0.68rem', letterSpacing: '0.05em' }}>Quantity</p>
+              <p className="text-muted text-uppercase mb-1" style={{ fontSize: '0.8rem', letterSpacing: '0.05em' }}>Quantity</p>
               <p className="text-white fw-medium mb-0">{rfq.quantity.toLocaleString()} pcs</p>
             </div>
             {rfq.tolerance && (
               <div className="col-sm-4">
-                <p className="text-muted text-uppercase mb-1" style={{ fontSize: '0.68rem', letterSpacing: '0.05em' }}>Tolerance</p>
+                <p className="text-muted text-uppercase mb-1" style={{ fontSize: '0.8rem', letterSpacing: '0.05em' }}>Tolerance</p>
                 <p className="text-white fw-medium mb-0">{rfq.tolerance}</p>
               </div>
             )}
           </div>
           {rfq.description && (
             <div className="pt-3" style={{ borderTop: '1px solid var(--dark-border)' }}>
-              <p className="text-muted text-uppercase mb-1" style={{ fontSize: '0.68rem', letterSpacing: '0.05em' }}>Description</p>
-              <p className="text-secondary mb-0" style={{ fontSize: '0.875rem', whiteSpace: 'pre-wrap' }}>{rfq.description}</p>
+              <p className="text-muted text-uppercase mb-1" style={{ fontSize: '0.8rem', letterSpacing: '0.05em' }}>Description</p>
+              <p className="text-secondary mb-0" style={{ fontSize: '0.95rem', whiteSpace: 'pre-wrap' }}>{rfq.description}</p>
             </div>
           )}
           {rfq.notes && (
             <div className="pt-3 mt-3" style={{ borderTop: '1px solid var(--dark-border)' }}>
-              <p className="text-muted text-uppercase mb-1" style={{ fontSize: '0.68rem', letterSpacing: '0.05em' }}>Notes</p>
-              <p className="text-secondary mb-0" style={{ fontSize: '0.875rem', whiteSpace: 'pre-wrap' }}>{rfq.notes}</p>
+              <p className="text-muted text-uppercase mb-1" style={{ fontSize: '0.8rem', letterSpacing: '0.05em' }}>Notes</p>
+              <p className="text-secondary mb-0" style={{ fontSize: '0.95rem', whiteSpace: 'pre-wrap' }}>{rfq.notes}</p>
             </div>
           )}
           {rfq.fileUrl && (
             <div className="pt-3 mt-3" style={{ borderTop: '1px solid var(--dark-border)' }}>
-              <p className="text-muted text-uppercase mb-1" style={{ fontSize: '0.68rem', letterSpacing: '0.05em' }}>Attached File</p>
+              <p className="text-muted text-uppercase mb-1" style={{ fontSize: '0.8rem', letterSpacing: '0.05em' }}>Attached File</p>
               <a href={rfq.fileUrl} target="_blank" rel="noopener noreferrer"
-                style={{ color: 'var(--brand-red)', fontSize: '0.875rem', fontWeight: 500 }}>
+                style={{ color: 'var(--brand-red)', fontSize: '0.95rem', fontWeight: 500 }}>
                 {rfq.fileName ?? 'Download file'} ↗
               </a>
             </div>
@@ -208,7 +208,7 @@ export default function RFQDetailPage() {
           <div className="dark-card p-4 mb-4" style={rfq.status === 'quoted' ? { borderColor: '#60a5fa66' } : {}}>
             <div className="d-flex align-items-center justify-content-between mb-3">
               <h2 className="text-white fw-semibold mb-0" style={{ fontSize: '0.95rem' }}>Quote from Sunglow CNC</h2>
-              <span className="text-muted" style={{ fontSize: '0.78rem' }}>
+              <span className="text-muted" style={{ fontSize: '0.88rem' }}>
                 Valid until {new Date(rfq.quote.validUntil).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}
               </span>
             </div>
@@ -217,7 +217,7 @@ export default function RFQDetailPage() {
                 <p className="fw-black text-white mb-0" style={{ fontSize: '2.25rem' }}>
                   ₹{rfq.quote.amount.toLocaleString('en-IN')}
                 </p>
-                <p className="text-muted mb-0" style={{ fontSize: '0.75rem' }}>Inclusive of machining &amp; QC</p>
+                <p className="text-muted mb-0" style={{ fontSize: '0.85rem' }}>Inclusive of machining &amp; QC</p>
               </div>
               {rfq.status === 'quoted' && (
                 <button
@@ -231,7 +231,7 @@ export default function RFQDetailPage() {
               )}
             </div>
             {rfq.quote.notes && (
-              <p className="text-secondary mt-3 pt-3 mb-0" style={{ fontSize: '0.875rem', borderTop: '1px solid var(--dark-border)' }}>
+              <p className="text-secondary mt-3 pt-3 mb-0" style={{ fontSize: '0.95rem', borderTop: '1px solid var(--dark-border)' }}>
                 {rfq.quote.notes}
               </p>
             )}
@@ -242,7 +242,7 @@ export default function RFQDetailPage() {
         {!rfq.quote && rfq.status === 'pending' && (
           <div className="rounded p-4 mb-4 text-center" style={{ background: 'rgba(251,191,36,0.08)', border: '1px solid rgba(251,191,36,0.25)' }}>
             <p className="fw-semibold mb-1" style={{ color: '#fbbf24', fontSize: '0.9rem' }}>Quote Pending</p>
-            <p className="text-muted mb-0" style={{ fontSize: '0.82rem' }}>Our engineering team is reviewing your RFQ. You will be notified within 24 hours.</p>
+            <p className="text-muted mb-0" style={{ fontSize: '0.92rem' }}>Our engineering team is reviewing your RFQ. You will be notified within 24 hours.</p>
           </div>
         )}
 
@@ -252,7 +252,7 @@ export default function RFQDetailPage() {
             <div className="d-flex align-items-center justify-content-between mb-4">
               <div>
                 <h2 className="text-white fw-semibold mb-1" style={{ fontSize: '0.95rem' }}>Order Tracker</h2>
-                <p className="text-muted mb-0" style={{ fontSize: '0.78rem' }}>Order #{rfq.order.orderNumber}</p>
+                <p className="text-muted mb-0" style={{ fontSize: '0.88rem' }}>Order #{rfq.order.orderNumber}</p>
               </div>
               <span className="fw-bold" style={{ color: '#4ade80', fontSize: '1.1rem' }}>
                 ₹{rfq.order.amount.toLocaleString('en-IN')}
@@ -278,7 +278,7 @@ export default function RFQDetailPage() {
                     <div
                       className="rounded-circle d-flex align-items-center justify-content-center fw-bold position-relative"
                       style={{
-                        width: 32, height: 32, fontSize: '0.75rem', zIndex: 1,
+                        width: 32, height: 32, fontSize: '0.85rem', zIndex: 1,
                         background: active ? 'var(--brand-red)' : done ? 'rgba(200,32,46,0.5)' : 'var(--dark-elevated)',
                         color: done || active ? '#fff' : '#6b7280',
                         boxShadow: active ? '0 0 0 4px rgba(200,32,46,0.2)' : 'none',
@@ -288,7 +288,7 @@ export default function RFQDetailPage() {
                       {done && !active ? '✓' : idx + 1}
                     </div>
                     <p className="text-center mt-2 mb-0" style={{
-                      fontSize: '0.72rem', fontWeight: 500,
+                      fontSize: '0.85rem', fontWeight: 500,
                       color: active ? 'var(--brand-red)' : done ? 'var(--text-secondary)' : '#6b7280',
                     }}>
                       {step.label}
@@ -299,17 +299,17 @@ export default function RFQDetailPage() {
             </div>
 
             {rfq.order.notes && (
-              <p className="text-secondary mt-4 pt-3 mb-0" style={{ fontSize: '0.875rem', borderTop: '1px solid var(--dark-border)' }}>
+              <p className="text-secondary mt-4 pt-3 mb-0" style={{ fontSize: '0.95rem', borderTop: '1px solid var(--dark-border)' }}>
                 {rfq.order.notes}
               </p>
             )}
             {rfq.order.shippedAt && (
-              <p className="mt-2 mb-0" style={{ fontSize: '0.78rem', color: '#f87171' }}>
+              <p className="mt-2 mb-0" style={{ fontSize: '0.88rem', color: '#f87171' }}>
                 Shipped on {new Date(rfq.order.shippedAt).toLocaleDateString('en-IN')}
               </p>
             )}
             {rfq.order.completedAt && (
-              <p className="mt-1 mb-0" style={{ fontSize: '0.78rem', color: '#4ade80' }}>
+              <p className="mt-1 mb-0" style={{ fontSize: '0.88rem', color: '#4ade80' }}>
                 Completed on {new Date(rfq.order.completedAt).toLocaleDateString('en-IN')}
               </p>
             )}

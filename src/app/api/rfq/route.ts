@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/auth'
 import { prisma } from '@/lib/db'
+import { notifyAdminNewRFQ } from '@/lib/email'
 
 export async function GET(req: NextRequest) {
   const session = await getServerSession(authOptions)
@@ -46,6 +47,15 @@ export async function POST(req: NextRequest) {
         status: 'pending',
       },
     })
+
+    // Send email notification to admin
+    notifyAdminNewRFQ({
+      adminEmail: process.env.ADMIN_EMAIL || 'Sunglowcnctechnics@gmail.com',
+      clientName: session.user.name || 'Unknown',
+      clientCompany: session.user.company || null,
+      rfqTitle: title,
+      rfqId: rfq.id,
+    }).catch(console.error)
 
     return NextResponse.json(rfq, { status: 201 })
   } catch (err) {

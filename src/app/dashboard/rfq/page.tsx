@@ -43,9 +43,9 @@ export default async function RFQListPage() {
       <div className="d-flex justify-content-between align-items-start mb-4">
         <div>
           <h1 className="text-white fw-bold mb-1" style={{ fontSize: '1.4rem' }}>My RFQs</h1>
-          <p className="text-muted mb-0" style={{ fontSize: '0.875rem' }}>All your Request for Quotation submissions</p>
+          <p className="text-muted mb-0" style={{ fontSize: '0.95rem' }}>All your Request for Quotation submissions</p>
         </div>
-        <Link href="/dashboard/rfq/new" className="btn-brand" style={{ fontSize: '0.85rem', padding: '0.5rem 1.1rem' }}>
+        <Link href="/dashboard/rfq/new" className="btn-brand" style={{ fontSize: '0.95rem', padding: '0.5rem 1.1rem' }}>
           + New RFQ
         </Link>
       </div>
@@ -71,15 +71,15 @@ export default async function RFQListPage() {
                   <td colSpan={8} className="text-center py-5">
                     <div className="text-muted mb-2" style={{ fontSize: '2.5rem' }}>📋</div>
                     <div className="text-secondary fw-medium mb-1">No RFQs submitted yet</div>
-                    <div className="text-muted mb-4" style={{ fontSize: '0.82rem' }}>Submit your first Request for Quotation to get started</div>
-                    <Link href="/dashboard/rfq/new" className="btn-brand" style={{ fontSize: '0.82rem' }}>Submit First RFQ</Link>
+                    <div className="text-muted mb-4" style={{ fontSize: '0.92rem' }}>Submit your first Request for Quotation to get started</div>
+                    <Link href="/dashboard/rfq/new" className="btn-brand" style={{ fontSize: '0.92rem' }}>Submit First RFQ</Link>
                   </td>
                 </tr>
               ) : rfqs.map((rfq) => (
                 <tr key={rfq.id}>
                   <td>
-                    <div className="text-white fw-medium" style={{ fontSize: '0.875rem' }}>{rfq.title}</div>
-                    <div className="text-muted" style={{ fontSize: '0.72rem', fontFamily: 'monospace' }}>#{rfq.id.slice(-8)}</div>
+                    <div className="text-white fw-medium" style={{ fontSize: '0.95rem' }}>{rfq.title}</div>
+                    <div className="text-muted" style={{ fontSize: '0.85rem', fontFamily: 'monospace' }}>#{rfq.id.slice(-8)}</div>
                   </td>
                   <td className="text-secondary">{rfq.material}</td>
                   <td className="text-secondary">{rfq.tolerance ?? '—'}</td>
@@ -89,14 +89,14 @@ export default async function RFQListPage() {
                   <td>
                     {rfq.quote ? (
                       <div>
-                        <div className="fw-semibold" style={{ color: '#4ade80', fontSize: '0.875rem' }}>₹{rfq.quote.amount.toLocaleString('en-IN')}</div>
-                        <div className="text-muted" style={{ fontSize: '0.72rem' }}>Valid till {new Date(rfq.quote.validUntil).toLocaleDateString('en-IN')}</div>
+                        <div className="fw-semibold" style={{ color: '#4ade80', fontSize: '0.95rem' }}>₹{rfq.quote.amount.toLocaleString('en-IN')}</div>
+                        <div className="text-muted" style={{ fontSize: '0.85rem' }}>Valid till {new Date(rfq.quote.validUntil).toLocaleDateString('en-IN')}</div>
                       </div>
                     ) : (
-                      <span className="text-muted" style={{ fontSize: '0.78rem' }}>Awaiting quote</span>
+                      <span className="text-muted" style={{ fontSize: '0.88rem' }}>Awaiting quote</span>
                     )}
                   </td>
-                  <td className="text-muted" style={{ fontSize: '0.78rem' }}>{new Date(rfq.createdAt).toLocaleDateString('en-IN')}</td>
+                  <td className="text-muted" style={{ fontSize: '0.88rem' }}>{new Date(rfq.createdAt).toLocaleDateString('en-IN')}</td>
                 </tr>
               ))}
             </tbody>

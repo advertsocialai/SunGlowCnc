@@ -22,7 +22,7 @@ export default async function AdminOrdersPage() {
     <DashboardLayout>
       <div className="mb-4">
         <h1 className="text-white fw-bold mb-1" style={{ fontSize: '1.4rem' }}>Orders</h1>
-        <p className="text-muted mb-0" style={{ fontSize: '0.875rem' }}>
+        <p className="text-muted mb-0" style={{ fontSize: '0.95rem' }}>
           {orders.length} order{orders.length !== 1 ? 's' : ''} &bull; ₹{totalRevenue.toLocaleString('en-IN')} completed revenue
         </p>
       </div>
@@ -32,7 +32,7 @@ export default async function AdminOrdersPage() {
           <div className="p-5 text-center">
             <div className="text-muted mb-2" style={{ fontSize: '2.5rem' }}>📦</div>
             <div className="text-secondary fw-medium mb-1">No orders yet</div>
-            <div className="text-muted" style={{ fontSize: '0.82rem' }}>Orders are created when a client approves a quote.</div>
+            <div className="text-muted" style={{ fontSize: '0.92rem' }}>Orders are created when a client approves a quote.</div>
           </div>
         ) : (
           <div className="table-responsive">
@@ -50,14 +50,14 @@ export default async function AdminOrdersPage() {
               <tbody>
                 {orders.map((order) => (
                   <tr key={order.id}>
-                    <td className="text-secondary fw-medium" style={{ fontFamily: 'monospace', fontSize: '0.82rem' }}>
+                    <td className="text-secondary fw-medium" style={{ fontFamily: 'monospace', fontSize: '0.92rem' }}>
                       {order.orderNumber}
                     </td>
-                    <td className="text-secondary" style={{ fontSize: '0.875rem' }}>
+                    <td className="text-secondary" style={{ fontSize: '0.95rem' }}>
                       {order.rfq.user.company ?? order.rfq.user.name}
                     </td>
-                    <td className="text-secondary" style={{ fontSize: '0.875rem' }}>{order.rfq.title}</td>
-                    <td className="fw-semibold" style={{ color: '#4ade80', fontSize: '0.875rem' }}>
+                    <td className="text-secondary" style={{ fontSize: '0.95rem' }}>{order.rfq.title}</td>
+                    <td className="fw-semibold" style={{ color: '#4ade80', fontSize: '0.95rem' }}>
                       ₹{order.amount.toLocaleString('en-IN')}
                     </td>
                     <td>
@@ -77,7 +77,7 @@ export default async function AdminOrdersPage() {
                         {order.status.replace('_', ' ')}
                       </span>
                     </td>
-                    <td className="text-muted" style={{ fontSize: '0.78rem' }}>
+                    <td className="text-muted" style={{ fontSize: '0.88rem' }}>
                       {new Date(order.createdAt).toLocaleDateString('en-IN')}
                     </td>
                   </tr>

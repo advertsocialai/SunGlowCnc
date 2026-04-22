@@ -34,7 +34,7 @@ const navLinks = [
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
-  const [openDropdown, setOpenDropdown] = useState<string | null>(null)
+  // Dropdowns are now CSS hover-triggered
   const { data: session } = useSession()
   const pathname = usePathname()
 
@@ -43,15 +43,21 @@ export default function Navbar() {
       <div className="container-xl d-flex align-items-center justify-content-between h-100">
         {/* Logo */}
         <Link href="/" className="text-decoration-none flex-shrink-0">
-          <div className="bg-white rounded px-3 py-2">
-            <Image
-              src="/logo.svg"
-              alt="Sunglow CNC Technics"
-              width={160}
-              height={40}
-              style={{ height: '38px', width: 'auto' }}
-              unoptimized
-            />
+          <div className="d-flex align-items-center gap-2">
+            <div className="bg-white rounded px-2 py-1">
+              <Image
+                src="/logo.png"
+                alt="Sunglow CNC Technics"
+                width={40}
+                height={40}
+                style={{ height: '36px', width: '36px', objectFit: 'contain' }}
+                unoptimized
+              />
+            </div>
+            <div className="d-flex flex-column lh-1">
+              <span className="fw-bold text-white" style={{ fontSize: '0.95rem', letterSpacing: '0.5px' }}>Sun Glow</span>
+              <span className="fw-semibold text-white" style={{ fontSize: '0.82rem', letterSpacing: '1px', opacity: 0.85 }}>CNC Technics</span>
+            </div>
           </div>
         </Link>
 
@@ -61,8 +67,6 @@ export default function Navbar() {
             <div
               key={link.href}
               className="position-relative"
-              onMouseEnter={() => link.dropdown && setOpenDropdown(link.href)}
-              onMouseLeave={() => setOpenDropdown(null)}
             >
               <Link
                 href={link.href}
@@ -75,7 +79,7 @@ export default function Navbar() {
                   </svg>
                 )}
               </Link>
-              {link.dropdown && openDropdown === link.href && (
+              {link.dropdown && (
                 <div className="nav-dropdown">
                   {link.dropdown.map((item) => (
                     <Link key={item.href} href={item.href} className="nav-dropdown-item">
@@ -108,7 +112,7 @@ export default function Navbar() {
                 <button
                   onClick={() => signOut({ callbackUrl: '/' })}
                   className="btn btn-link p-0 text-secondary text-decoration-none"
-                  style={{ fontSize: '0.8rem' }}
+                  style={{ fontSize: '0.9rem' }}
                 >
                   Logout
                 </button>
@@ -117,7 +121,7 @@ export default function Navbar() {
           ) : (
             <>
               <Link href="/login" className="nav-link-brand">Sign In</Link>
-              <Link href="/dashboard/rfq/new" className="btn-brand" style={{ fontSize: '0.82rem', padding: '0.45rem 1rem' }}>
+              <Link href="/dashboard/rfq/new" className="btn-brand" style={{ fontSize: '0.92rem', padding: '0.45rem 1rem' }}>
                 Get Instant Quote
               </Link>
             </>
@@ -172,7 +176,7 @@ export default function Navbar() {
                 <button
                   onClick={() => { setIsOpen(false); signOut({ callbackUrl: '/' }) }}
                   className="btn btn-link text-danger p-0 ps-3 py-2 text-decoration-none w-100 text-start"
-                  style={{ fontSize: '0.875rem' }}
+                  style={{ fontSize: '0.95rem' }}
                 >
                   Logout
                 </button>

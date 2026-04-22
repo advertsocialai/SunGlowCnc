@@ -11,7 +11,7 @@ export default function DashboardLoading() {
             animation: 'spin 0.8s linear infinite',
           }}
         />
-        <p className="text-muted mb-0" style={{ fontSize: '0.875rem', fontWeight: 500 }}>Loading dashboard...</p>
+        <p className="text-muted mb-0" style={{ fontSize: '0.95rem', fontWeight: 500 }}>Loading dashboard...</p>
       </div>
     </div>
   )

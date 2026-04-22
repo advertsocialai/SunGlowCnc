@@ -74,15 +74,15 @@ export default function NewRFQPage() {
       <div style={{ maxWidth: '760px' }}>
         <div className="mb-4">
           <h1 className="text-white fw-bold mb-1" style={{ fontSize: '1.4rem' }}>Submit New RFQ</h1>
-          <p className="text-muted mb-0" style={{ fontSize: '0.875rem' }}>Request for Quotation — Our team responds within 24 hours</p>
+          <p className="text-muted mb-0" style={{ fontSize: '0.95rem' }}>Request for Quotation — Our team responds within 24 hours</p>
         </div>
 
         {/* Info banner */}
         <div className="p-3 rounded mb-4 d-flex gap-3" style={{ background: 'rgba(96,165,250,0.1)', border: '1px solid rgba(96,165,250,0.25)' }}>
           <span style={{ color: '#60a5fa', flexShrink: 0 }}>ℹ</span>
           <div>
-            <p className="fw-semibold mb-1" style={{ color: '#93c5fd', fontSize: '0.875rem' }}>How It Works</p>
-            <p className="text-muted mb-0" style={{ fontSize: '0.8rem' }}>
+            <p className="fw-semibold mb-1" style={{ color: '#93c5fd', fontSize: '0.95rem' }}>How It Works</p>
+            <p className="text-muted mb-0" style={{ fontSize: '0.9rem' }}>
               Fill in your component requirements. Our engineering team will review and send a detailed quote within 24 hours. Attach CAD files to speed up the process.
             </p>
           </div>
@@ -158,20 +158,20 @@ export default function NewRFQPage() {
               onMouseLeave={e => (e.currentTarget.style.borderColor = 'var(--dark-border)')}
             >
               {uploadedFile ? (
-                <div className="text-secondary" style={{ fontSize: '0.875rem' }}>
+                <div className="text-secondary" style={{ fontSize: '0.95rem' }}>
                   <span style={{ color: '#4ade80' }}>✓ {uploadedFile.name}</span>
-                  <span className="text-muted ms-2" style={{ fontSize: '0.78rem' }}>({(uploadedFile.size / 1024).toFixed(0)} KB)</span>
-                  <button type="button" onClick={e => { e.stopPropagation(); setUploadedFile(null) }} className="btn btn-link text-danger p-0 ms-3" style={{ fontSize: '0.78rem' }}>Remove</button>
+                  <span className="text-muted ms-2" style={{ fontSize: '0.88rem' }}>({(uploadedFile.size / 1024).toFixed(0)} KB)</span>
+                  <button type="button" onClick={e => { e.stopPropagation(); setUploadedFile(null) }} className="btn btn-link text-danger p-0 ms-3" style={{ fontSize: '0.88rem' }}>Remove</button>
                 </div>
               ) : uploading ? (
-                <div className="d-flex align-items-center justify-content-center gap-2 text-muted" style={{ fontSize: '0.875rem' }}>
+                <div className="d-flex align-items-center justify-content-center gap-2 text-muted" style={{ fontSize: '0.95rem' }}>
                   <div className="spinner-border spinner-border-sm text-brand-red" style={{ color: 'var(--brand-red)' }} />
                   Uploading...
                 </div>
               ) : (
                 <div>
-                  <p className="text-secondary mb-1" style={{ fontSize: '0.875rem' }}>Click to upload or drag &amp; drop</p>
-                  <p className="text-muted mb-0" style={{ fontSize: '0.78rem' }}>.STEP .STP .STL .DWG .DXF .PDF .IGES — max 50 MB</p>
+                  <p className="text-secondary mb-1" style={{ fontSize: '0.95rem' }}>Click to upload or drag &amp; drop</p>
+                  <p className="text-muted mb-0" style={{ fontSize: '0.88rem' }}>.STEP .STP .STL .DWG .DXF .PDF .IGES — max 50 MB</p>
                 </div>
               )}
             </div>

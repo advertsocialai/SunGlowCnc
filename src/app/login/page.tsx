@@ -39,10 +39,10 @@ function LoginForm() {
   return (
     <div className="dark-card p-4 p-md-5">
       <h1 className="text-white fw-bold mb-1" style={{ fontSize: '1.4rem' }}>Welcome back</h1>
-      <p className="text-muted mb-4" style={{ fontSize: '0.875rem' }}>Sign in to your account to continue</p>
+      <p className="text-muted mb-4" style={{ fontSize: '0.95rem' }}>Sign in to your account to continue</p>
 
       {error && (
-        <div className="p-3 rounded mb-4" style={{ background: 'rgba(239,68,68,0.12)', border: '1px solid rgba(239,68,68,0.3)', color: '#f87171', fontSize: '0.875rem' }}>
+        <div className="p-3 rounded mb-4" style={{ background: 'rgba(239,68,68,0.12)', border: '1px solid rgba(239,68,68,0.3)', color: '#f87171', fontSize: '0.95rem' }}>
           {error}
         </div>
       )}
@@ -62,7 +62,7 @@ function LoginForm() {
       </form>
 
       <div className="text-center mt-4">
-        <p className="text-muted" style={{ fontSize: '0.875rem' }}>
+        <p className="text-muted" style={{ fontSize: '0.95rem' }}>
           Don&apos;t have an account?{' '}
           <Link href="/register" className="text-brand-red text-decoration-none fw-semibold">Register here</Link>
         </p>
@@ -70,12 +70,12 @@ function LoginForm() {
 
       {/* Demo credentials */}
       <div className="dark-card-elevated p-3 mt-4" style={{ border: '1px solid var(--dark-border)' }}>
-        <p className="text-muted text-uppercase letter-wide fw-semibold mb-2" style={{ fontSize: '0.7rem' }}>Demo Credentials</p>
+        <p className="text-muted text-uppercase letter-wide fw-semibold mb-2" style={{ fontSize: '0.82rem' }}>Demo Credentials</p>
         <div className="d-flex flex-column gap-2">
-          <div className="text-secondary" style={{ fontSize: '0.8rem' }}>
+          <div className="text-secondary" style={{ fontSize: '0.9rem' }}>
             <span className="fw-semibold text-white">Admin:</span> admin@sunglowcnc.com / admin123
           </div>
-          <div className="text-secondary" style={{ fontSize: '0.8rem' }}>
+          <div className="text-secondary" style={{ fontSize: '0.9rem' }}>
             <span className="fw-semibold text-white">Client:</span> client@bharatbiotech.com / client123
           </div>
         </div>
@@ -92,17 +92,17 @@ export default function LoginPage() {
         <div className="text-center mb-4">
           <Link href="/" className="d-inline-block">
             <div className="bg-white rounded px-4 py-2 d-inline-block shadow">
-              <Image src="/logo.svg" alt="Sunglow CNC Technics" width={200} height={50} style={{ height: '44px', width: 'auto' }} unoptimized />
+              <Image src="/logo.png" alt="Sunglow CNC Technics" width={200} height={50} style={{ height: '44px', width: 'auto' }} unoptimized />
             </div>
           </Link>
         </div>
 
-        <Suspense fallback={<div className="dark-card p-5 text-center text-muted" style={{ fontSize: '0.875rem' }}>Loading...</div>}>
+        <Suspense fallback={<div className="dark-card p-5 text-center text-muted" style={{ fontSize: '0.95rem' }}>Loading...</div>}>
           <LoginForm />
         </Suspense>
 
         <div className="text-center mt-4">
-          <Link href="/" className="text-muted text-decoration-none" style={{ fontSize: '0.875rem' }}>
+          <Link href="/" className="text-muted text-decoration-none" style={{ fontSize: '0.95rem' }}>
             ← Back to Website
           </Link>
         </div>

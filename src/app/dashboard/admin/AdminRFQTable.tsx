@@ -123,7 +123,7 @@ export default function AdminRFQTable({ rfqs: initialRfqs }: { rfqs: RFQRow[] })
             onClick={() => setFilter(s.value)}
             className="btn px-3 py-1 rounded-pill"
             style={{
-              fontSize: '0.75rem',
+              fontSize: '0.85rem',
               fontWeight: 500,
               whiteSpace: 'nowrap',
               background: filter === s.value ? 'var(--brand-red)' : 'var(--dark-elevated)',
@@ -154,7 +154,7 @@ export default function AdminRFQTable({ rfqs: initialRfqs }: { rfqs: RFQRow[] })
             <tbody>
               {filteredRfqs.length === 0 ? (
                 <tr>
-                  <td colSpan={7} className="text-center py-5 text-secondary" style={{ fontSize: '0.875rem' }}>
+                  <td colSpan={7} className="text-center py-5 text-secondary" style={{ fontSize: '0.95rem' }}>
                     No RFQs found for this filter.
                   </td>
                 </tr>
@@ -162,13 +162,13 @@ export default function AdminRFQTable({ rfqs: initialRfqs }: { rfqs: RFQRow[] })
                 filteredRfqs.map((rfq) => (
                   <tr key={rfq.id}>
                     <td>
-                      <div className="text-white fw-medium" style={{ fontSize: '0.875rem' }}>{rfq.title}</div>
-                      <div className="text-secondary" style={{ fontSize: '0.72rem' }}>{rfq.user.company ?? rfq.user.name}</div>
-                      <div className="text-muted" style={{ fontSize: '0.72rem' }}>{rfq.user.email}</div>
+                      <div className="text-white fw-medium" style={{ fontSize: '0.95rem' }}>{rfq.title}</div>
+                      <div className="text-secondary" style={{ fontSize: '0.85rem' }}>{rfq.user.company ?? rfq.user.name}</div>
+                      <div className="text-muted" style={{ fontSize: '0.85rem' }}>{rfq.user.email}</div>
                     </td>
                     <td>
-                      <div className="text-secondary" style={{ fontSize: '0.875rem' }}>{rfq.material}</div>
-                      <div className="text-muted" style={{ fontSize: '0.72rem' }}>Qty: {rfq.quantity}{rfq.tolerance ? ` · ${rfq.tolerance}` : ''}</div>
+                      <div className="text-secondary" style={{ fontSize: '0.95rem' }}>{rfq.material}</div>
+                      <div className="text-muted" style={{ fontSize: '0.85rem' }}>Qty: {rfq.quantity}{rfq.tolerance ? ` · ${rfq.tolerance}` : ''}</div>
                     </td>
                     <td>
                       <span className="badge-status" style={{
@@ -190,7 +190,7 @@ export default function AdminRFQTable({ rfqs: initialRfqs }: { rfqs: RFQRow[] })
                         onChange={(e) => updateStatus(rfq.id, e.target.value)}
                         disabled={updating}
                         className="form-control-dark"
-                        style={{ fontSize: '0.75rem', padding: '0.3rem 0.5rem' }}
+                        style={{ fontSize: '0.85rem', padding: '0.3rem 0.5rem' }}
                       >
                         {statusOptions.map(s => (
                           <option key={s.value} value={s.value}>{s.label}</option>
@@ -199,11 +199,11 @@ export default function AdminRFQTable({ rfqs: initialRfqs }: { rfqs: RFQRow[] })
                     </td>
                     <td>
                       {rfq.quote ? (
-                        <div className="fw-semibold" style={{ color: '#4ade80', fontSize: '0.875rem' }}>
+                        <div className="fw-semibold" style={{ color: '#4ade80', fontSize: '0.95rem' }}>
                           ₹{rfq.quote.amount.toLocaleString('en-IN')}
                         </div>
                       ) : (
-                        <span className="text-muted" style={{ fontSize: '0.78rem' }}>No quote</span>
+                        <span className="text-muted" style={{ fontSize: '0.88rem' }}>No quote</span>
                       )}
                     </td>
                     <td>
@@ -216,7 +216,7 @@ export default function AdminRFQTable({ rfqs: initialRfqs }: { rfqs: RFQRow[] })
                         }}
                         className="btn px-3 py-1"
                         style={{
-                          fontSize: '0.75rem', fontWeight: 500,
+                          fontSize: '0.85rem', fontWeight: 500,
                           background: 'rgba(200,32,46,0.12)', color: 'var(--brand-red)',
                           border: '1px solid rgba(200,32,46,0.3)', borderRadius: '6px',
                         }}
@@ -224,7 +224,7 @@ export default function AdminRFQTable({ rfqs: initialRfqs }: { rfqs: RFQRow[] })
                         {rfq.quote ? 'View / Edit' : 'Add Quote'}
                       </button>
                     </td>
-                    <td className="text-muted" style={{ fontSize: '0.78rem' }}>
+                    <td className="text-muted" style={{ fontSize: '0.88rem' }}>
                       {new Date(rfq.createdAt).toLocaleDateString('en-IN')}
                     </td>
                   </tr>
@@ -246,7 +246,7 @@ export default function AdminRFQTable({ rfqs: initialRfqs }: { rfqs: RFQRow[] })
             <div className="d-flex justify-content-between align-items-start p-4" style={{ borderBottom: '1px solid var(--dark-border)' }}>
               <div>
                 <h2 className="text-white fw-bold mb-1" style={{ fontSize: '1rem' }}>Submit Quote</h2>
-                <p className="text-muted mb-0" style={{ fontSize: '0.8rem' }}>{selectedRfq.title}</p>
+                <p className="text-muted mb-0" style={{ fontSize: '0.9rem' }}>{selectedRfq.title}</p>
               </div>
               <button
                 onClick={() => { setSelectedRfq(null); setQuoteForm({ amount: '', validDays: '30', notes: '' }) }}
@@ -259,7 +259,7 @@ export default function AdminRFQTable({ rfqs: initialRfqs }: { rfqs: RFQRow[] })
 
             {/* RFQ details */}
             <div className="px-4 py-3" style={{ background: 'var(--dark-elevated)', borderBottom: '1px solid var(--dark-border)' }}>
-              <div className="row g-2" style={{ fontSize: '0.78rem' }}>
+              <div className="row g-2" style={{ fontSize: '0.88rem' }}>
                 <div className="col-6">
                   <span className="text-muted">Client: </span>
                   <span className="text-secondary fw-medium">{selectedRfq.user.company ?? selectedRfq.user.name}</span>
@@ -278,7 +278,7 @@ export default function AdminRFQTable({ rfqs: initialRfqs }: { rfqs: RFQRow[] })
                 </div>
               </div>
               {selectedRfq.notes && (
-                <div className="mt-2 p-2 rounded" style={{ background: 'var(--dark-card)', fontSize: '0.75rem', color: 'var(--text-secondary)', border: '1px solid var(--dark-border)' }}>
+                <div className="mt-2 p-2 rounded" style={{ background: 'var(--dark-card)', fontSize: '0.85rem', color: 'var(--text-secondary)', border: '1px solid var(--dark-border)' }}>
                   <span className="fw-medium">Notes:</span> {selectedRfq.notes}
                 </div>
               )}

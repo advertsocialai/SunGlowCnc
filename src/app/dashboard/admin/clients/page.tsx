@@ -19,7 +19,7 @@ export default async function AdminClientsPage() {
     <DashboardLayout>
       <div className="mb-4">
         <h1 className="text-white fw-bold mb-1" style={{ fontSize: '1.4rem' }}>Clients</h1>
-        <p className="text-muted mb-0" style={{ fontSize: '0.875rem' }}>
+        <p className="text-muted mb-0" style={{ fontSize: '0.95rem' }}>
           {clients.length} registered client{clients.length !== 1 ? 's' : ''}
         </p>
       </div>
@@ -39,7 +39,7 @@ export default async function AdminClientsPage() {
             <tbody>
               {clients.length === 0 ? (
                 <tr>
-                  <td colSpan={5} className="text-center py-5 text-secondary" style={{ fontSize: '0.875rem' }}>
+                  <td colSpan={5} className="text-center py-5 text-secondary" style={{ fontSize: '0.95rem' }}>
                     No clients yet.
                   </td>
                 </tr>
@@ -52,31 +52,31 @@ export default async function AdminClientsPage() {
                         <div className="d-flex align-items-center gap-3">
                           <div
                             className="rounded-circle d-flex align-items-center justify-content-center text-white fw-bold flex-shrink-0"
-                            style={{ width: 36, height: 36, background: 'rgba(200,32,46,0.2)', color: 'var(--brand-red)', fontSize: '0.85rem', border: '1px solid rgba(200,32,46,0.3)' }}
+                            style={{ width: 36, height: 36, background: 'rgba(200,32,46,0.2)', color: 'var(--brand-red)', fontSize: '0.95rem', border: '1px solid rgba(200,32,46,0.3)' }}
                           >
                             {client.name[0]}
                           </div>
                           <div>
-                            <div className="text-white fw-medium" style={{ fontSize: '0.875rem' }}>{client.name}</div>
-                            {client.company && <div className="text-muted" style={{ fontSize: '0.72rem' }}>{client.company}</div>}
+                            <div className="text-white fw-medium" style={{ fontSize: '0.95rem' }}>{client.name}</div>
+                            {client.company && <div className="text-muted" style={{ fontSize: '0.85rem' }}>{client.company}</div>}
                           </div>
                         </div>
                       </td>
                       <td>
-                        <div className="text-secondary" style={{ fontSize: '0.875rem' }}>{client.email}</div>
-                        {client.phone && <div className="text-muted" style={{ fontSize: '0.72rem' }}>{client.phone}</div>}
+                        <div className="text-secondary" style={{ fontSize: '0.95rem' }}>{client.email}</div>
+                        {client.phone && <div className="text-muted" style={{ fontSize: '0.85rem' }}>{client.phone}</div>}
                       </td>
-                      <td className="text-secondary" style={{ fontSize: '0.875rem' }}>{client.rfqs.length}</td>
+                      <td className="text-secondary" style={{ fontSize: '0.95rem' }}>{client.rfqs.length}</td>
                       <td>
                         {totalValue > 0 ? (
-                          <span className="fw-semibold" style={{ color: '#4ade80', fontSize: '0.875rem' }}>
+                          <span className="fw-semibold" style={{ color: '#4ade80', fontSize: '0.95rem' }}>
                             ₹{totalValue.toLocaleString('en-IN')}
                           </span>
                         ) : (
-                          <span className="text-muted" style={{ fontSize: '0.875rem' }}>—</span>
+                          <span className="text-muted" style={{ fontSize: '0.95rem' }}>—</span>
                         )}
                       </td>
-                      <td className="text-muted" style={{ fontSize: '0.78rem' }}>
+                      <td className="text-muted" style={{ fontSize: '0.88rem' }}>
                         {new Date(client.createdAt).toLocaleDateString('en-IN')}
                       </td>
                     </tr>

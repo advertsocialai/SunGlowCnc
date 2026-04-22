@@ -107,7 +107,7 @@ export default function QuotePage() {
             ✓
           </div>
           <h1 className="text-white fw-bold mb-2" style={{ fontSize: '1.3rem' }}>Quote Request Submitted!</h1>
-          <p className="text-secondary mb-4" style={{ fontSize: '0.875rem' }}>
+          <p className="text-secondary mb-4" style={{ fontSize: '0.95rem' }}>
             Our engineering team will review your requirements and send a detailed quote within <strong className="text-white">24 hours</strong>.
             You&apos;ll receive an email notification once ready.
           </p>
@@ -118,7 +118,7 @@ export default function QuotePage() {
             <button
               onClick={() => { setStep(1); setForm({ title: '', materialGroup: '', materialItem: '', tolerance: '±0.05mm', customTolerance: '', finish: 'As-Machined', quantity: '1', description: '', notes: '', fileUrl: '', fileName: '' }) }}
               className="btn p-2 text-muted"
-              style={{ fontSize: '0.875rem' }}
+              style={{ fontSize: '0.95rem' }}
             >
               Submit Another Request
             </button>
@@ -135,9 +135,9 @@ export default function QuotePage() {
         <div className="container-xl py-3 d-flex align-items-center justify-content-between">
           <Link href="/" className="d-flex align-items-center gap-2 text-decoration-none">
             <span className="fw-black" style={{ color: 'var(--brand-red)', fontSize: '1.15rem' }}>SUNGLOW</span>
-            <span className="text-muted" style={{ fontSize: '0.85rem', fontWeight: 300 }}>CNC</span>
+            <span className="text-muted" style={{ fontSize: '0.95rem', fontWeight: 300 }}>CNC</span>
           </Link>
-          <div className="text-muted" style={{ fontSize: '0.875rem' }}>
+          <div className="text-muted" style={{ fontSize: '0.95rem' }}>
             Have an account?{' '}
             <Link href="/login" className="fw-medium text-decoration-none" style={{ color: 'var(--brand-red)' }}>Sign in</Link>
           </div>
@@ -152,7 +152,7 @@ export default function QuotePage() {
               <div
                 className="rounded-circle d-flex align-items-center justify-content-center fw-bold"
                 style={{
-                  width: 32, height: 32, fontSize: '0.82rem',
+                  width: 32, height: 32, fontSize: '0.92rem',
                   background: step >= s ? 'var(--brand-red)' : 'var(--dark-elevated)',
                   color: step >= s ? '#fff' : '#6b7280',
                   border: `1px solid ${step >= s ? 'var(--brand-red)' : 'var(--dark-border)'}`,
@@ -160,7 +160,7 @@ export default function QuotePage() {
               >
                 {step > s ? '✓' : s}
               </div>
-              <span className="fw-medium" style={{ fontSize: '0.875rem', color: step >= s ? '#fff' : '#6b7280' }}>
+              <span className="fw-medium" style={{ fontSize: '0.95rem', color: step >= s ? '#fff' : '#6b7280' }}>
                 {s === 1 ? 'Component Details' : 'Files & Notes'}
               </span>
               {s < 2 && <div style={{ width: 40, height: 2, background: 'var(--dark-border)', margin: '0 4px' }} />}
@@ -173,7 +173,7 @@ export default function QuotePage() {
             <div className="d-flex flex-column gap-4">
               <div>
                 <h1 className="text-white fw-bold mb-1" style={{ fontSize: '1.4rem' }}>Get an Instant Quote</h1>
-                <p className="text-muted mb-0" style={{ fontSize: '0.875rem' }}>Tell us about your component and we&apos;ll get back within 24 hours.</p>
+                <p className="text-muted mb-0" style={{ fontSize: '0.95rem' }}>Tell us about your component and we&apos;ll get back within 24 hours.</p>
               </div>
 
               <div>
@@ -231,7 +231,7 @@ export default function QuotePage() {
                       key={f} type="button" onClick={() => set('finish', f)}
                       className="btn px-3 py-1"
                       style={{
-                        fontSize: '0.78rem', fontWeight: 500, borderRadius: '6px',
+                        fontSize: '0.88rem', fontWeight: 500, borderRadius: '6px',
                         background: form.finish === f ? 'var(--brand-red)' : 'var(--dark-elevated)',
                         color: form.finish === f ? '#fff' : 'var(--text-secondary)',
                         border: `1px solid ${form.finish === f ? 'var(--brand-red)' : 'var(--dark-border)'}`,
@@ -258,7 +258,7 @@ export default function QuotePage() {
             <div className="d-flex flex-column gap-4">
               <div>
                 <h2 className="text-white fw-bold mb-1" style={{ fontSize: '1.2rem' }}>Upload Files &amp; Notes</h2>
-                <p className="text-muted mb-0" style={{ fontSize: '0.875rem' }}>Attach your CAD or drawing files to get a more accurate quote.</p>
+                <p className="text-muted mb-0" style={{ fontSize: '0.95rem' }}>Attach your CAD or drawing files to get a more accurate quote.</p>
               </div>
 
               <div>
@@ -274,21 +274,21 @@ export default function QuotePage() {
                 >
                   {form.fileUrl ? (
                     <div>
-                      <p className="fw-semibold mb-1" style={{ color: '#4ade80', fontSize: '0.875rem' }}>✓ {form.fileName}</p>
-                      <button type="button" onClick={(e) => { e.stopPropagation(); set('fileUrl', ''); set('fileName', '') }} className="btn p-0 text-danger" style={{ fontSize: '0.78rem' }}>
+                      <p className="fw-semibold mb-1" style={{ color: '#4ade80', fontSize: '0.95rem' }}>✓ {form.fileName}</p>
+                      <button type="button" onClick={(e) => { e.stopPropagation(); set('fileUrl', ''); set('fileName', '') }} className="btn p-0 text-danger" style={{ fontSize: '0.88rem' }}>
                         Remove file
                       </button>
                     </div>
                   ) : uploading ? (
                     <div className="d-flex align-items-center justify-content-center gap-2 text-muted">
                       <div className="spinner-border spinner-border-sm" style={{ color: 'var(--brand-red)' }} />
-                      <span style={{ fontSize: '0.875rem' }}>Uploading...</span>
+                      <span style={{ fontSize: '0.95rem' }}>Uploading...</span>
                     </div>
                   ) : (
                     <div>
                       <div className="mb-2" style={{ fontSize: '2rem' }}>📁</div>
-                      <p className="text-secondary fw-medium mb-1" style={{ fontSize: '0.875rem' }}>Click or drag your file here</p>
-                      <p className="text-muted mb-0" style={{ fontSize: '0.75rem' }}>STEP · STP · STL · DWG · DXF · IGES · PDF · PNG — max 50 MB</p>
+                      <p className="text-secondary fw-medium mb-1" style={{ fontSize: '0.95rem' }}>Click or drag your file here</p>
+                      <p className="text-muted mb-0" style={{ fontSize: '0.85rem' }}>STEP · STP · STL · DWG · DXF · IGES · PDF · PNG — max 50 MB</p>
                     </div>
                   )}
                 </div>
@@ -322,7 +322,7 @@ export default function QuotePage() {
         </div>
 
         {/* Trust badges */}
-        <div className="d-flex flex-wrap gap-3 justify-content-center mt-4 text-muted" style={{ fontSize: '0.78rem' }}>
+        <div className="d-flex flex-wrap gap-3 justify-content-center mt-4 text-muted" style={{ fontSize: '0.88rem' }}>
           <span>✓ Response within 24 hours</span>
           <span>✓ No commitment quote</span>
           <span>✓ ISO 9001 processes</span>

@@ -198,10 +198,10 @@ export default function HomePage() {
                   </div>
                   {capabilities.map((row) => (
                     <div key={row.service} className="cap-row">
-                      <span className="fw-semibold text-white" style={{ fontSize: '0.875rem' }}>{row.service}</span>
-                      <span className="mono text-brand-red" style={{ fontSize: '0.82rem' }}>{row.leadTime}</span>
-                      <span className="mono text-secondary" style={{ fontSize: '0.82rem' }}>{row.tolerance}</span>
-                      <span className="mono text-secondary" style={{ fontSize: '0.82rem' }}>{row.maxSize}</span>
+                      <span className="fw-semibold text-white" style={{ fontSize: '0.95rem' }}>{row.service}</span>
+                      <span className="mono text-brand-red" style={{ fontSize: '0.92rem' }}>{row.leadTime}</span>
+                      <span className="mono text-secondary" style={{ fontSize: '0.92rem' }}>{row.tolerance}</span>
+                      <span className="mono text-secondary" style={{ fontSize: '0.92rem' }}>{row.maxSize}</span>
                     </div>
                   ))}
                 </div>

@@ -40,7 +40,7 @@ export default function CapabilitiesPage() {
       {/* Header */}
       <section className="page-header">
         <div className="container-xl">
-          <p className="text-brand-red fw-semibold text-uppercase letter-wide mb-2" style={{ fontSize: '0.8rem' }}>Technical Specifications</p>
+          <p className="text-brand-red fw-semibold text-uppercase letter-wide mb-2" style={{ fontSize: '0.9rem' }}>Technical Specifications</p>
           <h1 className="fw-black text-white mb-3" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)' }}>Machining Capabilities</h1>
           <p className="text-secondary mb-4" style={{ maxWidth: '560px', fontSize: '1.05rem' }}>
             Complete specifications for our CNC machining services — tolerances, lead times, part sizes, and design guidelines.
@@ -73,20 +73,20 @@ export default function CapabilitiesPage() {
                   {capabilityTable.map((row) => (
                     <tr key={row.service}>
                       <td>
-                        <div className="text-white fw-semibold" style={{ fontSize: '0.875rem' }}>{row.service}</div>
-                        <div className="text-muted" style={{ fontSize: '0.72rem' }}>{row.materials}</div>
+                        <div className="text-white fw-semibold" style={{ fontSize: '0.95rem' }}>{row.service}</div>
+                        <div className="text-muted" style={{ fontSize: '0.85rem' }}>{row.materials}</div>
                       </td>
-                      <td style={{ color: 'var(--brand-red)', fontWeight: 600, fontSize: '0.85rem' }}>{row.leadTime}</td>
-                      <td className="text-white fw-semibold" style={{ fontSize: '0.85rem' }}>{row.tolerance}</td>
-                      <td className="text-secondary" style={{ fontSize: '0.85rem' }}>{row.maxSize}</td>
-                      <td className="text-secondary" style={{ fontSize: '0.85rem' }}>{row.machines}</td>
+                      <td style={{ color: 'var(--brand-red)', fontWeight: 600, fontSize: '0.95rem' }}>{row.leadTime}</td>
+                      <td className="text-white fw-semibold" style={{ fontSize: '0.95rem' }}>{row.tolerance}</td>
+                      <td className="text-secondary" style={{ fontSize: '0.95rem' }}>{row.maxSize}</td>
+                      <td className="text-secondary" style={{ fontSize: '0.95rem' }}>{row.machines}</td>
                     </tr>
                   ))}
                 </tbody>
               </table>
             </div>
           </div>
-          <p className="text-muted mt-2" style={{ fontSize: '0.75rem' }}>* Lead times are estimates and may vary based on complexity and current capacity. Contact us for urgent orders.</p>
+          <p className="text-muted mt-2" style={{ fontSize: '0.85rem' }}>* Lead times are estimates and may vary based on complexity and current capacity. Contact us for urgent orders.</p>
         </div>
       </section>
 
@@ -94,7 +94,7 @@ export default function CapabilitiesPage() {
       <section className="section-py" style={{ background: 'var(--dark-bg)' }}>
         <div className="container-xl">
           <h2 className="text-white fw-bold mb-2" style={{ fontSize: '1.3rem' }}>Design for Manufacturability (DFM) Guidelines</h2>
-          <p className="text-secondary mb-4" style={{ fontSize: '0.875rem' }}>
+          <p className="text-secondary mb-4" style={{ fontSize: '0.95rem' }}>
             Following these guidelines helps reduce machining cost, improve part quality, and speed up delivery.
           </p>
           <div className="row g-3 mb-4">
@@ -110,15 +110,15 @@ export default function CapabilitiesPage() {
                     </svg>
                   </div>
                   <div>
-                    <h4 className="text-white fw-semibold mb-1" style={{ fontSize: '0.875rem' }}>{g.rule}</h4>
-                    <p className="text-muted mb-0" style={{ fontSize: '0.78rem', lineHeight: 1.5 }}>{g.desc}</p>
+                    <h4 className="text-white fw-semibold mb-1" style={{ fontSize: '0.95rem' }}>{g.rule}</h4>
+                    <p className="text-muted mb-0" style={{ fontSize: '0.88rem', lineHeight: 1.5 }}>{g.desc}</p>
                   </div>
                 </div>
               </div>
             ))}
           </div>
           <div className="rounded p-3" style={{ background: 'rgba(200,32,46,0.08)', border: '1px solid rgba(200,32,46,0.25)' }}>
-            <p className="mb-0" style={{ fontSize: '0.875rem', color: '#fca5a5' }}>
+            <p className="mb-0" style={{ fontSize: '0.95rem', color: '#fca5a5' }}>
               <strong>Free DFM Review:</strong> Upload your CAD file with your RFQ and our engineers will review your design for manufacturability and suggest cost-saving optimizations at no charge.
             </p>
           </div>
@@ -133,7 +133,7 @@ export default function CapabilitiesPage() {
             {machiningFAQ.map((item) => (
               <div key={item.q} className="dark-card p-4">
                 <h3 className="text-white fw-semibold mb-2" style={{ fontSize: '0.9rem' }}>{item.q}</h3>
-                <p className="text-secondary mb-0" style={{ fontSize: '0.85rem', lineHeight: 1.6 }}>{item.a}</p>
+                <p className="text-secondary mb-0" style={{ fontSize: '0.95rem', lineHeight: 1.6 }}>{item.a}</p>
               </div>
             ))}
           </div>

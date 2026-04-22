@@ -36,7 +36,7 @@ export default function AboutPage() {
       {/* Header */}
       <section className="page-header">
         <div className="container-xl">
-          <p className="text-brand-red fw-semibold text-uppercase letter-wide mb-2" style={{ fontSize: '0.8rem' }}>Our Story</p>
+          <p className="text-brand-red fw-semibold text-uppercase letter-wide mb-2" style={{ fontSize: '0.9rem' }}>Our Story</p>
           <h1 className="fw-black text-white mb-3" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)' }}>A Legacy of Precision</h1>
           <p className="text-secondary" style={{ maxWidth: '560px', fontSize: '1.05rem', lineHeight: 1.7 }}>
             Since 2003, Sunglow CNC Technics has been the trusted manufacturing partner for India&apos;s most
@@ -85,7 +85,7 @@ export default function AboutPage() {
                   <div key={stat.label} className="col-6">
                     <div className="dark-card p-4 text-center">
                       <div className="text-brand-red fw-black" style={{ fontSize: '1.75rem' }}>{stat.val}</div>
-                      <div className="text-secondary mt-1" style={{ fontSize: '0.8rem' }}>{stat.label}</div>
+                      <div className="text-secondary mt-1" style={{ fontSize: '0.9rem' }}>{stat.label}</div>
                     </div>
                   </div>
                 ))}
@@ -93,14 +93,14 @@ export default function AboutPage() {
             </div>
             <div className="col-lg-6">
               <div className="bg-brand-navy rounded-xl p-4">
-                <h3 className="text-brand-red fw-bold mb-4 text-uppercase letter-wide" style={{ fontSize: '0.85rem' }}>Our Values</h3>
+                <h3 className="text-brand-red fw-bold mb-4 text-uppercase letter-wide" style={{ fontSize: '0.95rem' }}>Our Values</h3>
                 <div className="d-flex flex-column gap-4">
                   {values.map((v) => (
                     <div key={v.title} className="d-flex gap-3">
                       <span style={{ fontSize: '1.5rem', flexShrink: 0 }}>{v.icon}</span>
                       <div>
                         <h4 className="text-white fw-semibold mb-1" style={{ fontSize: '0.95rem' }}>{v.title}</h4>
-                        <p className="text-secondary mb-0" style={{ fontSize: '0.85rem', lineHeight: 1.6 }}>{v.desc}</p>
+                        <p className="text-secondary mb-0" style={{ fontSize: '0.95rem', lineHeight: 1.6 }}>{v.desc}</p>
                       </div>
                     </div>
                   ))}
@@ -135,8 +135,8 @@ export default function AboutPage() {
                     <span className="cert-badge">×{m.qty}</span>
                   </div>
                   <h3 className="text-white fw-bold mb-1" style={{ fontSize: '0.95rem' }}>{m.name}</h3>
-                  <p className="text-secondary mb-3" style={{ fontSize: '0.82rem' }}>{m.detail}</p>
-                  <p className="text-brand-red fw-medium mb-0" style={{ fontSize: '0.78rem', background: 'var(--brand-red-light)', padding: '0.4rem 0.75rem', borderRadius: '0.4rem', display: 'inline-block' }}>
+                  <p className="text-secondary mb-3" style={{ fontSize: '0.92rem' }}>{m.detail}</p>
+                  <p className="text-brand-red fw-medium mb-0" style={{ fontSize: '0.88rem', background: 'var(--brand-red-light)', padding: '0.4rem 0.75rem', borderRadius: '0.4rem', display: 'inline-block' }}>
                     {m.capability}
                   </p>
                 </div>
@@ -157,8 +157,8 @@ export default function AboutPage() {
                 <div key={m.year} className="d-flex gap-4 align-items-start">
                   <div className="timeline-dot flex-shrink-0">●</div>
                   <div className="dark-card p-4 flex-grow-1">
-                    <span className="text-brand-red fw-black" style={{ fontSize: '0.85rem' }}>{m.year}</span>
-                    <p className="text-secondary mb-0 mt-1" style={{ fontSize: '0.875rem' }}>{m.event}</p>
+                    <span className="text-brand-red fw-black" style={{ fontSize: '0.95rem' }}>{m.year}</span>
+                    <p className="text-secondary mb-0 mt-1" style={{ fontSize: '0.95rem' }}>{m.event}</p>
                   </div>
                 </div>
               ))}

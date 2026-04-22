@@ -96,7 +96,7 @@ export default function IndustriesPage() {
       {/* Header */}
       <section className="page-header">
         <div className="container-xl">
-          <p className="text-brand-red fw-semibold text-uppercase letter-wide mb-2" style={{ fontSize: '0.8rem' }}>Markets We Serve</p>
+          <p className="text-brand-red fw-semibold text-uppercase letter-wide mb-2" style={{ fontSize: '0.9rem' }}>Markets We Serve</p>
           <h1 className="fw-black text-white mb-3" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)' }}>Industries We Serve</h1>
           <p className="text-secondary" style={{ maxWidth: '560px', fontSize: '1.05rem' }}>
             Precision CNC machining for India&apos;s most demanding sectors — from GMP pharma components to defence-grade aerospace hardware.
@@ -126,18 +126,18 @@ export default function IndustriesPage() {
                     <div className="d-flex flex-column gap-3 mb-4">
                       {ind.components.map((c) => (
                         <div key={c.title}>
-                          <h4 className="text-white fw-semibold mb-1" style={{ fontSize: '0.85rem' }}>{c.title}</h4>
-                          <p className="text-secondary mb-0" style={{ fontSize: '0.8rem', lineHeight: 1.5 }}>{c.desc}</p>
+                          <h4 className="text-white fw-semibold mb-1" style={{ fontSize: '0.95rem' }}>{c.title}</h4>
+                          <p className="text-secondary mb-0" style={{ fontSize: '0.9rem', lineHeight: 1.5 }}>{c.desc}</p>
                         </div>
                       ))}
                     </div>
 
                     {/* Materials */}
                     <div>
-                      <p className="text-muted text-uppercase letter-wide fw-semibold mb-2" style={{ fontSize: '0.68rem' }}>Materials</p>
+                      <p className="text-muted text-uppercase letter-wide fw-semibold mb-2" style={{ fontSize: '0.8rem' }}>Materials</p>
                       <div className="d-flex flex-wrap gap-1">
                         {ind.materials.map((m) => (
-                          <span key={m} className="capability-chip" style={{ fontSize: '0.72rem' }}>{m}</span>
+                          <span key={m} className="capability-chip" style={{ fontSize: '0.85rem' }}>{m}</span>
                         ))}
                       </div>
                     </div>

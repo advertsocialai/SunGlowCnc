@@ -68,7 +68,7 @@ export default async function AnalyticsPage() {
     <DashboardLayout>
       <div className="mb-4">
         <h1 className="text-white fw-bold mb-1" style={{ fontSize: '1.4rem' }}>Analytics</h1>
-        <p className="text-muted mb-0" style={{ fontSize: '0.875rem' }}>Platform overview and business metrics</p>
+        <p className="text-muted mb-0" style={{ fontSize: '0.95rem' }}>Platform overview and business metrics</p>
       </div>
 
       {/* KPI Grid */}
@@ -76,9 +76,9 @@ export default async function AnalyticsPage() {
         {stats.map((s) => (
           <div key={s.label} className="col-6 col-lg-4">
             <div className="dark-card p-4">
-              <p className="text-muted text-uppercase mb-1" style={{ fontSize: '0.68rem', letterSpacing: '0.05em' }}>{s.label}</p>
+              <p className="text-muted text-uppercase mb-1" style={{ fontSize: '0.8rem', letterSpacing: '0.05em' }}>{s.label}</p>
               <p className="fw-black text-white mb-1" style={{ fontSize: '2rem' }}>{s.value}</p>
-              <p className="text-muted mb-0" style={{ fontSize: '0.75rem' }}>{s.sub}</p>
+              <p className="text-muted mb-0" style={{ fontSize: '0.85rem' }}>{s.sub}</p>
             </div>
           </div>
         ))}
@@ -95,7 +95,7 @@ export default async function AnalyticsPage() {
                 const pct = rfqs.length > 0 ? Math.round((count / rfqs.length) * 100) : 0
                 return (
                   <div key={key}>
-                    <div className="d-flex justify-content-between mb-1" style={{ fontSize: '0.82rem' }}>
+                    <div className="d-flex justify-content-between mb-1" style={{ fontSize: '0.92rem' }}>
                       <span className="text-secondary">{label}</span>
                       <span className="text-white fw-semibold">{count} ({pct}%)</span>
                     </div>
@@ -114,14 +114,14 @@ export default async function AnalyticsPage() {
           <div className="dark-card p-4 h-100">
             <h2 className="text-white fw-semibold mb-4" style={{ fontSize: '0.95rem' }}>Top Requested Materials</h2>
             {topMaterials.length === 0 ? (
-              <p className="text-muted" style={{ fontSize: '0.875rem' }}>No data yet.</p>
+              <p className="text-muted" style={{ fontSize: '0.95rem' }}>No data yet.</p>
             ) : (
               <div className="d-flex flex-column gap-3">
                 {topMaterials.map(([mat, count]) => {
                   const pct = rfqs.length > 0 ? Math.round((count / rfqs.length) * 100) : 0
                   return (
                     <div key={mat}>
-                      <div className="d-flex justify-content-between mb-1" style={{ fontSize: '0.82rem' }}>
+                      <div className="d-flex justify-content-between mb-1" style={{ fontSize: '0.92rem' }}>
                         <span className="text-secondary">{mat}</span>
                         <span className="text-white fw-semibold">{count} RFQs</span>
                       </div>
@@ -141,7 +141,7 @@ export default async function AnalyticsPage() {
           <div className="dark-card p-4 h-100">
             <h2 className="text-white fw-semibold mb-4" style={{ fontSize: '0.95rem' }}>Order Revenue by Status</h2>
             {orders.length === 0 ? (
-              <p className="text-muted" style={{ fontSize: '0.875rem' }}>No orders yet.</p>
+              <p className="text-muted" style={{ fontSize: '0.95rem' }}>No orders yet.</p>
             ) : (
               <div className="d-flex flex-column gap-3">
                 {[
@@ -155,7 +155,7 @@ export default async function AnalyticsPage() {
                   const pct = total > 0 ? Math.round((rev / total) * 100) : 0
                   return (
                     <div key={key}>
-                      <div className="d-flex justify-content-between mb-1" style={{ fontSize: '0.82rem' }}>
+                      <div className="d-flex justify-content-between mb-1" style={{ fontSize: '0.92rem' }}>
                         <span className="text-secondary">{label}</span>
                         <span className="text-white fw-semibold">₹{rev.toLocaleString('en-IN')}</span>
                       </div>
@@ -175,7 +175,7 @@ export default async function AnalyticsPage() {
           <div className="dark-card p-4 h-100">
             <h2 className="text-white fw-semibold mb-4" style={{ fontSize: '0.95rem' }}>RFQ Priority Distribution</h2>
             {rfqs.length === 0 ? (
-              <p className="text-muted" style={{ fontSize: '0.875rem' }}>No RFQs yet.</p>
+              <p className="text-muted" style={{ fontSize: '0.95rem' }}>No RFQs yet.</p>
             ) : (
               <div className="row g-3">
                 {[
@@ -190,8 +190,8 @@ export default async function AnalyticsPage() {
                     <div key={key} className="col-6">
                       <div className="rounded p-3" style={{ background: bg, border: `1px solid ${color}33` }}>
                         <p className="fw-black mb-1" style={{ fontSize: '1.75rem', color }}>{count}</p>
-                        <p className="fw-semibold mb-0" style={{ fontSize: '0.78rem', color }}>{label}</p>
-                        <p className="text-muted mb-0" style={{ fontSize: '0.72rem' }}>{pct}% of total</p>
+                        <p className="fw-semibold mb-0" style={{ fontSize: '0.88rem', color }}>{label}</p>
+                        <p className="text-muted mb-0" style={{ fontSize: '0.85rem' }}>{pct}% of total</p>
                       </div>
                     </div>
                   )

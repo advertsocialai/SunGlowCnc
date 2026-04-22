@@ -54,7 +54,7 @@ export default function RegisterPage() {
         <div>
           <Link href="/" className="d-inline-block mb-5 text-decoration-none">
             <div className="bg-white rounded px-3 py-2">
-              <Image src="/logo.svg" alt="Sunglow CNC Technics" width={160} height={40} style={{ height: '36px', width: 'auto' }} unoptimized />
+              <Image src="/logo.png" alt="Sunglow CNC Technics" width={160} height={40} style={{ height: '36px', width: 'auto' }} unoptimized />
             </div>
           </Link>
 
@@ -71,13 +71,13 @@ export default function RegisterPage() {
             ].map((item) => (
               <div key={item.text} className="d-flex align-items-start gap-3">
                 <span style={{ fontSize: '1.2rem', flexShrink: 0 }}>{item.icon}</span>
-                <span className="text-secondary" style={{ fontSize: '0.875rem' }}>{item.text}</span>
+                <span className="text-secondary" style={{ fontSize: '0.95rem' }}>{item.text}</span>
               </div>
             ))}
           </div>
 
           <div>
-            <p className="text-muted text-uppercase letter-wide fw-semibold mb-2" style={{ fontSize: '0.7rem' }}>Trusted by</p>
+            <p className="text-muted text-uppercase letter-wide fw-semibold mb-2" style={{ fontSize: '0.82rem' }}>Trusted by</p>
             <div className="d-flex flex-wrap gap-2">
               {trustedClients.map((client) => (
                 <span key={client} className="capability-chip">{client}</span>
@@ -87,7 +87,7 @@ export default function RegisterPage() {
         </div>
 
         <div className="border-top border-dark-custom pt-4">
-          <p className="text-muted text-uppercase letter-wide fw-semibold mb-2" style={{ fontSize: '0.7rem' }}>Quality Standards</p>
+          <p className="text-muted text-uppercase letter-wide fw-semibold mb-2" style={{ fontSize: '0.82rem' }}>Quality Standards</p>
           <div className="d-flex flex-wrap gap-2">
             {['GMP Compliant', 'AS9100 Capable', 'ISO 9001', 'Defence Grade'].map((cert) => (
               <span key={cert} className="cert-badge">{cert}</span>
@@ -103,7 +103,7 @@ export default function RegisterPage() {
           <div className="d-lg-none text-center mb-4">
             <Link href="/">
               <div className="bg-white rounded px-3 py-2 d-inline-block">
-                <Image src="/logo.svg" alt="Sunglow CNC Technics" width={160} height={40} style={{ height: '36px', width: 'auto' }} unoptimized />
+                <Image src="/logo.png" alt="Sunglow CNC Technics" width={160} height={40} style={{ height: '36px', width: 'auto' }} unoptimized />
               </div>
             </Link>
           </div>
@@ -111,15 +111,15 @@ export default function RegisterPage() {
           <div className="d-flex justify-content-between align-items-start mb-4">
             <div>
               <h1 className="text-white fw-black mb-1" style={{ fontSize: '1.5rem' }}>Create an account</h1>
-              <p className="text-muted mb-0" style={{ fontSize: '0.875rem' }}>to get a quote and track your orders</p>
+              <p className="text-muted mb-0" style={{ fontSize: '0.95rem' }}>to get a quote and track your orders</p>
             </div>
-            <Link href="/login" className="text-brand-red text-decoration-none fw-semibold d-none d-sm-block" style={{ fontSize: '0.875rem', whiteSpace: 'nowrap' }}>
+            <Link href="/login" className="text-brand-red text-decoration-none fw-semibold d-none d-sm-block" style={{ fontSize: '0.95rem', whiteSpace: 'nowrap' }}>
               Sign In
             </Link>
           </div>
 
           {error && (
-            <div className="p-3 rounded mb-4" style={{ background: 'rgba(239,68,68,0.12)', border: '1px solid rgba(239,68,68,0.3)', color: '#f87171', fontSize: '0.875rem' }}>
+            <div className="p-3 rounded mb-4" style={{ background: 'rgba(239,68,68,0.12)', border: '1px solid rgba(239,68,68,0.3)', color: '#f87171', fontSize: '0.95rem' }}>
               {error}
             </div>
           )}
@@ -162,7 +162,7 @@ export default function RegisterPage() {
                       <div key={i} className="rounded-pill flex-grow-1" style={{ height: 4, background: form.password.length >= i * 3 ? strengthColor : 'var(--dark-border)' }} />
                     ))}
                   </div>
-                  <span className="text-muted" style={{ fontSize: '0.75rem' }}>{passwordStrength}</span>
+                  <span className="text-muted" style={{ fontSize: '0.85rem' }}>{passwordStrength}</span>
                 </div>
               )}
             </div>
@@ -175,7 +175,7 @@ export default function RegisterPage() {
             <div>
               <label className="form-label-dark">Phone Number</label>
               <div className="d-flex">
-                <div className="d-flex align-items-center px-3 text-muted fw-medium flex-shrink-0" style={{ background: 'var(--dark-elevated)', border: '1px solid var(--dark-border)', borderRight: 'none', borderRadius: '0.5rem 0 0 0.5rem', fontSize: '0.875rem' }}>
+                <div className="d-flex align-items-center px-3 text-muted fw-medium flex-shrink-0" style={{ background: 'var(--dark-elevated)', border: '1px solid var(--dark-border)', borderRight: 'none', borderRadius: '0.5rem 0 0 0.5rem', fontSize: '0.95rem' }}>
                   +91
                 </div>
                 <input type="tel" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} className="form-control-dark flex-grow-1" placeholder="98765 43210" style={{ borderRadius: '0 0.5rem 0.5rem 0' }} />
@@ -187,15 +187,15 @@ export default function RegisterPage() {
             </button>
           </form>
 
-          <p className="text-center text-muted mt-4 mb-2" style={{ fontSize: '0.875rem' }}>
+          <p className="text-center text-muted mt-4 mb-2" style={{ fontSize: '0.95rem' }}>
             Already have an account?{' '}
             <Link href="/login" className="text-brand-red text-decoration-none fw-semibold">Sign In</Link>
           </p>
-          <p className="text-center text-muted" style={{ fontSize: '0.75rem' }}>
+          <p className="text-center text-muted" style={{ fontSize: '0.85rem' }}>
             By registering you agree to our Terms of Service and Privacy Policy.
           </p>
           <div className="text-center mt-3">
-            <Link href="/" className="text-muted text-decoration-none" style={{ fontSize: '0.78rem' }}>← Back to Sunglow CNC Website</Link>
+            <Link href="/" className="text-muted text-decoration-none" style={{ fontSize: '0.88rem' }}>← Back to Sunglow CNC Website</Link>
           </div>
         </div>
       </div>

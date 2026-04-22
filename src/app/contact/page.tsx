@@ -38,7 +38,7 @@ export default function ContactPage() {
       {/* Header */}
       <section className="page-header">
         <div className="container-xl">
-          <p className="text-brand-red fw-semibold text-uppercase letter-wide mb-2" style={{ fontSize: '0.8rem' }}>Get In Touch</p>
+          <p className="text-brand-red fw-semibold text-uppercase letter-wide mb-2" style={{ fontSize: '0.9rem' }}>Get In Touch</p>
           <h1 className="fw-black text-white mb-3" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)' }}>Contact Us</h1>
           <p className="text-secondary" style={{ maxWidth: '520px', fontSize: '1.05rem' }}>
             Have a project in mind? Send us your requirements and we&apos;ll respond within 24 hours.
@@ -101,8 +101,8 @@ export default function ContactPage() {
                       {info.icon}
                     </div>
                     <div>
-                      <p className="text-muted text-uppercase letter-wide fw-semibold mb-1" style={{ fontSize: '0.7rem' }}>{info.label}</p>
-                      <p className="text-white fw-medium mb-0" style={{ fontSize: '0.875rem' }}>{info.value}</p>
+                      <p className="text-muted text-uppercase letter-wide fw-semibold mb-1" style={{ fontSize: '0.82rem' }}>{info.label}</p>
+                      <p className="text-white fw-medium mb-0" style={{ fontSize: '0.95rem' }}>{info.value}</p>
                     </div>
                   </div>
                 ))}
@@ -111,10 +111,10 @@ export default function ContactPage() {
               {/* Quick RFQ */}
               <div className="dark-card p-4" style={{ borderColor: 'rgba(200,32,46,0.4)' }}>
                 <h3 className="text-brand-red fw-bold mb-2" style={{ fontSize: '1rem' }}>Want a Faster Quote?</h3>
-                <p className="text-secondary mb-3" style={{ fontSize: '0.875rem', lineHeight: 1.6 }}>
+                <p className="text-secondary mb-3" style={{ fontSize: '0.95rem', lineHeight: 1.6 }}>
                   Register on our platform and upload your CAD files, material requirements, and quantities for a detailed quote in 24 hours.
                 </p>
-                <a href="/register" className="text-brand-red fw-semibold text-decoration-none" style={{ fontSize: '0.875rem' }}>
+                <a href="/register" className="text-brand-red fw-semibold text-decoration-none" style={{ fontSize: '0.95rem' }}>
                   Register &amp; Upload RFQ →
                 </a>
               </div>

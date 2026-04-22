@@ -43,7 +43,7 @@ export default function ClientsPage() {
       {/* Header */}
       <section className="page-header">
         <div className="container-xl">
-          <p className="text-brand-red fw-semibold text-uppercase letter-wide mb-2" style={{ fontSize: '0.8rem' }}>Trusted Partners</p>
+          <p className="text-brand-red fw-semibold text-uppercase letter-wide mb-2" style={{ fontSize: '0.9rem' }}>Trusted Partners</p>
           <h1 className="fw-black text-white mb-3" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)' }}>Our Clients</h1>
           <p className="text-secondary" style={{ maxWidth: '560px', fontSize: '1.05rem' }}>
             Long-term supply partnerships with India&apos;s most respected organizations across pharma, defence, and technology.
@@ -63,7 +63,7 @@ export default function ClientsPage() {
             ].map(s => (
               <div key={s.label} className="col-6 col-md-3">
                 <div className="text-brand-red fw-black" style={{ fontSize: '1.75rem' }}>{s.val}</div>
-                <div className="text-secondary" style={{ fontSize: '0.82rem' }}>{s.label}</div>
+                <div className="text-secondary" style={{ fontSize: '0.92rem' }}>{s.label}</div>
               </div>
             ))}
           </div>
@@ -98,7 +98,7 @@ export default function ClientsPage() {
                       <p className="text-secondary mb-3" style={{ fontSize: '0.83rem', lineHeight: 1.6 }}>{client.desc}</p>
                       <div className="d-flex flex-wrap gap-1">
                         {client.parts.map(p => (
-                          <span key={p} className="capability-chip" style={{ fontSize: '0.72rem' }}>{p}</span>
+                          <span key={p} className="capability-chip" style={{ fontSize: '0.85rem' }}>{p}</span>
                         ))}
                       </div>
                     </div>
@@ -113,11 +113,11 @@ export default function ClientsPage() {
       {/* All clients logos strip */}
       <section className="py-4" style={{ background: 'var(--dark-bg)', borderTop: '1px solid var(--dark-border)' }}>
         <div className="container-xl">
-          <p className="text-muted text-uppercase letter-wide fw-semibold text-center mb-3" style={{ fontSize: '0.7rem' }}>All Partners</p>
+          <p className="text-muted text-uppercase letter-wide fw-semibold text-center mb-3" style={{ fontSize: '0.82rem' }}>All Partners</p>
           <div className="d-flex flex-wrap justify-content-center gap-3">
             {allClients.map(c => (
               <div key={c.name} className="dark-card px-4 py-2 text-center" style={{ borderRadius: '9999px' }}>
-                <span className="text-secondary fw-medium" style={{ fontSize: '0.82rem' }}>{c.name}</span>
+                <span className="text-secondary fw-medium" style={{ fontSize: '0.92rem' }}>{c.name}</span>
               </div>
             ))}
           </div>

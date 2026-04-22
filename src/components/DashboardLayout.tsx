@@ -31,14 +31,18 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
       <aside className="dashboard-sidebar">
         {/* Logo */}
         <div className="p-4 border-bottom border-dark-custom">
-          <Link href="/" className="d-flex flex-column gap-1 text-decoration-none">
-            <div className="bg-white rounded px-2 py-1 d-inline-block">
-              <Image src="/logo.svg" alt="Sunglow CNC Technics" width={120} height={30} style={{ height: '28px', width: 'auto' }} unoptimized />
+          <Link href="/" className="d-flex align-items-center gap-2 text-decoration-none mb-2">
+            <div className="bg-white rounded px-2 py-1 flex-shrink-0">
+              <Image src="/logo.png" alt="Sunglow CNC Technics" width={36} height={36} style={{ height: '32px', width: '32px', objectFit: 'contain' }} unoptimized />
             </div>
-            <span className="text-brand-red" style={{ fontSize: '0.75rem', marginTop: '4px' }}>
-              {isAdmin ? 'Admin Panel' : 'Client Portal'}
-            </span>
+            <div className="d-flex flex-column lh-1">
+              <span className="fw-bold text-white" style={{ fontSize: '0.9rem', letterSpacing: '0.3px' }}>Sun Glow</span>
+              <span className="fw-semibold text-white" style={{ fontSize: '0.72rem', letterSpacing: '0.8px', opacity: 0.8 }}>CNC Technics</span>
+            </div>
           </Link>
+          <span className="text-brand-red fw-semibold" style={{ fontSize: '0.78rem' }}>
+            {isAdmin ? 'Admin Panel' : 'Client Portal'}
+          </span>
         </div>
 
         {/* User info */}
@@ -51,10 +55,10 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
               {session?.user?.name?.[0]?.toUpperCase() ?? 'U'}
             </div>
             <div className="min-w-0">
-              <div className="fw-medium text-truncate" style={{ fontSize: '0.875rem', color: 'var(--text-primary)' }}>
+              <div className="fw-medium text-truncate" style={{ fontSize: '0.95rem', color: 'var(--text-primary)' }}>
                 {session?.user?.name}
               </div>
-              <div className="text-muted text-truncate" style={{ fontSize: '0.75rem' }}>
+              <div className="text-muted text-truncate" style={{ fontSize: '0.85rem' }}>
                 {session?.user?.company ?? session?.user?.email}
               </div>
             </div>

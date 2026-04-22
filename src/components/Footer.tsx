@@ -21,12 +21,12 @@ export default function Footer() {
           <div className="d-flex flex-column flex-md-row align-items-center justify-content-between gap-4">
             <div>
               <h3 className="text-white fw-bold mb-1" style={{ fontSize: '1rem' }}>Stay Connected!</h3>
-              <p className="text-muted mb-0" style={{ fontSize: '0.85rem' }}>
+              <p className="text-muted mb-0" style={{ fontSize: '0.95rem' }}>
                 Get manufacturing tips, material guides, and capability updates.
               </p>
             </div>
             {subscribed ? (
-              <div className="px-4 py-2 rounded" style={{ background: 'rgba(34,197,94,0.1)', border: '1px solid rgba(34,197,94,0.3)', color: '#4ade80', fontSize: '0.85rem' }}>
+              <div className="px-4 py-2 rounded" style={{ background: 'rgba(34,197,94,0.1)', border: '1px solid rgba(34,197,94,0.3)', color: '#4ade80', fontSize: '0.95rem' }}>
                 Thank you for subscribing!
               </div>
             ) : (
@@ -56,10 +56,10 @@ export default function Footer() {
           <div className="col-12 col-md-6 col-lg-3">
             <Link href="/" className="d-inline-block mb-3 text-decoration-none">
               <div className="bg-white rounded px-3 py-2">
-                <Image src="/logo.svg" alt="Sunglow CNC Technics" width={160} height={40} style={{ height: '38px', width: 'auto' }} unoptimized />
+                <Image src="/logo.png" alt="Sunglow CNC Technics" width={160} height={40} style={{ height: '38px', width: 'auto' }} unoptimized />
               </div>
             </Link>
-            <p className="text-muted mb-3" style={{ fontSize: '0.85rem', lineHeight: 1.6 }}>
+            <p className="text-muted mb-3" style={{ fontSize: '0.95rem', lineHeight: 1.6 }}>
               Precision Engineering &amp; Manufacturing Solutions since 2003. Hyderabad, India.
             </p>
             <div className="d-flex flex-wrap gap-2">
@@ -71,7 +71,7 @@ export default function Footer() {
 
           {/* Services */}
           <div className="col-6 col-md-3 col-lg-2">
-            <h6 className="text-white fw-semibold mb-3 text-uppercase letter-wide" style={{ fontSize: '0.75rem' }}>Services</h6>
+            <h6 className="text-white fw-semibold mb-3 text-uppercase letter-wide" style={{ fontSize: '0.85rem' }}>Services</h6>
             {[
               { href: '/services', label: 'CNC Milling (VMC)' },
               { href: '/services', label: 'CNC Turning / Lathe' },
@@ -86,7 +86,7 @@ export default function Footer() {
 
           {/* Industries */}
           <div className="col-6 col-md-3 col-lg-2">
-            <h6 className="text-white fw-semibold mb-3 text-uppercase letter-wide" style={{ fontSize: '0.75rem' }}>Industries</h6>
+            <h6 className="text-white fw-semibold mb-3 text-uppercase letter-wide" style={{ fontSize: '0.85rem' }}>Industries</h6>
             {[
               { href: '/industries', label: 'Pharma & Medical' },
               { href: '/industries', label: 'Defence & Aerospace' },
@@ -101,7 +101,7 @@ export default function Footer() {
 
           {/* Resources */}
           <div className="col-6 col-md-3 col-lg-2">
-            <h6 className="text-white fw-semibold mb-3 text-uppercase letter-wide" style={{ fontSize: '0.75rem' }}>Resources</h6>
+            <h6 className="text-white fw-semibold mb-3 text-uppercase letter-wide" style={{ fontSize: '0.85rem' }}>Resources</h6>
             {[
               { href: '/materials', label: 'Materials Guide' },
               { href: '/capabilities', label: 'Capabilities & Specs' },
@@ -116,7 +116,7 @@ export default function Footer() {
 
           {/* Contact */}
           <div className="col-6 col-md-3 col-lg-3">
-            <h6 className="text-white fw-semibold mb-3 text-uppercase letter-wide" style={{ fontSize: '0.75rem' }}>Helpful Links</h6>
+            <h6 className="text-white fw-semibold mb-3 text-uppercase letter-wide" style={{ fontSize: '0.85rem' }}>Helpful Links</h6>
             {[
               { href: '/dashboard/rfq/new', label: 'Get Instant Quote' },
               { href: '/register', label: 'Create Account' },
@@ -155,7 +155,7 @@ export default function Footer() {
                   text: 'Sai Baba Nagar, Balanagar, Hyderabad 500042',
                 },
               ].map((info, i) => (
-                <div key={i} className="d-flex gap-2 align-items-start text-muted" style={{ fontSize: '0.78rem' }}>
+                <div key={i} className="d-flex gap-2 align-items-start text-muted" style={{ fontSize: '0.88rem' }}>
                   {info.icon}
                   <span>{info.text}</span>
                 </div>
@@ -165,10 +165,10 @@ export default function Footer() {
         </div>
 
         <div className="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3 pt-4 mt-4 border-top border-dark-custom">
-          <p className="text-muted mb-0" style={{ fontSize: '0.82rem' }}>
+          <p className="text-muted mb-0" style={{ fontSize: '0.92rem' }}>
             &copy; {new Date().getFullYear()} Sunglow CNC Technics. All rights reserved.
           </p>
-          <div className="d-flex gap-3 text-muted" style={{ fontSize: '0.75rem' }}>
+          <div className="d-flex gap-3 text-muted" style={{ fontSize: '0.85rem' }}>
             <span>GMP Compliant</span>
             <span>|</span>
             <span>AS9100 Capable</span>

@@ -62,7 +62,7 @@ export default function ResourcesPage() {
       {/* Header */}
       <section className="page-header">
         <div className="container-xl">
-          <p className="text-brand-red fw-semibold text-uppercase letter-wide mb-2" style={{ fontSize: '0.8rem' }}>Knowledge Base</p>
+          <p className="text-brand-red fw-semibold text-uppercase letter-wide mb-2" style={{ fontSize: '0.9rem' }}>Knowledge Base</p>
           <h1 className="fw-black text-white mb-3" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)' }}>Manufacturing Resources</h1>
           <p className="text-secondary" style={{ maxWidth: '560px', fontSize: '1.05rem' }}>
             Free technical guides, design tips, material references, and industry-specific manufacturing knowledge from 20+ years of experience.
@@ -86,7 +86,7 @@ export default function ResourcesPage() {
                 href={link.href}
                 className="btn px-3 py-1"
                 style={{
-                  fontSize: '0.82rem', color: 'var(--text-secondary)',
+                  fontSize: '0.92rem', color: 'var(--text-secondary)',
                   border: '1px solid var(--dark-border)', borderRadius: '6px',
                   background: 'var(--dark-card)', textDecoration: 'none',
                 }}
@@ -116,10 +116,10 @@ export default function ResourcesPage() {
                 {section.items.map((item) => (
                   <div key={item.title} className="col-sm-6 col-lg-3">
                     <div className="dark-card p-4 h-100" style={{ borderColor: section.accentColor + '33' }}>
-                      <span className="text-muted text-uppercase fw-semibold d-block mb-2" style={{ fontSize: '0.65rem', letterSpacing: '0.08em' }}>{item.tag}</span>
-                      <h3 className="text-white fw-bold mb-2" style={{ fontSize: '0.875rem', lineHeight: 1.4 }}>{item.title}</h3>
-                      <p className="text-secondary mb-3" style={{ fontSize: '0.78rem', lineHeight: 1.6 }}>{item.desc}</p>
-                      <button className="btn p-0 d-flex align-items-center gap-1" style={{ fontSize: '0.78rem', color: section.accentColor, fontWeight: 600 }}>
+                      <span className="text-muted text-uppercase fw-semibold d-block mb-2" style={{ fontSize: '0.78rem', letterSpacing: '0.08em' }}>{item.tag}</span>
+                      <h3 className="text-white fw-bold mb-2" style={{ fontSize: '0.95rem', lineHeight: 1.4 }}>{item.title}</h3>
+                      <p className="text-secondary mb-3" style={{ fontSize: '0.88rem', lineHeight: 1.6 }}>{item.desc}</p>
+                      <button className="btn p-0 d-flex align-items-center gap-1" style={{ fontSize: '0.88rem', color: section.accentColor, fontWeight: 600 }}>
                         Download PDF
                         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                           <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
@@ -144,7 +144,7 @@ export default function ResourcesPage() {
                 <div className="dark-card p-4 text-center h-100" style={{ background: 'var(--brand-navy)' }}>
                   <div className="mb-2" style={{ fontSize: '2rem' }}>🏆</div>
                   <div className="fw-bold mb-1" style={{ color: 'var(--brand-red)', fontSize: '1rem' }}>{cert.name}</div>
-                  <div className="text-secondary" style={{ fontSize: '0.82rem' }}>{cert.desc}</div>
+                  <div className="text-secondary" style={{ fontSize: '0.92rem' }}>{cert.desc}</div>
                 </div>
               </div>
             ))}
@@ -165,7 +165,7 @@ export default function ResourcesPage() {
                   style={{ textDecoration: 'none' }}
                 >
                   <div style={{ fontSize: '1.75rem' }}>{ind.icon}</div>
-                  <div className="text-secondary fw-medium" style={{ fontSize: '0.75rem', lineHeight: 1.3 }}>{ind.name}</div>
+                  <div className="text-secondary fw-medium" style={{ fontSize: '0.85rem', lineHeight: 1.3 }}>{ind.name}</div>
                 </Link>
               </div>
             ))}

@@ -16,7 +16,7 @@ const services = [
   },
   {
     id: 'pharma',
-    image: 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=800&q=80&fit=crop',
+    image: 'https://images.unsplash.com/photo-1581092160607-ee67df30e7f2?w=800&q=80&fit=crop',
     icon: '💊',
     title: 'Pharma Component Manufacturing',
     subtitle: 'Regular Supplies to Leading Pharma Companies',
@@ -79,7 +79,7 @@ export default function ServicesPage() {
       {/* Header */}
       <section className="page-header">
         <div className="container-xl">
-          <p className="text-brand-red fw-semibold text-uppercase letter-wide mb-2" style={{ fontSize: '0.8rem' }}>What We Do</p>
+          <p className="text-brand-red fw-semibold text-uppercase letter-wide mb-2" style={{ fontSize: '0.9rem' }}>What We Do</p>
           <h1 className="fw-black text-white mb-3" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)' }}>Our Services &amp; Capabilities</h1>
           <p className="text-secondary" style={{ maxWidth: '520px', fontSize: '1.05rem' }}>
             Comprehensive CNC precision machining services for critical industries. From prototypes to production runs.
@@ -100,7 +100,7 @@ export default function ServicesPage() {
                   <div className="position-absolute bottom-0 start-0 p-4 d-flex align-items-center gap-3">
                     <span style={{ fontSize: '2.5rem' }}>{svc.icon}</span>
                     <div>
-                      <p className="mb-0 text-brand-red fw-semibold text-uppercase letter-wide" style={{ fontSize: '0.72rem' }}>{svc.subtitle}</p>
+                      <p className="mb-0 text-brand-red fw-semibold text-uppercase letter-wide" style={{ fontSize: '0.85rem' }}>{svc.subtitle}</p>
                       <h2 className="text-white fw-black mb-0" style={{ fontSize: '1.4rem' }}>{svc.title}</h2>
                     </div>
                   </div>
@@ -111,7 +111,7 @@ export default function ServicesPage() {
                   <div className="row g-4">
                     <div className="col-md-6">
                       <p className="text-secondary mb-4" style={{ lineHeight: 1.7 }}>{svc.desc}</p>
-                      <h4 className="text-muted text-uppercase letter-wide fw-semibold mb-3" style={{ fontSize: '0.72rem' }}>Key Capabilities</h4>
+                      <h4 className="text-muted text-uppercase letter-wide fw-semibold mb-3" style={{ fontSize: '0.85rem' }}>Key Capabilities</h4>
                       <div className="d-flex flex-wrap gap-2">
                         {svc.machinery.map((m) => (
                           <span key={m} className="capability-chip">{m}</span>
@@ -119,14 +119,14 @@ export default function ServicesPage() {
                       </div>
                     </div>
                     <div className="col-md-6">
-                      <h4 className="text-secondary text-uppercase letter-wide fw-semibold mb-3" style={{ fontSize: '0.72rem' }}>Components &amp; Parts</h4>
+                      <h4 className="text-secondary text-uppercase letter-wide fw-semibold mb-3" style={{ fontSize: '0.85rem' }}>Components &amp; Parts</h4>
                       <ul className="list-unstyled d-flex flex-column gap-2 mb-0">
                         {svc.items.map((item) => (
                           <li key={item} className="d-flex align-items-start gap-2">
                             <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="var(--brand-red)" className="flex-shrink-0 mt-1">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                             </svg>
-                            <span className="text-secondary" style={{ fontSize: '0.875rem' }}>{item}</span>
+                            <span className="text-secondary" style={{ fontSize: '0.95rem' }}>{item}</span>
                           </li>
                         ))}
                       </ul>
